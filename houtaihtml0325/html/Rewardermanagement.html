@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>星期二投资网分享后台</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../css/dashboard.css" rel="stylesheet">
+	<link href="../css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+  		
+        <div id="myModal1" class="modal">
+    		<div style="height:auto; background-color:#ffffff; padding-bottom:20px; border-radius:10px; z-index:4000; position:absolute; margin-left:30%; width:40%; margin-top:10%;">
+                  <div class="row" style="margin-top:20px; height:30px;">
+                          <div class="col-xs-12 col-sm-12" style=" text-align:center;">
+                          		<label for="inputEmail3">设置任务奖励</label>
+                          </div>
+                  </div>
+            		<div class="row" style="margin-top:20px; height:30px;">
+                          <div class="col-xs-3 col-sm-3" style="text-align:right;">
+                            <label for="inputEmail3" style="padding-top:7px;">次数:</label>
+                            </div>
+                            <div class="col-xs-6 col-sm-6">
+                                     <select  style="height:35px;" class="form-control">
+                                  <option>1</option>
+                                  <option>2</option>
+                                  <option>3</option>
+                                </select>
+                            </div>
+                   </div>
+                   <div class="row" style="margin-top:20px; height:30px;">
+                          <div class="col-xs-3 col-sm-3" style="text-align:right;">
+                            <label for="inputEmail3" style="padding-top:7px;">奖品类型:</label>
+                            </div>
+                            <div class="col-xs-6 col-sm-6">
+                                    <select  style="height:35px;" class="form-control">
+                                  <option>糖币</option>
+                                  <option>电话卡</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-3 col-sm-3" style="text-align:left;">
+                            		<button type="button" id="test" style="height:35px; width:90%;" class="btn btnload btn-warning">添加奖品</button>
+                            </div>
+                   </div>
+                   <div class="row" style="margin-top:20px; height:30px;">
+                         <div class="col-xs-3 col-sm-3" style="text-align:right;">
+                            <label for="inputEmail3" style="padding-top:7px;">数量:</label>
+                            </div>
+                            <div class="col-xs-6 col-sm-6">
+                                    <select  style="height:35px;" class="form-control">
+                                  <option>0.1</option>
+                                  <option>0.2</option>
+                                </select>
+                            </div>
+                   </div>
+                   <div id="testDiv" class="testdivstyle" >
+                       <div class="row" >
+                              <div class="col-xs-3 col-sm-3" style="text-align:right;">
+                                <label for="inputEmail3" style="padding-top:7px;">奖品类型:</label>
+                                </div>
+                                <div class="col-xs-6 col-sm-6">
+                                        <select  style="height:35px;" class="form-control">
+                                      <option>糖币</option>
+                                      <option>电话卡</option>
+                                    </select>
+                                </div>
+                       </div>
+                       <div class="row" style="margin-top:20px; height:30px;">
+                             <div class="col-xs-3 col-sm-3" style="text-align:right;">
+                                <label for="inputEmail3" style="padding-top:7px;">数量:</label>
+                                </div>
+                                <div class="col-xs-6 col-sm-6">
+                                        <select  style="height:35px;" class="form-control">
+                                      <option>0.1</option>
+                                      <option>0.2</option>
+                                    </select>
+                                </div>
+                       </div>
+                   </div>
+                   
+                   <div class="row" style="margin-top:30px; height:30px; text-align:center;">
+                   		<div class="col-xs-2"></div>
+                        <div class="col-xs-4">
+                                <button type="button" id="test" style="height:35px; width:90%;" class="btn btnload btn-warning">确定</button>
+                        </div>
+                        <div class="col-xs-4">
+                                <button type="button" id="test" style="height:35px; width:90%;" data-dismiss="modal" aria-hidden="true" class="btn btnload btn-warning">取消</button>
+                                
+                        </div>
+                        <div class="col-xs-2"></div>
+          		     </div>
+            </div>
+    </div>
+    
+     <div id="myModal" class="modal">
+    		<div style="height:350px; background-color:#ffffff; border-radius:10px; z-index:4000; position:absolute; margin-left:30%; width:40%; margin-top:10%;">
+                  <div class="row" style="margin-top:20px; height:30px;">
+                          <div class="col-xs-12 col-sm-12" style=" text-align:center;">
+                          		<label for="inputEmail3">设置分享奖励</label>
+                          </div>
+                  </div>
+            		<div class="row" style="margin-top:20px; height:30px;">
+                          <div class="col-xs-4 col-sm-4" style="text-align:right;">
+                            <label for="inputEmail3" style="padding-top:7px;">首次分享奖品数量</label>
+                            </div>
+                            <div class="col-xs-6 col-sm-6">
+                                     <select  style="height:35px;" class="form-control">
+                                  <option>1</option>
+                                  <option>2</option>
+                                  <option>3</option>
+                                </select>
+                            </div>
+                   </div>
+                   <div class="row" style="margin-top:20px; height:30px;">
+                          <div class="col-xs-4 col-sm-4" style="text-align:right;">
+                            <label for="inputEmail3" style="padding-top:7px;">首次分享奖品类型:</label>
+                            </div>
+                            <div class="col-xs-6 col-sm-6">
+                                    <select  style="height:35px;" class="form-control">
+                                  <option>糖币</option>
+                                  <option>电话卡</option>
+                                </select>
+                            </div>
+                   </div>
+                   <div class="row" style="margin-top:20px; height:30px;">
+                          <div class="col-xs-4 col-sm-4" style="text-align:right;">
+                            <label for="inputEmail3" style="padding-top:7px;">二次分享奖品数量</label>
+                            </div>
+                            <div class="col-xs-6 col-sm-6">
+                                     <select  style="height:35px;" class="form-control">
+                                  <option>1</option>
+                                  <option>2</option>
+                                  <option>3</option>
+                                </select>
+                            </div>
+                   </div>
+                   <div class="row" style="margin-top:20px; height:30px;">
+                          <div class="col-xs-4 col-sm-4" style="text-align:right;">
+                            <label for="inputEmail3" style="padding-top:7px;">二次分享奖品类型:</label>
+                            </div>
+                            <div class="col-xs-6 col-sm-6">
+                                    <select  style="height:35px;" class="form-control">
+                                  <option>糖币</option>
+                                  <option>电话卡</option>
+                                </select>
+                            </div>
+                   </div>
+                   <div class="row" style="margin-top:30px; height:30px;">
+                   		<div class="col-xs-2"></div>
+                        <div class="col-xs-4">
+                                <button type="button" id="test" style="height:35px; width:90%;" class="btn btnload btn-warning">确定</button>
+                        </div>
+                        <div class="col-xs-4">
+                                <button type="button" id="test" style="height:35px; width:90%;" data-dismiss="modal" aria-hidden="true" class="btn btnload btn-warning">取消</button>
+                                
+                        </div>
+                        <div class="col-xs-2"></div>
+          		     </div>
+            </div>
+    </div>
+        
+		<div id="del" class="modal">
+    		<div style="height:150px; background-color:#ffffff; border-radius:10px; z-index:4000; position:absolute; margin-left:40%; width:20%; margin-top:15%;">
+                  <div class="row" style="margin-top:45px; height:30px;">
+                          <div class="col-xs-12 col-sm-12" style=" text-align:center;">
+                          		<label for="inputEmail3">是否确定删除此项？</label>
+                          </div>
+                  </div>
+                   <div class="row" style="margin-top:20px; height:30px;">
+                   		<div class="col-xs-1"></div>
+                        <div class="col-xs-5">
+                                <button type="button" id="test" style="height:35px; width:100%;" class="btn btnload btn-warning">确定</button>
+                        </div>
+                        <div class="col-xs-5">
+                                <button type="button" id="test" style="height:35px; width:100%;" data-dismiss="modal" aria-hidden="true" class="btn btnload btn-warning">取消</button>
+                            <div class="col-xs-1"></div>    
+                        </div>
+          		     </div>
+            </div>
+    </div>
+    
+    <div id="alldel" class="modal">
+    		<div style="height:150px; background-color:#ffffff; border-radius:10px; z-index:4000; position:absolute; margin-left:40%; width:20%; margin-top:15%;">
+                  <div class="row" style="margin-top:45px; height:30px;">
+                          <div class="col-xs-12 col-sm-12" style=" text-align:center;">
+                          		<label for="inputEmail3">是否确定全部清除？</label>
+                          </div>
+                  </div>
+                   <div class="row" style="margin-top:20px; height:30px;">
+                   		<div class="col-xs-1"></div>
+                        <div class="col-xs-5">
+                                <button type="button" id="test" style="height:35px; width:100%;" class="btn btnload btn-warning">确定</button>
+                        </div>
+                        <div class="col-xs-5">
+                                <button type="button" id="test" style="height:35px; width:100%;" data-dismiss="modal" aria-hidden="true" class="btn btnload btn-warning">取消</button>
+                            <div class="col-xs-1"></div>    
+                        </div>
+          		     </div>
+            </div>
+    </div>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">星期二投资网分享后台</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+          
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="Taskmanagement.html">任务管理</a></li>
+            <li><a href="Sharemanagement.html">分享管理</a></li>
+            <li><a href="Rewardmanagement.html">奖品管理</a></li>
+            <li><a href="Rewardpayment.html">奖品发放管理</a></li>
+            <li class="active"><a href="#">奖励管理</a></li>
+            <li><a href="tongji.html">报表统计</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        
+        
+          <div class="table-responsive">
+                <ul id="myTab" class="nav nav-tabs">
+                 <li class="active"><a href="#home" data-toggle="tab">任务奖励设置</a></li>
+                 <li><a href="#profile" data-toggle="tab">分享奖励设置</a></li>
+                </ul>
+           <!-- -->
+          </div>
+          
+          <div id="myTabContent" class="tab-content">
+          
+                 <div class="tab-pane fade in active" id="home">
+                     <div class="row" style="margin-top:20px; height:50px;">
+                     		<div class="col-xs-2" style="text-align:right; padding-top:7px;">
+                            			连续分享次数:
+                            </div>
+                            <div class="col-xs-2">
+                            			<input type="text" class="form-control">
+                            </div>
+                            <div class="col-xs-1">
+                                <a href="##" class="btn btnload btn-warning">生成</a>
+                        </div>
+                        <div class="col-xs-2">
+                                <a href="#alldel" data-toggle="modal" style="height:35px;" class="btn btnload btn-warning">清除所有设置</a>
+                        </div>
+          		       </div>
+                   
+                      <table class="table table-striped"  style="border-top:1px solid #E8E8E8; text-align:center;">
+                          <thead>
+                            <tr>
+                              <th style="text-align:center;">编号</th>
+                              <th style="text-align:center;">奖品类型</th>
+                              <th style="text-align:center;">数量</th>
+                              <th style="text-align:center;">操作</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>1</td>
+                              <td>糖币</td>
+                              <td>0.1</td>
+                              <td><a href="#myModal1" data-toggle="modal">编辑</a> | <a href="#del" data-toggle="modal">删除</a></td>
+                            </tr>
+                            <tr>
+                              <td>2</td>
+                              <td>糖币</td>
+                              <td>0.2</td>
+                              <td><a href="#myModal1" data-toggle="modal">编辑</a> | <a href="#del" data-toggle="modal">删除</a></td>
+                            </tr>
+                            <tr>
+                              <td>3</td>
+                              <td>糖币</td>
+                              <td>0.3</td>
+                              <td><a href="#myModal1" data-toggle="modal">编辑</a> | <a href="#del" data-toggle="modal">删除</a></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                 </div>
+                 
+                 <div class="tab-pane fade" id="profile">
+                 	  <div class="row" style="margin-top:20px; height:50px;">
+                        <div class="col-xs-6">
+                                
+                                <a href="#alldel" data-toggle="modal" style="height:35px;" class="btn btnload btn-warning">清除所有设置</a>
+                        </div>
+          		       </div>
+                   
+                      <table class="table table-striped"  style="border-top:1px solid #E8E8E8; text-align:center;">
+                          <thead>
+                            <tr>
+                              <th style="text-align:center;">编号</th>
+                              <th style="text-align:center;">首次分享奖励数量</th>
+                              <th style="text-align:center;">首次分享奖品类型</th>
+                              <th style="text-align:center;">二次分享奖励数量</th>
+                              <th style="text-align:center;">二次分享奖品类型</th>
+                              <th style="text-align:center;">操作</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>1</td>
+                              <td>0.1</td>
+                              <td>糖币</td>
+                              <td>0.2</td>
+                              <td>糖币</td>
+                              <td><a href="#myModal" data-toggle="modal" >编辑</a> | <a href="#del" data-toggle="modal">删除</a></td>
+                            </tr>
+                            <tr>
+                              <td>1</td>
+                              <td>0.1</td>
+                              <td>糖币</td>
+                              <td>0.2</td>
+                              <td>糖币</td>
+                              <td><a href="#myModal" data-toggle="modal" >编辑</a> | <a href="#del" data-toggle="modal">删除</a></td>
+                            </tr>
+                            <tr>
+                              <td>1</td>
+                              <td>0.1</td>
+                              <td>糖币</td>
+                              <td>0.2</td>
+                              <td>糖币</td>
+                              <td><a href="#myModal" data-toggle="modal" >编辑</a> | <a href="#del" data-toggle="modal">删除</a></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                 </div>
+                 
+              </div>
+        </div>
+      </div>
+    </div>
+    
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/docs.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    
+    <script type="text/javascript" src="../js/jquery-1.8.3.min.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="../js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="../js/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+    <script type="text/javascript">
+        $('.form_date').datetimepicker({
+            language: 'zh-CN',
+            weekStart: 1,
+            todayBtn: 1,
+      autoclose: 1,
+      todayHighlight: 1,
+      startView: 2,
+      minView: 2,
+      forceParse: 0
+        });
+    </script>
+    
+    <script type="text/javascript">
+	document.getElementById("test").onclick=function(){
+		document.getElementById("testDiv").style.display="block";
+		}
+</script>
+  
+
+</body></html>

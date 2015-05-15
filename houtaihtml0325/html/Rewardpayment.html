@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>星期二投资网分享后台</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../css/dashboard.css" rel="stylesheet">
+	<link href="../css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+  		
+        
+		<div id="del" class="modal">
+    		<div style="height:150px; background-color:#ffffff; border-radius:10px; z-index:4000; position:absolute; margin-left:40%; width:20%; margin-top:15%;">
+                  <div class="row" style="margin-top:45px; height:30px;">
+                          <div class="col-xs-12 col-sm-12" style=" text-align:center;">
+                          		<label for="inputEmail3">是否确定发放奖励？</label>
+                          </div>
+                  </div>
+                   <div class="row" style="margin-top:20px; height:30px;">
+                   		<div class="col-xs-1"></div>
+                        <div class="col-xs-5">
+                                <button type="button" id="test" style="height:35px; width:100%;" class="btn btnload btn-warning">确定</button>
+                        </div>
+                        <div class="col-xs-5">
+                                <button type="button" id="test" style="height:35px; width:100%;" data-dismiss="modal" aria-hidden="true" class="btn btnload btn-warning">取消</button>
+                            <div class="col-xs-1"></div>    
+                        </div>
+          		     </div>
+            </div>
+    </div>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">星期二投资网分享后台</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+          
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="Taskmanagement.html">任务管理</a></li>
+            <li><a href="Sharemanagement.html">分享管理</a></li>
+            <li><a href="Rewardmanagement.html">奖品管理</a></li>
+            <li class="active"><a href="#">奖品发放管理</a></li>
+            <li><a href="Rewardermanagement.html">奖励管理</a> </li>
+            <li><a href="tongji.html">报表统计</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        
+        
+          <div class="table-responsive">
+                <ul id="myTab" class="nav nav-tabs">
+                 <li class="active"><a href="#home" data-toggle="tab">按活动分类发放 </a></li>
+                 <li><a href="#profile" data-toggle="tab">按任务分类发放</a></li>
+                 <li><a href="#user" data-toggle="tab">按用户分类发放</a></li>
+                </ul>
+           <!-- -->
+          </div>
+          
+          <div id="myTabContent" class="tab-content">
+          
+                 <div class="tab-pane fade in active" id="home">
+                     <div class="row" style="margin-top:20px; height:50px;">
+                           <div class="col-xs-1 col-sm-1" style="text-align:right;">
+                            <label for="inputEmail3" style="padding-top:7px; font-size:12px;">活动标题:</label>
+                            </div>
+                            <div class="col-xs-3 col-sm-3">
+                                     <select  style="height:35px;" class="form-control">
+                                  <option>内容1</option>
+                                  <option>内容2</option>
+                                  <option>内容3</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-1 col-sm-1" style="text-align:right;">
+                            		<label for="inputEmail3" style="padding-top:7px; font-size:12px;">开始时间:</label>
+                            </div>
+                            <div class="input-group date form_date col-md-2 col-xs-2" data-date="" data-date-format="" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                                        <input style="background-color:#ffffff;" class="form-control" size="16" type="text" value="" readonly>
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                             </div>
+                             <div class="col-xs-1 col-sm-1" style="text-align:right;">
+                            		<label for="inputEmail3" style="padding-top:7px; font-size:12px;">结束时间:</label>
+                            </div>
+                            <div class="input-group date form_date col-md-2 col-xs-2" data-date="" data-date-format="" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                                        <input style="background-color:#ffffff;" class="form-control" size="16" type="text" value="" readonly>
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                             </div>
+                             <div class="col-xs-1 col-sm-1" style="text-align:right;">
+                            		<button type="button" id="test"  class="btn btnload btn-warning">搜索</button>
+                            </div>
+                   </div>
+                   
+                      <table class="table table-striped"  style="border-top:1px solid #E8E8E8; text-align:center;">
+                          <thead>
+                            <tr>
+                              <th style="text-align:center;">活动标题</th>
+                              <th style="text-align:center;">活动类型</th>
+                              <th style="text-align:center;">活动时间</th>
+                              <th style="text-align:center;">活动状态</th>
+                              <th style="text-align:center;">分享次数</th>
+                              <th style="text-align:center;">操作</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>标题001</td>
+                              <td>单个活动</td>
+                              <td>2015-01-03</td>
+                              <td>已完结</td>
+                              <td>122</td>
+                              <td><a href="PaymentcontentActivities.html">查看详情</a></td>
+                            </tr>
+                            <tr>
+                              <td>标题001</td>
+                              <td>单个活动</td>
+                              <td>2015-01-03</td>
+                              <td>已完结</td>
+                              <td>122</td>
+                              <td><a href="PaymentcontentActivities.html">查看详情</a></td>
+                            </tr>
+                            <tr>
+                              <td>标题001</td>
+                              <td>单个活动</td>
+                              <td>2015-01-03</td>
+                              <td>已完结</td>
+                              <td>122</td>
+                              <td><a href="PaymentcontentActivities.html">查看详情</a></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                 </div>
+                 
+                 <div class="tab-pane fade" id="user">
+                 	  <div class="row" style="margin-top:20px; height:50px;">
+                        		<div class="col-xs-1 col-sm-1" style="text-align:right;">
+                            <label for="inputEmail3" style="padding-top:7px; font-size:12px;">微信昵称:</label>
+                            </div>
+                            <div class="col-xs-2 col-sm-2">
+                                  <input type="text" class="form-control">
+                            </div>
+                            <div class="col-xs-1 col-sm-1" style="text-align:right;">
+                            <label for="inputEmail3" style="padding-top:7px; font-size:12px;">姓名:</label>
+                            </div>
+                            <div class="col-xs-2 col-sm-2">
+                                  <input type="text" class="form-control">
+                            </div>
+                            <div class="col-xs-1 col-sm-1" style="text-align:right;">
+                            <label for="inputEmail3" style="padding-top:7px; font-size:12px;">手机号:</label>
+                            </div>
+                            <div class="col-xs-2 col-sm-2">
+                                  <input type="text" class="form-control">
+                            </div>
+                             <div class="col-xs-1 col-sm-1" style="text-align:right;">
+                            		<button type="button" id="test"  class="btn btnload btn-warning">搜索</button>
+                            </div>
+                            <div class="col-xs-1 col-sm-1" style="text-align:right;">
+                            		<a href="#del" data-toggle="modal" type="button" id="test" style="height:35px; width:100%;" class="btn btnload btn-warning">发放</a>
+                            </div>
+                        </div>
+                   
+                      <table class="table table-striped"  style="border-top:1px solid #E8E8E8; text-align:center;">
+                          <thead>
+                            <tr>
+                            	  <th style="text-align:center;"><input type="checkbox" value=""></th>
+                              <th style="text-align:center;">微信昵称</th>
+                              <th style="text-align:center;">姓名</th>
+                              <th style="text-align:center;">电话</th>
+                              <th style="text-align:center;">分享活动或者任务标题</th>
+                              <th style="text-align:center;">分享次数</th>
+                              <th style="text-align:center;">是否申请</th>
+                              <th style="text-align:center;">是否发放</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                            	 <td><input type="checkbox" value=""></td>
+                              <td>微信昵称001</td>
+                              <td>姓名001</td>
+                              <td>18631186789</td>
+                              <td>活动标题001</td>
+                              <td>1</td>
+                              <td>是</td>
+                              <td>是</td>
+                            </tr>
+                            <tr>
+                              <td><input type="checkbox" value=""></td>
+                              <td>微信昵称001</td>
+                              <td>姓名001</td>
+                              <td>18631186789</td>
+                              <td>活动标题001</td>
+                              <td>1</td>
+                              <td>是</td>
+                              <td>是</td>
+                            </tr>
+                            <tr>
+                              <td><input type="checkbox" value=""></td>
+                              <td>微信昵称001</td>
+                              <td>姓名001</td>
+                              <td>18631186789</td>
+                              <td>活动标题001</td>
+                              <td>1</td>
+                              <td>是</td>
+                              <td>是</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                 </div>
+                 
+                 <div class="tab-pane fade" id="profile">
+                     <div class="row" style="margin-top:20px; height:50px;">
+                           <div class="col-xs-1 col-sm-1" style="text-align:right;">
+                            <label for="inputEmail3" style="padding-top:7px; font-size:12px;">任务标题:</label>
+                            </div>
+                            <div class="col-xs-3 col-sm-3">
+                                     <select  style="height:35px;" class="form-control">
+                                  <option>内容1</option>
+                                  <option>内容2</option>
+                                  <option>内容3</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-1 col-sm-1" style="text-align:right;">
+                            		<label for="inputEmail3" style="padding-top:7px; font-size:12px;">开始时间:</label>
+                            </div>
+                            <div class="input-group date form_date col-md-2 col-xs-2" data-date="" data-date-format="" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                                        <input style="background-color:#ffffff;" class="form-control" size="16" type="text" value="" readonly>
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                             </div>
+                             <div class="col-xs-1 col-sm-1" style="text-align:right;">
+                            		<label for="inputEmail3" style="padding-top:7px; font-size:12px;">结束时间:</label>
+                            </div>
+                            <div class="input-group date form_date col-md-2 col-xs-2" data-date="" data-date-format="" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                                        <input style="background-color:#ffffff;" class="form-control" size="16" type="text" value="" readonly>
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                             </div>
+                             <div class="col-xs-1 col-sm-1" style="text-align:right;">
+                            		<button type="button" id="test"  class="btn btnload btn-warning">搜索</button>
+                            </div>
+                   </div>
+                   
+                      <table class="table table-striped"  style="border-top:1px solid #E8E8E8; text-align:center;">
+                          <thead>
+                            <tr>
+                              <th style="text-align:center;">任务标题</th>
+                              <th style="text-align:center;">任务类型</th>
+                              <th style="text-align:center;">任务时间</th>
+                              <th style="text-align:center;">任务状态</th>
+                              <th style="text-align:center;">分享次数</th>
+                              <th style="text-align:center;">操作</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>任务标题001</td>
+                              <td>连续任务</td>
+                              <td>2015-02-02</td>
+                              <td>已完结</td>
+                              <td>14</td>
+                              <td><a href="PaymentcontentActivities.html">查看详情</a></td>
+                            </tr>
+                            <tr>
+                              <td>任务标题001</td>
+                              <td>连续任务</td>
+                              <td>2015-02-02</td>
+                              <td>已完结</td>
+                              <td>14</td>
+                              <td><a href="PaymentcontentActivities.html">查看详情</a></td>
+                            </tr>
+                            <tr>
+                              <td>任务标题001</td>
+                              <td>连续任务</td>
+                              <td>2015-02-02</td>
+                              <td>已完结</td>
+                              <td>14</td>
+                              <td><a href="PaymentcontentActivities.html">查看详情</a></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                 </div>
+                 
+              </div>
+        </div>
+      </div>
+    </div>
+    
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/docs.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    
+    <script type="text/javascript" src="../js/jquery-1.8.3.min.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="../js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="../js/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+    <script type="text/javascript">
+        $('.form_date').datetimepicker({
+            language: 'zh-CN',
+            weekStart: 1,
+            todayBtn: 1,
+      autoclose: 1,
+      todayHighlight: 1,
+      startView: 2,
+      minView: 2,
+      forceParse: 0
+        });
+    </script>
+  
+
+</body></html>

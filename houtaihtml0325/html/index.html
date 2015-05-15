@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>星期二投资网分享后台</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../css/dashboard.css" rel="stylesheet">
+    <link href="../css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          
+          <a class="navbar-brand" href="#">星期二投资网分享后台</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+          
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+            <span>欢迎登录：admin</span>
+          </form>
+          
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="#">首页</a></li>
+            <li><a href="Taskmanagement.html">任务管理</a></li>
+            <li><a href="Sharemanagement.html">分享管理</a></li>
+            <li><a href="Rewardmanagement.html">奖品管理</a></li>
+            <li><a href="Rewardpayment.html">奖品发放管理</a></li>
+            <li><a href="Rewardermanagement.html">奖励管理</a></li>
+            <li><a href="tongji.html">报表统计</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          
+          <div class="table-responsive">
+          		<div class="row" style="padding-top:25px; padding-bottom:15px;">
+                			<div class="col-xs-2"></div>
+                                <div class="col-xs-2" style=" text-align:center;">
+                                     <a href="Taskmanagement.html" style="height:125px; padding-top:50px; font-size:16px; border-radius:300px; width:90%;" data-dismiss="modal" aria-hidden="true" class="btn btnload btn-warning">发布新任务</a>
+                                 </div>
+                                 <div class="col-xs-1"></div>
+                                 <div class="col-xs-2" style=" text-align:center;">
+                                     <a href="Sharemanagementh.html" style="height:125px; padding-top:50px;  font-size:16px; border-radius:300px; width:90%;" data-dismiss="modal" aria-hidden="true" class="btn btnload btn-warning">发布新活动</a>
+                                 </div>
+                                 <div class="col-xs-1"></div>
+                                 <div class="col-xs-2" style="text-align:center;">
+                                     <a href="Sharemanagement.html" style="height:125px; padding-top:50px;  font-size:16px; border-radius:300px; width:90%;" data-dismiss="modal" aria-hidden="true" class="btn btnload btn-warning">发布新文章</a>
+                                 </div>
+                           </div>
+                           <div class="table-responsive">
+                                <ul id="myTab" class="nav nav-tabs">
+                                 <li class="active"><a href="#home" data-toggle="tab">最新统计数据</a></li>
+                                </ul>
+                           </div>
+                           <div class="row" >
+                         			<div class="col-xs-1"></div>
+                             	<div class="col-xs-8">
+                                		<img src="../img/bb.png" />
+                                </div>
+                           </div>
+          <div class="table-responsive">
+                <ul id="myTab" class="nav nav-tabs">
+                 	<li class="active"><a href="#home" data-toggle="tab">热门活动列表</a></li>
+                </ul>
+          </div>
+          <div id="home" class="tab-content">
+            <table class="table table-striped" style="text-align:center;" >
+              <thead>
+                <tr>
+                  <th style="text-align:center;">活动主题</th>
+                  <th style="text-align:center;">发布时间</th>
+                  <th style="text-align:center;">分享次数</th>
+                  <th style="text-align:center;">活动状态</th>
+                  <th style="text-align:center;">操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>活动1</td>
+                  <td>2014-09-09</td>
+                  <td>123</td>
+                  <td>已结束</td>
+                  <td><a href="Sharecontent.html">查看详情</a></td>
+                </tr>
+                <tr>
+                  <td>活动1</td>
+                  <td>2014-09-09</td>
+                  <td>123</td>
+                  <td>已结束</td>
+                  <td><a href="Sharecontent.html">查看详情</a></td>
+                </tr>
+                <tr>
+                 <td>活动1</td>
+                  <td>2014-09-09</td>
+                  <td>123</td>
+                  <td>已结束</td>
+                  <td><a href="Sharecontent.html">查看详情</a></td>
+                </tr>
+                
+              </tbody>
+            </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../../assets/js/docs.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    
+    <script type="text/javascript" src="../js/jquery-1.8.3.min.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="../js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="../js/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+    <script type="text/javascript">
+        $('.form_date').datetimepicker({
+            language: 'zh-CN',
+            weekStart: 1,
+            todayBtn: 1,
+      autoclose: 1,
+      todayHighlight: 1,
+      startView: 2,
+      minView: 2,
+      forceParse: 0
+        });
+    </script>
+  
+
+</body></html>

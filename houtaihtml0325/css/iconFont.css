@@ -1,0 +1,235 @@
+@font-face {
+  font-family: 'iconFont';
+  src: url('../font/iconFont.eot');
+  src: url('../font/iconFont.eot?#iefix') format('embedded-opentype'), url('../font/iconFont.woff') format('woff'), url('../font/iconFont.ttf') format('truetype'), url('../font/iconFont.svg#iconFont') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.iconfont{ color:#5c97e3;}
+.iconblue{ color:#4da6c4;}
+.iconwhite{ color:#FFFFFF;}
+.icongray{ color:#444444;}
+[data-icon]:before {
+  font-family: 'iconFont';
+  content: attr(data-icon);
+  speak: none;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+[class*="icon-"] {
+  font-family: 'iconFont' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal !important;
+  font-variant: normal;
+  text-transform: none;
+  text-decoration: inherit;
+  line-height: 1;
+  display: inline-block;
+  vertical-align: -8%;
+  -webkit-font-smoothing: antialiased;
+  font-size: inherit;
+}
+[class*="icon-"].smaller {
+  font-size: .7em;
+  vertical-align: 6%;
+}
+[class*="icon-"].large {
+  font-size: 1.2em;
+  vertical-align: -10%;
+}
+/*首页图标*/
+.icon-date:before{content: "\e616"; font-size:20px;}
+.icon-phone:before {
+  content: "\e604";
+  font-size:20px;
+}
+.icon-homedown:before {
+  content: "\e61b";
+  font-size:20px;
+}
+.icon-home:before {
+  content: "\e619";
+  font-size:20px;
+}
+.icon-admin:before {
+  content: "\e612";
+  font-size:20px;
+}
+.icon-investment:before {
+  content: "\e615";
+}
+.icon-text:before {
+  content: "\e600";
+}
+.icon-Tb:before {
+  content: "\e636";
+}
+.icon-task:before {
+  content: "\e637";
+}
+.icon-news:before {
+  content: "\e607";
+}
+.icon-registration:before{
+	content:"\e60e";
+}
+.icon-number:before{
+	content:"\e626";
+}
+.icon-arrow-left:before{
+	content:"\e624";
+}
+.icon-arrow-right:before{
+	content:"\e623";
+}
+.icon-user:before{
+	content:"\e601";
+}
+.icon-Tb:before{
+	content:"\e636";
+}
+.icon-loading:before{
+	content:"\e638";
+	font-size:50px;
+}
+.icon-return:before{
+	content:"\e639";
+	font-size:26px;
+}
+.icon-load:before{
+	content:"\e62d";
+	font-size:26px;
+}
+.icon-password:before{
+	content:"\e606";
+	font-size:30px;
+}
+.icon-right:before{
+	content:"\e63a";
+	font-size:30px;
+}
+.icon-tbicon:before{
+	content:"\e60b";
+	color:#f8a336;
+	font-size:30px;
+}
+.icon-invite:before{
+	content:"\e632";
+	color:#f8a336;
+	font-size:30px;
+}
+.icon-transaction:before{
+	content:"\e634";
+	color:#f8a336;
+	font-size:30px;
+	}
+.icon-know:before{
+	content:"\e606";
+	color:#f8a336;
+	font-size:30px;
+	}
+.icon-emile:before{
+	content:"\e622";
+	color:#f8a336;
+	font-size:30px;
+	}
+.icon-name:before{
+	content:"\e60c";
+	color:#f8a336;
+	font-size:30px;
+	}
+.icon-modify:before{
+	content:"\e633";
+	color:#f8a336;
+	font-size:30px;
+	}
+.icon-off:before{
+	content:"\e628";
+	color:#f8a336;
+	font-size:30px;
+	}
+.icon-explain:before{
+	content:"\e62a";
+	color:#f8a336;
+	font-size:30px;
+	}
+.icon-how:before{
+	content:"\e625";
+	color:#f8a336;
+	font-size:30px;
+	}
+.icon-personal:before{
+	content:"\e626";
+	color:#f8a336;
+	font-size:30px;
+	}
+.icon-phoneicon:before{
+	content:"\e61c";
+	font-size:30px;
+	}
+.icon-code:before{
+	content:"\e635";
+	font-size:30px;
+	}
+.icon-pass:before{
+	content:"\e61a";
+	font-size:30px;
+	}
+.icon-Checkmark:before{
+	content:"\e63c";
+	color:#f8a336;
+	font-size:30px;
+	}
+.icon-find:before{
+	content:"\e63d";
+	font-size:20px;
+	}
+.icon-list:before{
+	content:"\e63b";
+	color:#f8a336;
+	font-size:20px;
+	}
+.icon-bottom:before{
+	content:"\e629";
+	color:#f8a336;
+	font-size:16px;
+	}
+.icon-callme:before{
+	content:"\e60d";
+	font-size:20px;
+	}
+.icon-member:before{
+	content:"\e617";
+	font-size:21px;
+	}
+.icon-wallet:before{
+	content:"\e618";
+	color:#f8a336;
+	font-size:30px;
+	}	
+.icon-tzgl:before{
+	content:"\e62f";
+	color:#f8a336;
+	font-size:30px;
+	}	
+.icon-jlgl:before{
+	content:"\e62b";
+	color:#f8a336;
+	font-size:30px;
+	}
+.icon-new:before{
+	content:"\e608";
+	color:#f8a336;
+	font-size:30px;
+	}	
+.icon-grxx:before{
+	content:"\e60c";
+	color:#f8a336;
+	font-size:30px;
+	}		
+
+/*首页图标*/

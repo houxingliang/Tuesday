@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>星期二投资网分享后台</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://files.cnblogs.com/rubylouvre/bootstrap-modal.js"></script>  
+         <!--<script src="http://files.cnblogs.com/rubylouvre/jquery1.83.js" > </script>  
+        <script src="http://files.cnblogs.com/rubylouvre/bootstrap-transition.js"></script>  
+        
+    Custom styles for this template -->
+    <link href="../css/dashboard.css" rel="stylesheet">
+<link href="../css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    .popbody p{ color:#CA0003; text-align:center; padding-top:10px; padding-bottom:10px;}
+    .popbody h3{ color:#ffb71c; text-align:center;}
+</style>
+  </head>
+
+  <body>
+  
+   
+  
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">星期二投资网分享后台</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+          
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li><a href="index.html">首页</a></li>
+            <li class="active"><a href="Taskmanagement.html">任务管理 <span class="sr-only">(current)</span></a></li>
+            <li><a href="Sharemanagement.html">分享管理</a></li>
+            <li><a href="Rewardmanagement.html">奖品管理</a></li>
+            <li><a href="Rewardpayment.html">奖品发放管理</a></li>
+            <li><a href="Rewardermanagement.html">奖励管理</a></li>
+            <li><a href="tongji.html">报表统计</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <!--<div class="table-responsive">
+                <ul id="myTab" class="nav nav-tabs">
+                 <li class="active"><a href="#home" data-toggle="tab">任务管理</a></li>
+                </ul>
+            
+          </div>-->
+          
+          <div id="myTabContent" class="tab-content">
+          
+                 <div class="tab-pane fade in active" id="home">
+                         <div class="row" style="margin-top:10px; height:35px;  border-bottom:1px solid #D5D5D5;">
+                            <div class="col-xs-12" style="margin-top:10px;">
+                               <a href="Taskmanagement.html">任务管理</a> > 任务内容
+                            </div>
+                           </div>
+                           <div class="row">
+                           		<div class="col-xs-12" style=" text-align:center;">
+                                		<h3 style="color:#f0ad4e;">任务标题001</h3>
+                                </div>
+                           </div>
+                           
+                           <div class="row" style="margin-top:20px;">
+                           		<div class="col-xs-1"></div>
+                                <div class="col-xs-3" >
+                                        状态：已完结
+                                   </div>
+                                   <div class="col-xs-4">
+                                        任务时间：2015/04/01 — 2015/04/06
+                                   </div>
+                                   <div class="col-xs-3">
+                                        任务类型：连续任务
+                                   </div>
+                                   <div class="col-xs-1"></div>
+                           </div>
+                           <div class="row" style="padding-top:10px; padding-bottom:15px; ">
+                           			<div class="col-xs-1"></div>
+                                   <div class="col-xs-3" style="border-bottom:1px solid #D5D5D5; padding-bottom:15px;">
+                                        分享次数：122次
+                                   </div>
+                                   <div class="col-xs-4" style="border-bottom:1px solid #D5D5D5; padding-bottom:15px;">
+                                        任务奖励：0.1糖币
+                                   </div>
+                                   <div class="col-xs-3" style="border-bottom:1px solid #D5D5D5; padding-bottom:15px;">&nbsp;</div>
+                           </div>
+                       
+                  		<div class="row">
+                        		<div class="col-xs-1">
+                             </div>
+                             <div class="col-xs-10" style="font-size:12px; line-height:28px;">
+                             		&nbsp;&nbsp;&nbsp;&nbsp;这一天是为了纪念战神Tyr而由他的名字命名的。古英语中Tyr的名字写作Tiw。Tiwesdoeg的意思是Tiw’s day（战神日），它是由拉丁语dies Martis(即 day of Mars)翻译而成的。Tyr原是北欧神话里的战神，也是盎格鲁—撒克逊人的神。他用自己的手作诱饵，捉住了狼精，他的手却被狼精咬掉了。为了纪念他这种勇敢的精神，使用他的名字来命名Tuesday这一天。
+                                    这一天是为了纪念战神Tyr而由他的名字命名的。古英语中Tyr的名字写作Tiw。Tiwesdoeg的意思是Tiw’s day（战神日），它是由拉丁语dies Martis(即 day of Mars)翻译而成的。Tyr原是北欧神话里的战神，也是盎格鲁—撒克逊人的神。他用自己的手作诱饵，捉住了狼精，他的手却被狼精咬掉了。为了纪念他这种勇敢的精神，使用他的名字来命名Tuesday这一天。
+                                    这一天是为了纪念战神Tyr而由他的名字命名的。古英语中Tyr的名字写作Tiw。Tiwesdoeg的意思是Tiw’s day（战神日），它是由拉丁语dies Martis(即 day of Mars)翻译而成的。Tyr原是北欧神话里的战神，也是盎格鲁—撒克逊人的神。他用自己的手作诱饵，捉住了狼精，他的手却被狼精咬掉了。为了纪念他这种勇敢的精神，使用他的名字来命名Tuesday这一天。
+                             </div>
+                             <div class="col-xs-1">
+                             </div>
+                         </div>
+                 </div>
+                 
+                 <div class="tab-pane fade" id="profile">
+                 	  <div class="row" style="margin-top:20px;">
+                        <div class="col-xs-3 col-sm-3" style="text-align:right;">
+                            <label for="inputEmail3" style="padding-top:7px;">选择活动:</label>
+                        </div>
+                        <div class="col-xs-5 col-sm-5">
+                                <select  style="height:35px;" class="form-control">
+                                  <option>1</option>
+                                  <option>2</option>
+                                  <option>3</option>
+                                </select>
+                        </div>
+          		       </div>
+                       
+                    <div class="row" style="margin-top:20px;">
+                        <div class="col-xs-3 col-sm-3" style="text-align:right;">
+                            <label for="inputEmail3" style="padding-top:7px;">初始分享糖币:</label>
+                        </div>
+                        <div class="col-xs-5 col-sm-5">
+                                <input type="text" class="form-control">
+                        </div>
+          		       </div>
+                       
+                       <div class="row" style="margin-top:20px;">
+                        <div class="col-xs-3 col-sm-3" style="text-align:right;">
+                            <label for="inputEmail3" style="padding-top:7px;">二次分享糖币:</label>
+                        </div>
+                        <div class="col-xs-5 col-sm-5">
+                                <input type="text" class="form-control">
+                        </div>
+          		       </div>
+                       
+                       <div class="row" style="margin-top:20px;">
+                        <div class="col-xs-3 col-sm-3" style="text-align:right;">
+                            <label for="inputEmail3" style="padding-top:7px;">二次分享糖币:</label>
+                        </div>
+                        <div class="col-xs-5 col-sm-5">
+                                <input type="text" class="form-control">
+                        </div>
+          		       </div>
+                       
+                       <div class="row" style="margin-top:20px;">
+                        <div class="col-xs-3 col-sm-3" style="text-align:right;">
+                            <label for="inputEmail3" style="padding-top:7px;">返回上级糖币:</label>
+                        </div>
+                        <div class="col-xs-5 col-sm-5">
+                                <input type="text" class="form-control">
+                        </div>
+          		       </div>
+                       
+                       <div class="row" style="margin-top:20px;">
+                        <div class="col-xs-3 col-sm-3" style="text-align:right;">
+                            <label for="inputEmail3" style="padding-top:7px;">本次活动单个用户获得糖币上限:</label>
+                        </div>
+                        <div class="col-xs-5 col-sm-5">
+                                <input type="text" class="form-control">
+                        </div>
+          		       </div>
+                       
+                       <div class="row" style="margin-top:20px;">
+                       	<div class="col-xs-3 col-sm-3"></div>
+                         <div class="col-xs-5 col-sm-5" style="text-align:center;">
+                            <label class="radio-inline">
+                              <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 显示
+                            </label>
+                            <label class="radio-inline">
+                              <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 不显示
+                            </label>
+                         </div>
+          		       </div>
+                       
+                       <div class="row" style="margin-top:20px;">
+                       	<div class="col-xs-3 col-sm-3"></div>
+                         <div class="col-xs-5 col-sm-5" style="text-align:center;">
+                            <button type="button" id="test" style="height:35px; width:100%;;" class="btn btnload btn-warning">完成</button>
+                         </div>
+          		       </div>
+                       
+                 </div>
+                 
+                 <div class="tab-pane fade" id="dropdown1">
+                      <div class="tab-pane fade in active" id="home">
+                     <div class="row" style="margin-top:20px; height:50px;">
+                        <div class="col-xs-3">
+                           <button type="button" id="test" style="height:35px; width:100%;" class="btn btnload btn-warning">新增奖品类型</button>
+                        </div>
+          		       </div>
+                   
+                  <table class="table table-striped"  style="border-top:1px solid #E8E8E8;">
+                      <thead>
+                        <tr>
+                          <th>编号</th>
+                          <th>奖品类型</th>
+                          <th>编辑</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>12</td>
+                          <td>糖币</td>
+                          <td>删除</td>
+                        </tr>
+                        <tr>
+                          <td>12</td>
+                          <td>糖币</td>
+                          <td>删除</td>
+                        </tr>
+                        <tr>
+                          <td>12</td>
+                          <td>糖币</td>
+                          <td>删除</td>
+                        </tr>
+                        <tr>
+                          <td>12</td>
+                          <td>糖币</td>
+                          <td>删除</td>
+                        </tr>
+                        <tr>
+                          <td>12</td>
+                          <td>糖币</td>
+                          <td>删除</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                 </div>
+              </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/docs.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script type="text/javascript" src="../js/jquery-1.8.3.min.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="../js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="../js/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+    <script type="text/javascript">
+        $('.form_date').datetimepicker({
+            language: 'zh-CN',
+            weekStart: 1,
+            todayBtn: 1,
+      autoclose: 1,
+      todayHighlight: 1,
+      startView: 2,
+      minView: 2,
+      forceParse: 0
+        });
+    </script>
+  
+
+</body></html>

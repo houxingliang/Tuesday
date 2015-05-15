@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ShareWeiModelStoreContainer" CdmEntityContainer="ShareWeiEntities">
+    <EntitySetMapping Name="tb_reward">
+      <EntityTypeMapping TypeName="ShareWeiModel.tb_reward">
+        <MappingFragment StoreEntitySet="tb_reward">
+          <ScalarProperty Name="bit_isDelete" ColumnName="bit_isDelete" />
+          <ScalarProperty Name="pk_reward_id" ColumnName="pk_reward_id" />
+          <ScalarProperty Name="nvr_rewardName" ColumnName="nvr_rewardName" />
+          <ScalarProperty Name="dbl_count" ColumnName="dbl_count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_reward_Template_imp">
+      <EntityTypeMapping TypeName="ShareWeiModel.tb_reward_Template_imp">
+        <MappingFragment StoreEntitySet="tb_reward_Template_imp">
+          <ScalarProperty Name="bit_isDelete" ColumnName="bit_isDelete" />
+          <ScalarProperty Name="pk_imp_id" ColumnName="pk_imp_id" />
+          <ScalarProperty Name="fk_rewardTemplate_id" ColumnName="fk_rewardTemplate_id" />
+          <ScalarProperty Name="dbl_count" ColumnName="dbl_count" />
+          <ScalarProperty Name="fk_reward_id" ColumnName="fk_reward_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_rewardTemplate">
+      <EntityTypeMapping TypeName="ShareWeiModel.tb_rewardTemplate">
+        <MappingFragment StoreEntitySet="tb_rewardTemplate">
+          <ScalarProperty Name="bit_isDelete" ColumnName="bit_isDelete" />
+          <ScalarProperty Name="nvr_tmpName" ColumnName="nvr_tmpName" />
+          <ScalarProperty Name="pk_rewardTemplate_id" ColumnName="pk_rewardTemplate_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_share">
+      <EntityTypeMapping TypeName="ShareWeiModel.tb_share">
+        <MappingFragment StoreEntitySet="tb_share">
+          <ScalarProperty Name="bit_isDelete" ColumnName="bit_isDelete" />
+          <ScalarProperty Name="pk_share_id" ColumnName="pk_share_id" />
+          <ScalarProperty Name="nvr_shareName" ColumnName="nvr_shareName" />
+          <ScalarProperty Name="nvr_shareContents" ColumnName="nvr_shareContents" />
+          <ScalarProperty Name="fk_rewardTemplate_id_f" ColumnName="fk_rewardTemplate_id_f" />
+          <ScalarProperty Name="bit_secondShare" ColumnName="bit_secondShare" />
+          <ScalarProperty Name="fk_rewardTemplate_id_s" ColumnName="fk_rewardTemplate_id_s" />
+          <ScalarProperty Name="dbl_secondShareLimit" ColumnName="dbl_secondShareLimit" />
+          <ScalarProperty Name="int_firstShareTime" ColumnName="int_firstShareTime" />
+          <ScalarProperty Name="int_secondShareTime" ColumnName="int_secondShareTime" />
+          <ScalarProperty Name="dtm_createTime" ColumnName="dtm_createTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_task">
+      <EntityTypeMapping TypeName="ShareWeiModel.tb_task">
+        <MappingFragment StoreEntitySet="tb_task">
+          <ScalarProperty Name="fk_share_id" ColumnName="fk_share_id" />
+          <ScalarProperty Name="bit_inherit" ColumnName="bit_inherit" />
+          <ScalarProperty Name="bit_status" ColumnName="bit_status" />
+          <ScalarProperty Name="bit_isDelete" ColumnName="bit_isDelete" />
+          <ScalarProperty Name="pk_task_id" ColumnName="pk_task_id" />
+          <ScalarProperty Name="nvr_taskName" ColumnName="nvr_taskName" />
+          <ScalarProperty Name="dtm_createTime" ColumnName="dtm_createTime" />
+          <ScalarProperty Name="dtm_actionTime" ColumnName="dtm_actionTime" />
+          <ScalarProperty Name="dtm_endTime" ColumnName="dtm_endTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_taskExecute">
+      <EntityTypeMapping TypeName="ShareWeiModel.tb_taskExecute">
+        <MappingFragment StoreEntitySet="tb_taskExecute">
+          <ScalarProperty Name="bit_isDelete" ColumnName="bit_isDelete" />
+          <ScalarProperty Name="pk_taskExecute_id" ColumnName="pk_taskExecute_id" />
+          <ScalarProperty Name="fk_taskItem_id" ColumnName="fk_taskItem_id" />
+          <ScalarProperty Name="fk_user_id" ColumnName="fk_user_id" />
+          <ScalarProperty Name="dtm_executeTime" ColumnName="dtm_executeTime" />
+          <ScalarProperty Name="bit_isApply" ColumnName="bit_isApply" />
+          <ScalarProperty Name="dtm_ApplyTime" ColumnName="dtm_ApplyTime" />
+          <ScalarProperty Name="bit_isGrant" ColumnName="bit_isGrant" />
+          <ScalarProperty Name="dtm_grantTime" ColumnName="dtm_grantTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_taskItem">
+      <EntityTypeMapping TypeName="ShareWeiModel.tb_taskItem">
+        <MappingFragment StoreEntitySet="tb_taskItem">
+          <ScalarProperty Name="bit_isInherit" ColumnName="bit_isInherit" />
+          <ScalarProperty Name="bit_isDelete" ColumnName="bit_isDelete" />
+          <ScalarProperty Name="pk_taskItem_id" ColumnName="pk_taskItem_id" />
+          <ScalarProperty Name="fk_task_id" ColumnName="fk_task_id" />
+          <ScalarProperty Name="fk_share_id" ColumnName="fk_share_id" />
+          <ScalarProperty Name="int_order" ColumnName="int_order" />
+          <ScalarProperty Name="dtm_actionTime" ColumnName="dtm_actionTime" />
+          <ScalarProperty Name="dtm_endTime" ColumnName="dtm_endTime" />
+          <ScalarProperty Name="bit_status" ColumnName="bit_status" />
+          <ScalarProperty Name="int_forward" ColumnName="int_forward" />
+          <ScalarProperty Name="fk_rewardTemplate_id" ColumnName="fk_rewardTemplate_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_user">
+      <EntityTypeMapping TypeName="ShareWeiModel.tb_user">
+        <MappingFragment StoreEntitySet="tb_user">
+          <ScalarProperty Name="bit_isdelete" ColumnName="bit_isdelete" />
+          <ScalarProperty Name="int_user_id" ColumnName="int_user_id" />
+          <ScalarProperty Name="vr_Tuesday" ColumnName="vr_Tuesday" />
+          <ScalarProperty Name="nvr_userName" ColumnName="nvr_userName" />
+          <ScalarProperty Name="vr_phoneNum" ColumnName="vr_phoneNum" />
+          <ScalarProperty Name="vr_wxOpenID" ColumnName="vr_wxOpenID" />
+          <ScalarProperty Name="nvr_wxName" ColumnName="nvr_wxName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_userShare">
+      <EntityTypeMapping TypeName="ShareWeiModel.tb_userShare">
+        <MappingFragment StoreEntitySet="tb_userShare">
+          <ScalarProperty Name="bit_isDelete" ColumnName="bit_isDelete" />
+          <ScalarProperty Name="pk_userShare_ID" ColumnName="pk_userShare_ID" />
+          <ScalarProperty Name="fk_shareContents_id" ColumnName="fk_shareContents_id" />
+          <ScalarProperty Name="fk_user_id" ColumnName="fk_user_id" />
+          <ScalarProperty Name="fk_superUser_id" ColumnName="fk_superUser_id" />
+          <ScalarProperty Name="bit_firstShare" ColumnName="bit_firstShare" />
+          <ScalarProperty Name="dtm_shareTime" ColumnName="dtm_shareTime" />
+          <ScalarProperty Name="fk_shareReward_id" ColumnName="fk_shareReward_id" />
+          <ScalarProperty Name="dbl_count" ColumnName="dbl_count" />
+          <ScalarProperty Name="bit_grantReward" ColumnName="bit_grantReward" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

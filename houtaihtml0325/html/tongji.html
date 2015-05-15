@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>星期二投资网分享后台</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../css/dashboard.css" rel="stylesheet">
+	<link href="../css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">星期二投资网分享后台</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+          
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="Taskmanagement.html">任务管理</a></li>
+            <li><a href="Sharemanagement.html">分享管理</a></li>
+            <li><a href="Rewardmanagement.html">奖品管理</a></li>
+            <li><a href="Rewardpayment.html">奖品发放管理</a></li>
+            <li><a href="Rewardermanagement.html">奖励管理</a></li>
+            <li class="active"><a href="#">报表统计</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        
+        
+          <div class="table-responsive">
+                <ul id="myTab" class="nav nav-tabs">
+                 <li class="active"><a href="#home" data-toggle="tab">首次转发统计</a></li>
+                 <li><a href="#profile" data-toggle="tab">总转发次数统计</a></li>
+                 <li><a href="#dropdown1" data-toggle="tab">活动用户首转排名统计</a></li>
+                 <li><a href="#dropdown2" data-toggle="tab">活动用户总转排名统计</a></li>
+                 <li><a href="#dropdown3" data-toggle="tab">用户奖品总数统计</a></li>
+                 <li><a href="#dropdown4" data-toggle="tab">糖币说明</a></li>
+                </ul>
+           <!-- -->
+          </div>
+          
+          <div id="myTabContent" class="tab-content">
+          
+                 <div class="tab-pane fade in active" id="home">
+                     <div class="row" style="margin-top:20px; height:50px;">
+                          <div class="col-xs-2 col-sm-2" style="text-align:right;">
+                            <label for="inputEmail3" style="padding-top:7px;">选择活动:</label>
+                        </div>
+                        <div class="col-xs-3 col-sm-3">
+                                <select  style="height:35px;" class="form-control">
+                                  <option>下拉列表</option>
+                                  <option>活动1</option>
+                                  <option>活动 2</option>
+                                </select>
+                        </div>
+                        <div class="col-xs-6">
+                                <button type="button" id="test" style="height:35px;" class="btn btnload btn-warning">统计</button>
+                                <button type="button" id="test" style="height:35px;" class="btn btnload btn-warning">导出</button>
+                        </div>
+          		       </div>
+                       <div class="row" style="margin-top:10px; height:40px;">
+                          <div class="col-xs-12 col-sm-12" style="text-align:center;">
+                            <label for="inputEmail3" style="padding-top:7px;">活动1首次转发次数统计表</label>
+                        </div>
+                       </div>
+                   
+                      <table class="table table-striped"  style="border-top:1px solid #E8E8E8; text-align:center;">
+                          <thead>
+                            <tr>
+                              <th style="text-align:center;">手机号</th>
+                              <th style="text-align:center;">姓名</th>
+                              <th style="text-align:center;">分享时间</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>13277982234</td>
+                              <td>王某某</td>
+                              <td>2014-09-09</td>
+                            </tr>
+                            <tr>
+                              <td>13277892234</td>
+                              <td>王某某</td>
+                              <td>2014-09-09</td>
+                            </tr>
+                            <tr>
+                              <td>13212342234</td>
+                              <td>王某某</td>
+                              <td>2014-09-09</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <!--<div class="row">
+                        		<div class="col-xs-12 col-sm-12">
+                        			<img style="width:100%;" src="../img/bb.png" />
+                             </div>
+                        </div>-->
+                 </div>
+                 
+                 <div class="tab-pane fade" id="profile">
+                 	  <div class="row" style="margin-top:20px; height:50px;">
+                          <div class="col-xs-2 col-sm-2" style="text-align:right;">
+                            <label for="inputEmail3" style="padding-top:7px;">选择活动:</label>
+                        </div>
+                        <div class="col-xs-3 col-sm-3">
+                                <select  style="height:35px;" class="form-control">
+                                  <option>下拉列表</option>
+                                  <option>活动1</option>
+                                  <option>活动 2</option>
+                                </select>
+                        </div>
+                        <div class="col-xs-6">
+                                <button type="button" id="test" style="height:35px;" class="btn btnload btn-warning">统计</button>
+                                <button type="button" id="test" style="height:35px;" class="btn btnload btn-warning">导出</button>
+                        </div>
+          		       </div>
+                       
+                    <div class="row" style="margin-top:10px; height:40px;">
+                          <div class="col-xs-12 col-sm-12" style="text-align:center;">
+                            <label for="inputEmail3" style="padding-top:7px;">活动1总转发次数统计表</label>
+                        </div>
+                       </div>
+                   
+                      <table class="table table-striped"  style="border-top:1px solid #E8E8E8; text-align:center;">
+                          <thead>
+                            <tr>
+                              <th style="text-align:center;">微信昵称</th>
+                              <th style="text-align:center;">手机号</th>
+                              <th style="text-align:center;">姓名</th>
+                              <th style="text-align:center;">分享时间</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                            	 <td>昵称</td>
+                              <td>13277982234</td>
+                              <td>王某某</td>
+                              <td>2014-09-09</td>
+                            </tr>
+                            <tr>
+                              <td>昵称</td>
+                              <td>13277892234</td>
+                              <td>王某某</td>
+                              <td>2014-09-09</td>
+                            </tr>
+                            <tr>
+                              <td>昵称</td>
+                              <td>13212342234</td>
+                              <td>王某某</td>
+                              <td>2014-09-09</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <!--<div class="row">
+                        		<div class="col-xs-12 col-sm-12">
+                        			<img style="width:100%;" src="../img/bb.png" />
+                             </div>
+                        </div>-->
+                 </div>
+                 
+                 <div class="tab-pane fade" id="dropdown1">
+                      <div class="row" style="margin-top:20px; height:50px;">
+                          <div class="col-xs-2 col-sm-2" style="text-align:right;">
+                            <label for="inputEmail3" style="padding-top:7px;">选择活动:</label>
+                        </div>
+                        <div class="col-xs-3 col-sm-3">
+                                <select  style="height:35px;" class="form-control">
+                                  <option>下拉列表</option>
+                                  <option>活动1</option>
+                                  <option>活动 2</option>
+                                </select>
+                        </div>
+                        <div class="col-xs-6">
+                                <button type="button" id="test" style="height:35px;" class="btn btnload btn-warning">统计</button>
+                                <button type="button" id="test" style="height:35px;" class="btn btnload btn-warning">图表</button>
+                                <button type="button" id="test" style="height:35px;" class="btn btnload btn-warning">导出</button>
+                        </div>
+          		       </div>
+                       
+                    <div class="row" style="margin-top:10px; height:40px;">
+                          <div class="col-xs-12 col-sm-12" style="text-align:center;">
+                            <label for="inputEmail3" style="padding-top:7px;">活动1、活动2首次转发排名</label>
+                        </div>
+                       </div>
+                   
+                      <table class="table table-striped"  style="border-top:1px solid #E8E8E8; text-align:center;">
+                          <thead>
+                            <tr>
+                              <th style="text-align:center;">手机号</th>
+                              <th style="text-align:center;">姓名</th>
+                              <th style="text-align:center;">名次</th>
+                              <th style="text-align:center;">首转次数</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>13277982234</td>
+                              <td>王某某</td>
+                              <td>1</td>
+                              <td>111</td>
+                            </tr>
+                            <tr>
+                              <td>13277982234</td>
+                              <td>王某某</td>
+                              <td>1</td>
+                              <td>111</td>
+                            </tr>
+                            <tr>
+                              <td>13277982234</td>
+                              <td>王某某</td>
+                              <td>1</td>
+                              <td>111</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <div class="row">
+                        		<div class="col-xs-12 col-sm-12">
+                        			<img style="width:100%;" src="../img/bb.png" />
+                             </div>
+                        </div>
+                 </div>
+                 
+                 <div class="tab-pane fade" id="dropdown2">
+                      <div class="row" style="margin-top:20px; height:50px;">
+                          <div class="col-xs-2 col-sm-2" style="text-align:right;">
+                            <label for="inputEmail3" style="padding-top:7px;">选择活动:</label>
+                        </div>
+                        <div class="col-xs-3 col-sm-3">
+                                <select  style="height:35px;" class="form-control">
+                                  <option>下拉列表</option>
+                                  <option>活动1</option>
+                                  <option>活动 2</option>
+                                </select>
+                        </div>
+                        <div class="col-xs-6">
+                                <button type="button" id="test" style="height:35px;" class="btn btnload btn-warning">统计</button>
+                                <button type="button" id="test" style="height:35px;" class="btn btnload btn-warning">图表</button>
+                                <button type="button" id="test" style="height:35px;" class="btn btnload btn-warning">导出</button>
+                        </div>
+          		       </div>
+                       
+                    <div class="row" style="margin-top:10px; height:40px;">
+                          <div class="col-xs-12 col-sm-12" style="text-align:center;">
+                            <label for="inputEmail3" style="padding-top:7px;">活动1、活动2总转发排名</label>
+                        </div>
+                       </div>
+                   
+                      <table class="table table-striped"  style="border-top:1px solid #E8E8E8; text-align:center;">
+                          <thead>
+                            <tr>
+                              <th style="text-align:center;">微信昵称</th>
+                              <th style="text-align:center;">手机号</th>
+                              <th style="text-align:center;">姓名</th>
+                              <th style="text-align:center;">名次</th>
+                              <th style="text-align:center;">总转发次数</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                            	 <td>昵称</td>
+                              <td>13277982234</td>
+                              <td>王某某</td>
+                              <td>1</td>
+                              <td>111</td>
+                            </tr>
+                            <tr>
+                              <td>昵称</td>
+                              <td>13277982234</td>
+                              <td>王某某</td>
+                              <td>1</td>
+                              <td>111</td>
+                            </tr>
+                            <tr>
+                              <td>昵称</td>
+                              <td>13277982234</td>
+                              <td>王某某</td>
+                              <td>1</td>
+                              <td>111</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <div class="row">
+                        		<div class="col-xs-12 col-sm-12">
+                        			<img style="width:100%;" src="../img/bb.png" />
+                             </div>
+                        </div>
+                 </div>
+                 
+                 
+                 
+                 
+                 <div class="tab-pane fade" id="dropdown3">
+                 
+                     <div class="row" style="margin-top:20px; height:50px;">
+                                
+                            <div class="col-xs-2 col-sm-2">
+                                    <select  style="height:35px;" class="form-control">
+                                      <option>奖品类型</option>
+                                      <option>活动1</option>
+                                      <option>活动 2</option>
+                                    </select>
+                            </div>
+                              
+                            <div class="col-xs-1 col-sm-1" style="text-align:right;">
+                                           <label for="inputEmail3" style="padding-top:7px; font-size:12px;">起始时间:</label>
+                            </div>
+                            <div class="input-group date form_date col-md-2 col-xs-2" data-date="" data-date-format="" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                                        <input style="background-color:#ffffff;" class="form-control" size="16" type="text" value="" readonly>
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                             </div>
+                              <div class="col-xs-1 col-sm-1" style="text-align:right;">
+                                <label for="inputEmail3" style="padding-top:7px; font-size:12px;">结束时间:</label>
+                            </div>
+                            <div class="input-group date form_date col-md-2" data-date="" data-date-format="" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                                    <input style="background-color:#ffffff;" class="form-control" size="16" type="text" value="" readonly>
+                                 <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                             </div>
+                             <div class="col-xs-1 col-sm-1" style="text-align:right;">
+                                <a href="new.html" id="test" style="height:35px;" class="btn btnload btn-warning">统计</a>
+                            </div>
+                            <div class="col-xs-1 col-sm-1" style="text-align:right;">
+                                <a href="new.html" id="test" style="height:35px;" class="btn btnload btn-warning">图表</a>
+                            </div>
+                            <div class="col-xs-1 col-sm-1" style="text-align:right;">
+                                <a href="new.html" id="test" style="height:35px;" class="btn btnload btn-warning">导出</a>
+                            </div>                
+                             
+                      </div>
+                 
+                      
+                       
+                    <div class="row" style="margin-top:10px; height:40px;">
+                          <div class="col-xs-12 col-sm-12" style="text-align:center;">
+                            <label for="inputEmail3" style="padding-top:7px;">用户奖品统计表</label>
+                        </div>
+                       </div>
+                   
+                      <table class="table table-striped"  style="border-top:1px solid #E8E8E8; text-align:center;">
+                          <thead>
+                            <tr>
+                              <th style="text-align:center;">手机号</th>
+                              <th style="text-align:center;">姓名</th>
+                              <th style="text-align:center;">名次</th>
+                              <th style="text-align:center;">奖品类型</th>
+                              <th style="text-align:center;">所获数量</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>13277982234</td>
+                              <td>王某某</td>
+                              <td>1</td>
+                              <td>糖币</td>
+                              <td>3</td>
+                            </tr>
+                            <tr>
+                              <td>13277982234</td>
+                              <td>王某某</td>
+                              <td>1</td>
+                              <td>糖币</td>
+                              <td>3</td>
+                            </tr>
+                            <tr>
+                              <td>13277982234</td>
+                              <td>王某某</td>
+                              <td>1</td>
+                              <td>糖币</td>
+                              <td>3</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <div class="row">
+                        		<div class="col-xs-12 col-sm-12">
+                        			<img style="width:100%;" src="../img/bb.png" />
+                             </div>
+                        </div>
+                 </div>
+                 
+                 <div class="tab-pane fade" id="dropdown4">
+                      <div class="row" style="margin-top:20px; height:50px;">
+                              
+                            <div class="col-xs-1 col-sm-1" style="text-align:right;">
+                                           <label for="inputEmail3" style="padding-top:7px; font-size:12px;">起始时间:</label>
+                            </div>
+                            <div class="input-group date form_date col-md-2 col-xs-2" data-date="" data-date-format="" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                                        <input style="background-color:#ffffff;" class="form-control" size="16" type="text" value="" readonly>
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                             </div>
+                              <div class="col-xs-1 col-sm-1" style="text-align:right;">
+                                <label for="inputEmail3" style="padding-top:7px; font-size:12px;">结束时间:</label>
+                            </div>
+                            <div class="input-group date form_date col-md-2" data-date="" data-date-format="" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                                    <input style="background-color:#ffffff;" class="form-control" size="16" type="text" value="" readonly>
+                                 <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                             </div>
+                             <div class="col-xs-1 col-sm-1" style="text-align:right;">
+                                <a href="new.html" id="test" style="height:35px;" class="btn btnload btn-warning">统计</a>
+                            </div>
+                            <div class="col-xs-1 col-sm-1" style="text-align:right;">
+                                <a href="new.html" id="test" style="height:35px;" class="btn btnload btn-warning">导出</a>
+                            </div>                
+                             
+                      </div>
+          		       </div>
+                       
+                    <div class="row" style="margin-top:10px; height:40px;">
+                          <div class="col-xs-12 col-sm-12" style="text-align:center;">
+                            <label for="inputEmail3" style="padding-top:7px;">糖币明细表</label>
+                        </div>
+                       </div>
+                   
+                      <table class="table table-striped"  style="border-top:1px solid #E8E8E8; text-align:center;">
+                          <thead>
+                            <tr>
+                              <th style="text-align:center;">手机号</th>
+                              <th style="text-align:center;">姓名</th>
+                              <th style="text-align:center;">所获糖币</th>
+                              <th style="text-align:center;">活动标题</th>
+                              <th style="text-align:center;">分享时间</th>
+                              <th style="text-align:center;">分享类型</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>13277982234</td>
+                              <td>王某某</td>
+                              <td>1</td>
+                              <td>活动标题001</td>
+                              <td>2014-09-09</td>
+                              <td>二次转发</td>
+                            </tr>
+                            <tr>
+                              <td>13277982234</td>
+                              <td>王某某</td>
+                              <td>1</td>
+                              <td>活动标题001</td>
+                              <td>2014-09-09</td>
+                              <td>二次转发</td>
+                            </tr>
+                            <tr>
+                              <td>13277982234</td>
+                              <td>王某某</td>
+                              <td>1</td>
+                              <td>活动标题001</td>
+                              <td>2014-09-09</td>
+                              <td>二次转发</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <!--<div class="row">
+                        		<div class="col-xs-12 col-sm-12">
+                        			<img style="width:100%;" src="../img/bb.png" />
+                             </div>
+                        </div>-->
+                 </div>
+                 
+                 
+                 
+              </div>
+        </div>
+      </div>
+    </div>
+    
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/docs.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    
+    <script type="text/javascript" src="../js/jquery-1.8.3.min.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="../js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="../js/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+    <script type="text/javascript">
+        $('.form_date').datetimepicker({
+            language: 'zh-CN',
+            weekStart: 1,
+            todayBtn: 1,
+      autoclose: 1,
+      todayHighlight: 1,
+      startView: 2,
+      minView: 2,
+      forceParse: 0
+        });
+    </script>
+  
+
+</body></html>

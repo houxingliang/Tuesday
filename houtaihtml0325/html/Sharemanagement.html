@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>星期二投资网分享后台</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../css/dashboard.css" rel="stylesheet">
+	<link href="../css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+        
+		<div id="del" class="modal">
+    		<div style="height:150px; background-color:#ffffff; border-radius:10px; z-index:4000; position:absolute; margin-left:40%; width:20%; margin-top:15%;">
+                  <div class="row" style="margin-top:45px; height:30px;">
+                          <div class="col-xs-12 col-sm-12" style=" text-align:center;">
+                          		<label for="inputEmail3">是否确定删除此项？</label>
+                          </div>
+                  </div>
+                   <div class="row" style="margin-top:20px; height:30px;">
+                   		<div class="col-xs-1"></div>
+                        <div class="col-xs-5">
+                                <button type="button" id="test" style="height:35px; width:100%;" class="btn btnload btn-warning">确定</button>
+                        </div>
+                        <div class="col-xs-5">
+                                <button type="button" id="test" style="height:35px; width:100%;" data-dismiss="modal" aria-hidden="true" class="btn btnload btn-warning">取消</button>
+                            <div class="col-xs-1"></div>    
+                        </div>
+          		     </div>
+            </div>
+    </div>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">星期二投资网分享后台</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+          
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="Taskmanagement.html">任务管理</a></li>
+            <li class="active"><a href="#">分享管理</a></li>
+            <li><a href="Rewardmanagement.html">奖品管理</a></li>
+            <li><a href="Rewardpayment.html">奖品发放管理</a></li>
+            <li><a href="Rewardermanagement.html">奖励管理</a></li>
+            <li><a href="tongji.html">报表统计</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        
+        
+          <div class="table-responsive">
+                <ul id="myTab" class="nav nav-tabs">
+                 <li class="active"><a href="#" data-toggle="tab">分享管理</a></li>
+                </ul>
+           <!-- -->
+          </div>
+          
+          <div id="myTabContent" class="tab-content">
+          
+                 <div class="tab-pane fade in active" id="home">
+                     <div class="row" style="margin-top:20px; height:50px;">
+                        <div class="col-xs-6">
+                                <a href="new.html" class="btn btnload btn-warning">发布分享内容</a>
+                        </div>
+          		       </div>
+                   
+                      <table class="table table-striped"  style="border-top:1px solid #E8E8E8; text-align:center;">
+                          <thead>
+                            <tr>
+                              <th style="text-align:center;">编号</th>
+                              <th style="text-align:center;">标题</th>
+                              <th style="text-align:center;">首次分享奖励</th>
+                              <th style="text-align:center;">二次分享奖励</th>
+                              <th style="text-align:center;">首次分享次数</th>
+                              <th style="text-align:center;">二次分享次数</th>
+                              <th style="text-align:center;">操作</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>1</td>
+                              <td>标题001</td>
+                              <td>糖币</td>
+                              <td>糖币</td>
+                              <td>2</td>
+                              <td>3</td>
+                              <td><a href="Sharecontent.html">查看详情</a> | <a href="#del" data-toggle="modal">删除</a></td>
+                            </tr>
+                            <tr>
+                              <td>1</td>
+                              <td>标题001</td>
+                              <td>糖币</td>
+                              <td>糖币</td>
+                              <td>2</td>
+                              <td>3</td>
+                              <td><a href="Sharecontent.html">查看详情</a> | <a href="#del" data-toggle="modal">删除</a></td>
+                            </tr>
+                            <tr>
+                              <td>1</td>
+                              <td>标题001</td>
+                              <td>糖币</td>
+                              <td>糖币</td>
+                              <td>2</td>
+                              <td>3</td>
+                              <td><a href="Sharecontent.html">查看详情</a> | <a href="#del" data-toggle="modal">删除</a></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                 </div>
+                 
+                 <!--<div class="tab-pane fade" id="profile">
+                 	  <div class="row" style="margin-top:20px; height:50px;">
+                        <div class="col-xs-6">
+                                <a href="new.html" class="btn btnload btn-warning">发布活动分享内容</a>
+                        </div>
+          		       </div>
+                   
+                     <table class="table table-striped"  style="border-top:1px solid #E8E8E8; text-align:center;">
+                          <thead>
+                            <tr>
+                              <th style="text-align:center;">编号</th>
+                              <th style="text-align:center;">标题</th>
+                              <th style="text-align:center;">首次分享奖励</th>
+                              <th style="text-align:center;">二次分享奖励</th>
+                              <th style="text-align:center;">首次分享次数</th>
+                              <th style="text-align:center;">二次分享次数</th>
+                              <th style="text-align:center;">操作</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>1</td>
+                              <td>标题001</td>
+                              <td>糖币</td>
+                              <td>糖币</td>
+                              <td>2</td>
+                              <td>3</td>
+                              <td><a href="#del" data-toggle="modal">删除</a> | <a href="Sharecontent.html">查看详情</a></td>
+                            </tr>
+                            <tr>
+                              <td>1</td>
+                              <td>标题001</td>
+                              <td>糖币</td>
+                              <td>糖币</td>
+                              <td>2</td>
+                              <td>3</td>
+                              <td><a href="#del" data-toggle="modal">删除</a> | <a href="Sharecontent.html">查看详情</a></td>
+                            </tr>
+                            <tr>
+                              <td>1</td>
+                              <td>标题001</td>
+                              <td>糖币</td>
+                              <td>糖币</td>
+                              <td>2</td>
+                              <td>3</td>
+                              <td><a href="#del" data-toggle="modal">删除</a> | <a href="Sharecontent.html">查看详情</a></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                 </div>-->
+                 
+              </div>
+        </div>
+      </div>
+    </div>
+    
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/docs.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    
+    <script type="text/javascript" src="../js/jquery-1.8.3.min.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="../js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="../js/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+    <script type="text/javascript">
+        $('.form_date').datetimepicker({
+            language: 'zh-CN',
+            weekStart: 1,
+            todayBtn: 1,
+      autoclose: 1,
+      todayHighlight: 1,
+      startView: 2,
+      minView: 2,
+      forceParse: 0
+        });
+    </script>
+  
+
+</body></html>

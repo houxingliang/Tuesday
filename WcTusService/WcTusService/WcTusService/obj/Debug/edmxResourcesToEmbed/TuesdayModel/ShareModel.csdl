@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ShareWeiModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ShareWeiEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="tb_reward" EntityType="ShareWeiModel.tb_reward" />
+    <EntitySet Name="tb_reward_Template_imp" EntityType="ShareWeiModel.tb_reward_Template_imp" />
+    <EntitySet Name="tb_rewardTemplate" EntityType="ShareWeiModel.tb_rewardTemplate" />
+    <EntitySet Name="tb_share" EntityType="ShareWeiModel.tb_share" />
+    <EntitySet Name="tb_task" EntityType="ShareWeiModel.tb_task" />
+    <EntitySet Name="tb_taskExecute" EntityType="ShareWeiModel.tb_taskExecute" />
+    <EntitySet Name="tb_taskItem" EntityType="ShareWeiModel.tb_taskItem" />
+    <EntitySet Name="tb_user" EntityType="ShareWeiModel.tb_user" />
+    <EntitySet Name="tb_userShare" EntityType="ShareWeiModel.tb_userShare" />
+  </EntityContainer>
+  <EntityType Name="tb_reward">
+    <Key>
+      <PropertyRef Name="pk_reward_id" />
+    </Key>
+    <Property Name="pk_reward_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="nvr_rewardName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="dbl_count" Type="Double" Nullable="false" />
+    <Property Type="Boolean" Name="bit_isDelete" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_reward_Template_imp">
+    <Key>
+      <PropertyRef Name="pk_imp_id" />
+    </Key>
+    <Property Name="pk_imp_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="fk_rewardTemplate_id" Type="Int32" Nullable="false" />
+    <Property Name="dbl_count" Type="Double" Nullable="false" />
+    <Property Name="fk_reward_id" Type="Int32" Nullable="false" />
+    <Property Type="Boolean" Name="bit_isDelete" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_rewardTemplate">
+    <Key>
+      <PropertyRef Name="pk_rewardTemplate_id" />
+    </Key>
+    <Property Name="pk_rewardTemplate_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="nvr_tmpName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="bit_isDelete" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_share">
+    <Key>
+      <PropertyRef Name="pk_share_id" />
+    </Key>
+    <Property Name="pk_share_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="nvr_shareName" Type="String" MaxLength="40" Unicode="true" FixedLength="false" />
+    <Property Name="nvr_shareContents" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="fk_rewardTemplate_id_f" Type="Int32" Nullable="false" />
+    <Property Name="bit_secondShare" Type="Boolean" Nullable="false" />
+    <Property Name="fk_rewardTemplate_id_s" Type="Int32" Nullable="false" />
+    <Property Name="dbl_secondShareLimit" Type="Double" Nullable="false" />
+    <Property Name="int_firstShareTime" Type="Int32" Nullable="false" />
+    <Property Name="int_secondShareTime" Type="Int32" Nullable="false" />
+    <Property Name="dtm_createTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Type="Boolean" Name="bit_isDelete" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_task">
+    <Key>
+      <PropertyRef Name="pk_task_id" />
+    </Key>
+    <Property Name="pk_task_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="nvr_taskName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="dtm_createTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="dtm_actionTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="dtm_endTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Type="Boolean" Name="bit_isDelete" Nullable="false" />
+    <Property Type="Boolean" Name="bit_status" Nullable="false" />
+    <Property Type="Boolean" Name="bit_inherit" Nullable="false" />
+    <Property Type="Int32" Name="fk_share_id" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_taskExecute">
+    <Key>
+      <PropertyRef Name="pk_taskExecute_id" />
+    </Key>
+    <Property Name="pk_taskExecute_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="fk_taskItem_id" Type="Int32" Nullable="false" />
+    <Property Name="fk_user_id" Type="Int32" Nullable="false" />
+    <Property Name="dtm_executeTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="bit_isApply" Type="Boolean" Nullable="false" />
+    <Property Name="dtm_ApplyTime" Type="DateTime" Precision="3" />
+    <Property Name="bit_isGrant" Type="Boolean" Nullable="false" />
+    <Property Name="dtm_grantTime" Type="DateTime" Precision="3" />
+    <Property Type="Boolean" Name="bit_isDelete" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_taskItem">
+    <Key>
+      <PropertyRef Name="pk_taskItem_id" />
+    </Key>
+    <Property Name="pk_taskItem_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="fk_task_id" Type="Int32" Nullable="false" />
+    <Property Name="fk_share_id" Type="Int32" Nullable="false" />
+    <Property Name="int_order" Type="Int32" Nullable="false" />
+    <Property Name="dtm_actionTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="dtm_endTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="bit_status" Type="Boolean" Nullable="false" />
+    <Property Name="int_forward" Type="Int32" Nullable="false" />
+    <Property Name="fk_rewardTemplate_id" Type="Int32" Nullable="false" />
+    <Property Type="Boolean" Name="bit_isDelete" Nullable="false" />
+    <Property Type="Boolean" Name="bit_isInherit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_user">
+    <Key>
+      <PropertyRef Name="int_user_id" />
+    </Key>
+    <Property Name="int_user_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="vr_Tuesday" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="nvr_userName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="vr_phoneNum" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="vr_wxOpenID" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="nvr_wxName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Type="Boolean" Name="bit_isdelete" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_userShare">
+    <Key>
+      <PropertyRef Name="pk_userShare_ID" />
+    </Key>
+    <Property Name="pk_userShare_ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="fk_shareContents_id" Type="Int32" Nullable="false" />
+    <Property Name="fk_user_id" Type="Int32" Nullable="false" />
+    <Property Name="fk_superUser_id" Type="Int32" />
+    <Property Name="bit_firstShare" Type="Boolean" Nullable="false" />
+    <Property Name="dtm_shareTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="fk_shareReward_id" Type="Int32" />
+    <Property Name="dbl_count" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="bit_grantReward" Type="Boolean" Nullable="false" />
+    <Property Type="Boolean" Name="bit_isDelete" Nullable="false" />
+  </EntityType>
+</Schema>

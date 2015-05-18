@@ -42,7 +42,16 @@ namespace WcTusService.Data
         {
             if (rewardImp != null)
             {
-                share.Entry(rewardImp).State = EntityState.Modified;
+                var query = from p in share.tb_reward_Template_imp
+                            where p.pk_imp_id == rewardImp.pk_imp_id
+                            select p;
+                tb_reward_Template_imp temp = query.First();
+                temp.bit_isDelete = rewardImp.bit_isDelete;
+                temp.dbl_count = rewardImp.dbl_count;
+                temp.fk_reward_id = rewardImp.fk_reward_id;
+                temp.fk_rewardTemplate_id = rewardImp.fk_rewardTemplate_id;
+                
+                share.Entry(temp).State = EntityState.Modified;
                 return share.SaveChanges();
             }
             else

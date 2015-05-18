@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="WcTusService.Service.RewardService" CodeBehind="RewardService.svc.cs" %>

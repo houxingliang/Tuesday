@@ -11,19 +11,30 @@ namespace WcTusService.TuesdayModel
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Runtime.Serialization;
+    [DataContract]
     public partial class tb_share
     {
+        [DataMember]
         public int pk_share_id { get; set; }
+        [DataMember]
         public string nvr_shareName { get; set; }
+        [DataMember]
         public string nvr_shareContents { get; set; }
+        [DataMember]
         public int fk_rewardTemplate_id_f { get; set; }
+        [DataMember]
         public bool bit_secondShare { get; set; }
+        [DataMember]
         public int fk_rewardTemplate_id_s { get; set; }
+        [DataMember]
         public double dbl_secondShareLimit { get; set; }
         public int int_firstShareTime { get; set; }
+        [DataMember]
         public int int_secondShareTime { get; set; }
+        [DataMember]
         public System.DateTime dtm_createTime { get; set; }
+        [DataMember]
         public bool bit_isDelete { get; set; }
     }
 }

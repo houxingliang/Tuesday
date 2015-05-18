@@ -62,7 +62,10 @@ namespace WcTusService.TuesdayBLL
             sharedata = new ShareData();
             tb_share tbshare = sharedata.GetshareByid(id);
             if(tbshare!=null)
+            {
+                tbshare.bit_isDelete = true;
                 return returnNum = sharedata.Editshare(tbshare);
+            }
             else
                 return returnNum;
         }

@@ -51,5 +51,26 @@ namespace WcTusService.TuesdayBLL
             rData = new RewardData();
             return rData.EditReward(rd);
         }
+        /// <summary>
+        /// 查询奖品列表信息
+        /// </summary>
+        /// <returns></returns>
+        public List<tb_reward> GetRewardList()
+        {
+            rData = new RewardData();
+            return rData.GetRewardList();
+        }
+
+        public int DelRewardById(int id)
+        {
+            tb_reward reward = new RewardData().GetRewardByID(id);
+            if (reward != null)
+            {
+                reward.bit_isDelete = true;
+                return new RewardData().EditReward(reward);
+            }
+            else
+                return 0;
+        }
     }
 }

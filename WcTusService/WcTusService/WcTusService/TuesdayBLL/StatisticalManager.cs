@@ -12,9 +12,9 @@ namespace WcTusService.TuesdayBLL
     /// </summary>
     public class StatisticalManager
     {
-        TaskData taskData = null;//任务数据访问类
-        TaskItemData taskItemData = null;//任务项数据访问类
-        ShareData shareData = null;//分享数据库访问类
+        //TaskData taskData = null;//任务数据访问类
+        //TaskItemData taskItemData = null;//任务项数据访问类
+        //ShareData shareData = null;//分享数据库访问类
         UserShareData userShareData = null;//用户分享数据访问类
         UserData userData = null;//用户数据访问类
         //活动首次转发统计

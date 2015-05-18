@@ -11,17 +11,27 @@ namespace WcTusService.TuesdayModel
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Runtime.Serialization;
+    [DataContract]
     public partial class tb_task
     {
+        [DataMember]
         public int pk_task_id { get; set; }
+        [DataMember]
         public string nvr_taskName { get; set; }
+        [DataMember]
         public System.DateTime dtm_createTime { get; set; }
+        [DataMember]
         public System.DateTime dtm_actionTime { get; set; }
+        [DataMember]
         public System.DateTime dtm_endTime { get; set; }
+        [DataMember]
         public bool bit_isDelete { get; set; }
+        [DataMember]
         public bool bit_status { get; set; }
+        [DataMember]
         public bool bit_inherit { get; set; }
+        [DataMember]
         public int fk_share_id { get; set; }
     }
 }

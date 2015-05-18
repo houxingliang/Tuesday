@@ -95,6 +95,7 @@ namespace WcTusService.Data
         public List<tb_reward> GetRewardList()
         {
             var rewards = from r in share.tb_reward
+                          where r.bit_isDelete==false
                           select r;
             return rewards.ToList();
         }

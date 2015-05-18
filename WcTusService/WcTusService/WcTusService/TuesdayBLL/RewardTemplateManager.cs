@@ -25,17 +25,25 @@ namespace WcTusService.TuesdayBLL
             int returnNum = 0;
             rtd=new RewardTemplateData();
             rtid = new RewardTmpImpData();
-            returnNum += rtd.AddRewardTmp(rt.RewardTmp);
-            if (rt.RewardTemplateImp != null&&rt.RewardTemplateImp.Count>0)
+            if (rt != null)
             {
-                for (int i = 0; i < rt.RewardTemplateImp.Count; i++)
+                returnNum += rtd.AddRewardTmp(rt.RewardTmp);
+                if (rt.RewardTemplateImp != null && rt.RewardTemplateImp.Count > 0)
                 {
-                    returnNum += rtid.AddRewardImp(rt.RewardTemplateImp[i]);
+                    for (int i = 0; i < rt.RewardTemplateImp.Count; i++)
+                    {
+                        returnNum += rtid.AddRewardImp(rt.RewardTemplateImp[i]);
+                    }
                 }
+                return returnNum;
             }
-            return returnNum;
+            return 0;
         }
-
+        /// <summary>
+        /// 修改奖励模板信息
+        /// </summary>
+        /// <param name="rt"></param>
+        /// <returns></returns>
         public int EditRewardTemplate(RewardTemplate rt)
         { 
             //定义返回值
@@ -58,7 +66,14 @@ namespace WcTusService.TuesdayBLL
                 newStr.Add(i.fk_reward_id);
             }
             //删除原有表中有而传入实体没有的关联表数据
-            List<int> tempOld = oldStr;
+            List<int> tempOld=new List<int>() ;
+            if (oldStr != null)
+            {
+                foreach (int i in oldStr)
+                {
+                    tempOld.Add(i);
+                }
+            }
             foreach (int it in newStr)
             {
                 tempOld.Remove(it);
@@ -71,7 +86,14 @@ namespace WcTusService.TuesdayBLL
                 }
             }
             //新增传入实体中有而原有关联表中没有的数据
-            List<int> newTemp = newStr;
+            List<int> newTemp = new List<int>();
+            if (newStr != null)
+            {
+                foreach (int i in newStr)
+                {
+                    newTemp.Add(i);
+                }
+            }
             foreach (int it in oldStr)
             {
                 newTemp.Remove(it);
@@ -123,6 +145,29 @@ namespace WcTusService.TuesdayBLL
                 rewardTemplate.RewardTemplateImp = rtid.GetRewardImpList(rewardTemplate.RewardTmp.pk_rewardTemplate_id);
             }
             return rewardTemplate;
+        }
+
+        public List<RewardTemplate> GetRewardTemplateList()
+        {
+            //业务实体集合
+            List<RewardTemplate> rtList = new List<RewardTemplate>();
+            //奖励模板集合
+            List<tb_rewardTemplate> rt = new List<tb_rewardTemplate>();
+
+            rtd = new RewardTemplateData();
+            rt = rtd.GetRewardTmpList();
+            if (rt != null)
+            {
+                rtid = new RewardTmpImpData();
+                foreach (tb_rewardTemplate t in rt)
+                {
+                    RewardTemplate rewardTemplate = new RewardTemplate();
+                    rewardTemplate.RewardTemplateImp= rtid.GetRewardImpList(t.pk_rewardTemplate_id);
+                    rewardTemplate.RewardTmp = t;
+                    rtList.Add(rewardTemplate);
+                }
+            }
+            return rtList; 
         }
         /// <summary>
         /// 删除奖品模板信息

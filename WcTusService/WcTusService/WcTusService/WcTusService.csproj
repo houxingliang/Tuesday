@@ -65,6 +65,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Service\RewardService.svc" />
     <Content Include="TuesdayModel\ShareModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ShareModel.edmx</DependentUpon>
@@ -75,12 +76,15 @@
       <DependentUpon>ShareModel.edmx</DependentUpon>
       <LastGenOutput>ShareModel.cs</LastGenOutput>
     </Content>
-    <Content Include="Service\Service1.svc" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Service\IRewardService.cs" />
+    <Compile Include="Service\RewardService.svc.cs">
+      <DependentUpon>RewardService.svc</DependentUpon>
+    </Compile>
     <Compile Include="TuesdayBLL\RewardManager.cs" />
     <Compile Include="TuesdayBLL\RewardTemplateManager.cs" />
     <Compile Include="TuesdayBLL\ShareManager.cs" />
@@ -151,9 +155,6 @@
     <Compile Include="TuesdayModel\Ttime.cs" />
     <Compile Include="TuesdayModel\TtimeRanking.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\Service1.svc.cs">
-      <DependentUpon>Service1.svc</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -167,6 +168,7 @@
       <DependentUpon>ShareModel.edmx</DependentUpon>
     </Content>
     <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\test.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

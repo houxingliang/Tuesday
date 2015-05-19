@@ -1,0 +1,675 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script type="text/javascript" src="Scripts/jquery-1.7.1.js"></script>
+    <script type="text/javascript">
+
+        //type: "post",
+        //    url: "http://service.xingqi2.com/Services/JsonService.asmx/GetSumMemberNum",
+        //dataType: "json",
+        //contentType: 'application/json; charset=utf-8',
+                
+        //data: "{ 'token': 'THHTsyVShs501^502' },",
+        //success: function (data) {
+        //    var last = data.d.name;
+        //    alert(last);
+        //}
+        
+        function testLee() {
+
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/GetList",
+          
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    alert(data+"success");
+                 
+                },
+                error: function (data) {
+                    alert(data.responseText+"error");
+                }
+
+            });
+        }
+        function AddReward() {
+
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/AddReward",
+                data: '{"reward":{{"pk_reward_id":2,"nvr_rewardName":"电话卡","dbl_count":1000.00,"bit_isDelete":0}}}',
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+
+            });
+        }
+        function EditReward() {
+
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/EditReward",
+                data: '{"reward":{{"pk_reward_id":2,"nvr_rewardName":"电话卡","dbl_count":1000.00,"bit_isDelete":0}}}',
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+
+            });
+        }
+        function GetList() {
+
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/GetRewardList",
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+
+            });
+        }
+        function DelReward()
+        {
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/DelRewardList",
+                dataType: "json",
+                data: '{"id":2}',
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+
+            });
+        }
+
+        function AddRewardTmp() {
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/AddRewardTmp",
+                dataType: "json",
+                data: '{"rt":{"RewardTemplateImp":[{"bit_isDelete":false,"dbl_count":0.01,"fk_rewardTemplate_id":1,"fk_reward_id":1,"pk_imp_id":0}],"RewardTmp":{"bit_isDelete":false,"nvr_tmpName":"糖币","pk_rewardTemplate_id":1}}}',
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+
+            });
+        }
+        function EditRewardTmp() {
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/EditRewardTmp",
+                dataType: "json",
+                data: '{"rt":{"RewardTemplateImp":[{"bit_isDelete":false,"dbl_count":0.16,"fk_rewardTemplate_id":1,"fk_reward_id":1,"pk_imp_id":13}],"RewardTmp":{"bit_isDelete":false,"nvr_tmpName":"糖币","pk_rewardTemplate_id":1}}}',
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+
+            });
+        }
+
+        function DelRewardTmp_() {
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/DelRewardTmp",
+                dataType: "json",
+                data: '{"rewardTmpId":4}',
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+            });
+        }
+
+        function GetRewrdTmpList() {
+
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/GetRewrdTmpList",
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+
+            });
+        }
+
+        function AddShare() {
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/AddShare",
+                dataType: "json",
+                data: '{"share":{"bit_isDelete":false,"bit_secondShare":false,"dbl_secondShareLimit":1.11,"dtm_createTime":"\\/Date(1431925741901+0800)\\/","fk_rewardTemplate_id_f":1,"fk_rewardTemplate_id_s":1,"int_secondShareTime":0,"nvr_shareContents":"这是个测试","nvr_shareName":"测试帝","pk_share_id":0}}',
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+
+            });
+        }
+
+        function EditShare() {
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/EditShare",
+                dataType: "json",
+                data: '{"share":{"bit_isDelete":false,"bit_secondShare":false,"dbl_secondShareLimit":1.11,"dtm_createTime":"\\/Date(1431925741901+0800)\\/","fk_rewardTemplate_id_f":1,"fk_rewardTemplate_id_s":1,"int_secondShareTime":0,"nvr_shareContents":"--这是个测试/代表了一个悲伤的故事","nvr_shareName":"测试帝","pk_share_id":5}}',
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+
+            });
+        }
+
+        function DelShare() {
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/DelShare",
+                dataType: "json",
+                data: '{"id":5}',
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+            });
+        }
+
+        function GetShareList() {
+
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/GetShareList",
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+
+            });
+        }
+
+        function AddTask() {
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/AddTask",
+                dataType: "json",
+                data: '{"task":{"bit_inherit":true,"bit_isDelete":false,"bit_status":true,"dtm_actionTime":"\\/Date(1431928125385+0800)\\/","dtm_createTime":"\\/Date(1431928125385+0800)\\/","dtm_endTime":"\\/Date(1431928125385+0800)\\/","fk_share_id":4,"nvr_taskName":"first task","pk_task_id":0}',
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+
+            });
+        }
+
+        function EditTask() {
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/EditTask",
+                dataType: "json",
+                data: '{"task":{"bit_inherit":true,"bit_isDelete":false,"bit_status":true,"dtm_actionTime":"\\/Date(1431928125385+0800)\\/","dtm_createTime":"\\/Date(1431928125385+0800)\\/","dtm_endTime":"\\/Date(1431928125385+0800)\\/","fk_share_id":4,"nvr_taskName":"first task,already Edit","pk_task_id":2}',
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+
+            });
+        }
+
+        function DelTask() {
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/DelTask",
+                dataType: "json",
+                data: '{"id":2}',
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+            });
+        }
+
+        function GetTaskList() {
+
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/GetTaskList",
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+
+            });
+        }
+
+        function AddTaskItem() {
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/AddTaskItem",
+                dataType: "json",
+                data: '{"taskItem":{"bit_isDelete":false,"bit_isInherit":true,"bit_status":true,"dtm_actionTime":"\\/Date(1431931532208+0800)\\/","dtm_endTime":"\\/Date(1431931532208+0800)\\/","fk_rewardTemplate_id":1,"fk_share_id":1,"fk_task_id":1,"int_forward":1,"int_order":1,"pk_taskItem_id":0}',
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+            });
+        }
+        function GetTaskItem() {
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/GetTaskItem",
+                data:'{"id":1}',
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+
+            });
+        }
+        function EditTaskItem() {
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/EditTaskItem",
+                dataType: "json",
+                data: '{"taskItem":{"bit_isDelete":false,"bit_isInherit":true,"bit_status":true,"dtm_actionTime":"\\/Date(1431931532208+0800)\\/","dtm_endTime":"\\/Date(1431931532208+0800)\\/","fk_rewardTemplate_id":1,"fk_share_id":1,"fk_task_id":1,"int_forward":1,"int_order":1,"pk_taskItem_id":2}',
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+            });
+        }
+
+        function DelTaskItem() {
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/DelTaskItem",
+                dataType: "json",
+                data: '{"id":2}',
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+            });
+        }
+
+        function GetTaskItemList() {
+
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/GetTaskItemList",
+                data:'{"id":1}',
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+
+            });
+        }
+
+        function GetTaskTypeList() {
+
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/GetTaskExecuteByTaskName",
+                data: '{"name":1,"actionDate":"\\/Date(1431931532208+0800)\\/","endDate":"\\/Date(1431931532208+0800)\\/"}',
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+
+            });
+        }
+        function GrantRawardByUserId() {
+
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/GrantRewardByUserID",
+                data: '{"id":1}',
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+
+            });
+        }
+        function ApplicationRaward() {
+
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/TaskApplication",
+                data: '{"id":1}',
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+
+            });
+        }
+        function FirstShare() {
+
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/FirstShare",
+                data: '{"taskId":1}',
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+
+            });
+        }
+        function TotalShare() {
+
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/TotalShare",
+                data: '{"taskId":1}',
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+
+            });
+        }
+        function FirstRank() {
+
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/FirstRank",
+                data: '{"taskId":[1,2]}',
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+
+            });
+        }
+        function TotalRank() {
+
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/TotalRank",
+                data: '{"taskId":[1,2]}',
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+
+            });
+        }
+        function UserRewardSum() {
+
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/UserRewardSum",
+                data: '{"actionTime":"\\/Date(1431931532208+0800)\\/","endTime":"\\/Date(1431931532208+0800)\\/","RewardId":1}',
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+            });
+        }
+
+        function AddUser()
+        {
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/AddUser",
+                data: '{"user":{"bit_isdelete":false,"int_user_id":1,"nvr_userName":"侯星亮","nvr_wxName":"酌壶清酒","vr_Tuesday":"aishuishui","vr_phoneNum":"13663212624","vr_wxOpenID":"sdfafasdfasdfa"}}',
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+            });
+        }
+        function EditUser()
+        {
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/EditUser",
+                data: '{"user":{"bit_isdelete":false,"int_user_id":1,"nvr_userName":"侯星亮","nvr_wxName":"浊壶清酒","vr_Tuesday":"aishuishui","vr_phoneNum":"13663212624","vr_wxOpenID":"sdfafasdfasdfa"}}',
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+            });
+        }
+        function GetUserById()
+        {
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/GetUserById",
+                data: '{"id":1}',
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+            });
+        }
+        function IsUsedPhone()
+        {
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/IsUsedPhone",
+                data: '{"phoneNum":"13663212624"}',
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+            });
+        }
+    </script>
+
+</head>
+<body>
+    <input type="button" onclick="testLee()" value="测试" />
+    <input type="button" onclick="AddReward()" value="添加奖品" />
+    <input type="button" onclick="EditReward()" value="修改奖品"/>
+    <input type="button" onclick="GetList()" value="获取列表" />
+    <input type="button" onclick="DelReward()" value="删除奖品" /><br />
+    <br />
+    <input type="button" onclick="AddRewardTmp()" value="添加奖励模板" />
+    <input type="button" onclick="EditRewardTmp()" value="修改奖励模板" />
+    <input type="button" onclick="DelRewardTmp_()" value="删除奖励模板" />
+    <input type="button" onclick="GetRewrdTmpList()" value="获取奖励模板列表" /><br />
+    <br />
+    <input type="button" onclick="AddShare()" value="发布分享内容" />
+    <input type="button" onclick="EditShare()" value="修改分享内容" />
+    <input type="button" onclick="DelShare()" value="删除分享内容" />
+    <input type="button" onclick="GetShareList()" value="获取内容列表" /><br />
+    <br />
+    <input type="button" onclick="AddTask()" value="发布任务" />
+    <input type="button" onclick="EditTask()" value="修改任务" />
+    <input type="button" onclick="DelTask()" value="删除任务" />
+    <input type="button" onclick="GetTaskList()" value="获取任务列表" /><br />
+    <br />
+    <input type="button" onclick="AddTaskItem()" value="添加任务项" />
+    <input type="button" onclick="GetTaskItem()" value="查看任务项" />
+    <input type="button" onclick="EditTaskItem()" value="编辑任务项" />
+    <input type="button" onclick="DelTaskItem()" value="删除任务项" />
+    <input type="button" onclick="GetTaskItemList()" value="获取任务项列表" /><br />
+    说明：此处需要用到辅助方法，例如，根据是否继承任务查询内容ID/是否允许继承
+    <br /><br />
+    <input type="button" onclick="GetTaskTypeList()" value="按任务分类查询列表信息" />
+    <input type="button" onclick="GetUserTypeList()" value="按用户分类查询奖品发放信息" />
+    <input type="button" onclick="GrantRawardByUserId()" value="根据用户ID发放奖品" />
+    <input type="button" onclick="ApplicationRaward()" value="用户申请奖品" />
+    <br /><br />
+    统计报表部分：<br />
+    <input type="button" onclick="FirstShare()" value="首次转发统计" />
+    <input type="button" onclick="TotalShare()" value="总转发次数统计" />
+    <input type="button" onclick="FirstRank()" value="活动用户首转排名" />
+    <input type="button" onclick="TotalRank()" value="活动用户总转排名" />
+    <input type="button" onclick="UserRewardSum()" value="用户奖品总数统计" />
+    <input type="button" onclick="" style="color:red" value="糖币明细" /><br />
+    <br />
+    用户相关内容：
+    <br />
+     <input type="button" onclick="AddUser()" value="添加用户" />
+    <input type="button" onclick="EditUser()" value="修改用户信息" />
+    <input type="button" onclick="GetUserById()" value="获取用户信息" />
+    <input type="button" onclick="IsUsedPhone()" value="查看手机号是否被占用" />
+
+
+
+</body>
+</html>

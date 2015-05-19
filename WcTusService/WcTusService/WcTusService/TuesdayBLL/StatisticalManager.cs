@@ -44,7 +44,7 @@ namespace WcTusService.TuesdayBLL
                         {
                             tb_userShare userShare=userShareData.GetUserShareByID(i);
                             //是否是首次转发(首次转发将数据放入列表)
-                            if (userShare.bit_firstShare == true)
+                            if (userShare!=null&&userShare.bit_firstShare == true)
                             {
                                 userShareList.Add(userShare);
                                 Statistical_UserShare_Business business = new Statistical_UserShare_Business();
@@ -90,7 +90,9 @@ namespace WcTusService.TuesdayBLL
                         foreach (int i in shareIdList)
                         {
                             tb_userShare userShare = userShareData.GetUserShareByID(i);
-                            //是否是首次转发(首次转发将数据放入列表)
+                            if (userShare != null)
+                            {
+                                //是否是首次转发(首次转发将数据放入列表)
                                 userShareList.Add(userShare);
                                 Statistical_UserShare_Business business = new Statistical_UserShare_Business();
                                 business.UserShare = userShare;
@@ -100,7 +102,7 @@ namespace WcTusService.TuesdayBLL
                                     business.User = user;
                                 }
                                 businessList.Add(business);
-
+                            }
                         }
                     }
                     return businessList;
@@ -115,6 +117,8 @@ namespace WcTusService.TuesdayBLL
         /// <returns></returns>
         public List<Statistical_Rank_business> FirstRank(List<int> taskId)
         {
+
+
             List<Statistical_Rank_business> rankList = new List<Statistical_Rank_business>();
             foreach (int tid in taskId)
             {
@@ -142,7 +146,8 @@ namespace WcTusService.TuesdayBLL
                             {
                                 tb_userShare userShare = userShareData.GetUserShareByID(i);
                                 //是否是首次转发(首次转发将数据放入列表)
-                                if (userShare.bit_firstShare == true)
+                                
+                                if (userShare!=null&&userShare.bit_firstShare == true)
                                 {
                                     userShareList.Add(userShare);
                                     Statistical_UserShare_Business business = new Statistical_UserShare_Business();
@@ -213,15 +218,18 @@ namespace WcTusService.TuesdayBLL
                             foreach (int i in shareIdList)
                             {
                                 tb_userShare userShare = userShareData.GetUserShareByID(i);
-                                    userShareList.Add(userShare);
-                                    Statistical_UserShare_Business business = new Statistical_UserShare_Business();
-                                    business.UserShare = userShare;
+                                userShareList.Add(userShare);
+                                Statistical_UserShare_Business business = new Statistical_UserShare_Business();
+                                business.UserShare = userShare;
+                                if (userShare != null)
+                                {
                                     tb_user user = userData.GetUserByID(userShare.fk_user_id);
                                     if (user != null)
                                     {
                                         business.User = user;
                                     }
                                     businessList.Add(business);
+                                }
                             }
                         }
                         //根据用户进行分组，获取每个用户的首次分享次数
@@ -296,6 +304,5 @@ namespace WcTusService.TuesdayBLL
             }
             return returnRankList;
         }
-
     }
 }

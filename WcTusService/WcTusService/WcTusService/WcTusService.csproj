@@ -91,6 +91,7 @@
     <Compile Include="TuesdayBLL\StatisticalManager.cs" />
     <Compile Include="TuesdayBLL\TaskExecuteManager.cs" />
     <Compile Include="TuesdayBLL\TaskManager.cs" />
+    <Compile Include="TuesdayBLL\UserManager.cs" />
     <Compile Include="TuesdayDAL\RewardData.cs" />
     <Compile Include="TuesdayDAL\RewardTemplateData.cs" />
     <Compile Include="TuesdayDAL\RewardTmpImpData.cs" />

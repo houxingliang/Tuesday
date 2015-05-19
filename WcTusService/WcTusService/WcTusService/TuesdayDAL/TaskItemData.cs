@@ -91,9 +91,6 @@ namespace WcTusService.Data
                 return EdittaskItem(ti);
             }
             return 0;
-            //var con = share.tb_taskItem.Where(p => p.pk_taskItem_id == id).FirstOrDefault();
-            //share.tb_taskItem.Remove(con);
-            //share.SaveChanges();
         }
 
     }

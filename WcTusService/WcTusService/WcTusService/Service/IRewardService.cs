@@ -75,5 +75,57 @@ namespace WcTusService.Service
         [OperationContract]
         List<tb_taskItem> GetTaskItemList(int id);
         #endregion
+
+        #region 奖品发放相关
+        //按任务分类查询列表信息
+        [OperationContract]
+        List<RewardUserGrantEntity> GetTaskExecuteByTaskName(string name, DateTime actionDate, DateTime endDate);
+        
+        //按用户分类查询奖品发放信息
+
+
+        //根据用户ID发放奖品
+        [OperationContract]
+        int GrantRewardByUserID(int id);
+        //根据登录用户ID申请奖品
+        [OperationContract]
+        int TaskApplication(int id);
+
+        #endregion
+
+        #region 统计报表
+        //活动首次转发统计
+        [OperationContract]
+        List<Statistical_UserShare_Business> FirstShare(int taskId);
+
+        //总转发次数统计
+        [OperationContract]
+        List<Statistical_UserShare_Business> TotalShare(int taskId);
+
+        //活动用户首次转发排名统计
+        [OperationContract]
+        List<Statistical_Rank_business> FirstRank(List<int> taskId);
+
+        //活动用户总转排名统计
+        [OperationContract]
+        List<Statistical_Rank_business> TotalRank(List<int> taskId);
+
+        //用户奖品总数统计
+        [OperationContract]
+        List<Statistical_UserRank_Business> UserRewardSum(DateTime actionTime, DateTime endTime, int RewardId);
+
+
+        #endregion
+
+        #region 用户相关
+        [OperationContract]
+        int AddUser(tb_user user);
+        [OperationContract]
+        int EditUser(tb_user user);
+        [OperationContract]
+        tb_user GetUserById(int id);
+        [OperationContract]
+        bool IsUsedPhone(string PhoneNum);
+        #endregion
     }
 }

@@ -76,5 +76,20 @@ namespace WcTusService.Data
                           select r;
             return users.ToList();
         }
+        /// <summary>
+        /// 查看手机号是否已被占用
+        /// </summary>
+        /// <param name="phoneNum"></param>
+        /// <returns></returns>
+        public bool IsUsedPhone(string phoneNum)
+        {
+            var query = from p in share.tb_user
+                        where p.vr_phoneNum == phoneNum
+                        select p;
+            if (query != null)
+                return true;
+            else
+                return false;
+        }
     }
 }

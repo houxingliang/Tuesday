@@ -285,7 +285,8 @@ namespace WcTusService.Service
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
         public int EditTaskItem(tb_taskItem taskItem)
         {
-            return 0;
+            taskManager = new TaskManager();
+            return taskManager.EditTaskItem(taskItem);
         }
         /// <summary>
         /// 根据主键ID
@@ -296,7 +297,8 @@ namespace WcTusService.Service
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
         public tb_taskItem GetTaskItem(int id)
         {
-            return null;
+            taskManager = new TaskManager();
+            return taskManager.GetTaskItemById(id);
         }
         /// <summary>
         /// 根据主键ID
@@ -307,7 +309,8 @@ namespace WcTusService.Service
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
         public int DelTaskItem(int id)
         {
-            return 0;
+            taskManager = new TaskManager();
+            return taskManager.DelTaskItem(id) ;
         }
         /// <summary>
         /// 根据任务ID（外键）
@@ -318,7 +321,168 @@ namespace WcTusService.Service
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
         public List<tb_taskItem> GetTaskItemList(int id)
         {
-            return null;
+            taskManager = new TaskManager();
+            return taskManager.GetTaskItemByTaskId(id);
+        }
+        #endregion
+
+        #region 奖品发放相关
+        TaskExecuteManager taskExecuteManager = null;
+        /// <summary>
+        /// 按任务分类查询列表信息
+        /// </summary>
+        /// <param name="name">任务名称</param>
+        /// <param name="actionDate">任务开始时间</param>
+        /// <param name="endDate">任务结束时间</param>
+        /// <returns></returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public List<RewardUserGrantEntity> GetTaskExecuteByTaskName(string name, DateTime actionDate, DateTime endDate)
+        {
+            taskExecuteManager = new TaskExecuteManager();
+            return taskExecuteManager.GetTaskExecuteByTaskName("测试",DateTime.Now,DateTime.Now);
+        }
+        /// <summary>
+        /// 根据用户ID发放奖品
+        /// </summary>
+        /// <param name="id">用户ID</param>
+        /// <returns></returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public int GrantRewardByUserID(int id)
+        {
+            taskExecuteManager = new TaskExecuteManager();
+            return taskExecuteManager.GrantRewardByUserID(id);
+        }
+        /// <summary>
+        /// 根据登录用户ID申请奖品
+        /// </summary>
+        /// <param name="id">用户ID</param>
+        /// <returns></returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public int TaskApplication(int id)
+        {
+            taskExecuteManager = new TaskExecuteManager();
+            return taskExecuteManager.TaskApplication(id);
+        }
+        #endregion
+
+        #region 统计报表
+        StatisticalManager statisticalManager = null;
+        /// <summary>
+        /// 活动首次转发统计
+        /// </summary>
+        /// <param name="taskId">任务ID</param>
+        /// <returns></returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public List<Statistical_UserShare_Business> FirstShare(int taskId)
+        {
+            statisticalManager = new StatisticalManager();
+            return statisticalManager.FirstShare(taskId);
+        }
+
+        /// <summary>
+        /// 总转发次数统计
+        /// </summary>
+        /// <param name="taskId">任务ID</param>
+        /// <returns></returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public List<Statistical_UserShare_Business> TotalShare(int taskId)
+        {
+            statisticalManager = new StatisticalManager();
+            return statisticalManager.TotalShare(taskId);
+        }
+
+        /// <summary>
+        /// 活动用户首次转发排名统计
+        /// </summary>
+        /// <param name="taskId">任务ID集合</param>
+        /// <returns></returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public List<Statistical_Rank_business> FirstRank(List<int> taskId)
+        {
+            statisticalManager = new StatisticalManager();
+            return statisticalManager.FirstRank(taskId);
+        }
+
+        /// <summary>
+        /// 活动用户总转排名统计
+        /// </summary>
+        /// <param name="taskId">任务ID集合</param>
+        /// <returns></returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public List<Statistical_Rank_business> TotalRank(List<int> taskId)
+        {
+            statisticalManager = new StatisticalManager();
+            return statisticalManager.TotalRank(taskId);
+        }
+
+        /// <summary>
+        /// 用户奖品总数统计
+        /// </summary>
+        /// <param name="actionTime">开始时间</param>
+        /// <param name="endTime">结束时间</param>
+        /// <param name="RewardId">任务ID</param>
+        /// <returns></returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public List<Statistical_UserRank_Business> UserRewardSum(DateTime actionTime, DateTime endTime, int RewardId)
+        {
+            statisticalManager = new StatisticalManager();
+            return statisticalManager.UserRewardSum(actionTime,endTime,RewardId);
+        }
+
+        #endregion
+
+        #region 用户相关
+        UserManager userManager = new UserManager();
+        /// <summary>
+        /// 添加用户
+        /// </summary>
+        /// <param name="user">用户实体</param>
+        /// <returns></returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public int AddUser(tb_user user)
+        {
+            //DataContractJsonSerializer json = new DataContractJsonSerializer(typeof(tb_user));
+            //byte[] byteArr;
+            //using (MemoryStream ms = new MemoryStream())
+            //{
+            //    json.WriteObject(ms, user);
+
+            //    byteArr = ms.ToArray();
+            //}
+            //string temp = Encoding.UTF8.GetString(byteArr);
+            //Console.WriteLine(temp);
+
+            return userManager.AddUser(user);
+        }
+        /// <summary>
+        /// 更改用户信息
+        /// </summary>
+        /// <param name="user">用户实体</param>
+        /// <returns></returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public int EditUser(tb_user user)
+        {
+            return userManager.EditUser(user);
+        }
+        /// <summary>
+        /// 根据用户ID查询用户信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public tb_user GetUserById(int id)
+        {
+            return userManager.GetUserById(id);
+        }
+        /// <summary>
+        /// 手机号是否被占用
+        /// </summary>
+        /// <param name="phoneNum">手机号</param>
+        /// <returns></returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public bool IsUsedPhone(string phoneNum)
+        {
+            return userManager.IsUsedPhone(phoneNum);
         }
         #endregion
     }

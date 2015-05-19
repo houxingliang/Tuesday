@@ -1,0 +1,58 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using WcTusService.Data;
+using WcTusService.TuesdayModel;
+
+namespace WcTusService.TuesdayBLL
+{
+    /// <summary>
+    /// 用户业务逻辑类
+    /// </summary>
+    public class UserManager
+    {
+        UserData userData = null;
+        /// <summary>
+        /// 添加用户
+        /// </summary>
+        /// <param name="user">用户实体</param>
+        /// <returns></returns>
+        public int AddUser(tb_user user)
+        {
+            userData = new UserData();
+            return userData.AddUser(user);
+        }
+        /// <summary>
+        /// 修改用户信息
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public int EditUser(tb_user user)
+        {
+            userData = new UserData();
+            return userData.EditUser(user);
+        }
+        /// <summary>
+        /// 根据用户主键ID
+        /// 查询用户信息
+        /// </summary>
+        /// <param name="id">用户主键ID</param>
+        /// <returns></returns>
+        public tb_user GetUserById(int id)
+        {
+            userData=new UserData();
+            return userData.GetUserByID(id);
+        }
+        /// <summary>
+        /// 查看手机号是否被占用
+        /// </summary>
+        /// <param name="phoneNum"></param>
+        /// <returns></returns>
+        public Boolean IsUsedPhone(string phoneNum)
+        {
+            userData = new UserData();
+            return userData.IsUsedPhone(phoneNum);
+        }
+    }
+}

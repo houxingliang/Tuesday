@@ -11,17 +11,12 @@ namespace WcTusService.TuesdayModel
 {
     using System;
     using System.Collections.Generic;
-    using System.Runtime.Serialization;
-    [DataContract]
+    
     public partial class tb_reward
     {
-        [DataMember]
         public int pk_reward_id { get; set; }
-        [DataMember]
         public string nvr_rewardName { get; set; }
-        [DataMember]
         public double dbl_count { get; set; }
-        [DataMember]
         public bool bit_isDelete { get; set; }
     }
 }

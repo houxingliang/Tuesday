@@ -53,6 +53,7 @@
     <Property Name="int_secondShareTime" Type="Int32" Nullable="false" />
     <Property Name="dtm_createTime" Type="DateTime" Nullable="false" Precision="3" />
     <Property Type="Boolean" Name="bit_isDelete" Nullable="false" />
+    <Property Type="Int32" Name="fk_superUser_rewardTmp_id" />
   </EntityType>
   <EntityType Name="tb_task">
     <Key>

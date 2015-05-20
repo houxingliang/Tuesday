@@ -5,3 +5,4 @@ D:\Project\星期二\Tuesday\WcTusService\WcTusService\WcTusService\bin\EntityFr
 D:\Project\星期二\Tuesday\WcTusService\WcTusService\WcTusService\bin\zh-Hans\EntityFramework.resources.dll
 D:\Project\星期二\Tuesday\WcTusService\WcTusService\WcTusService\obj\Release\WcTusService.dll
 D:\Project\星期二\Tuesday\WcTusService\WcTusService\WcTusService\obj\Release\WcTusService.pdb
+D:\Project\星期二\Tuesday\WcTusService\WcTusService\WcTusService\obj\Release\WcTusService.csprojResolveAssemblyReference.cache

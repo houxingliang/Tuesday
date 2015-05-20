@@ -48,7 +48,6 @@
     <Property Name="fk_rewardTemplate_id_f" Type="int" Nullable="false" />
     <Property Name="bit_secondShare" Type="bit" Nullable="false" />
     <Property Name="fk_rewardTemplate_id_s" Type="int" Nullable="false" />
-    <Property Name="fk_superUser_rewardTmp_id" Type="int" />
     <Property Name="dbl_secondShareLimit" Type="float" Nullable="false" />
     <Property Name="int_firstShareTime" Type="int" Nullable="false" />
     <Property Name="int_secondShareTime" Type="int" Nullable="false" />

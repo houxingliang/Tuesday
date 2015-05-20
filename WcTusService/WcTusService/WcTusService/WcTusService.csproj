@@ -65,6 +65,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ReadMe.txt" />
     <Content Include="Service\RewardService.svc" />
     <Content Include="TuesdayModel\ShareModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -81,6 +82,12 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ReadMe.txt.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReadMe.txt.designer.cs">
+      <DependentUpon>ReadMe.txt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Service\IRewardService.cs" />
     <Compile Include="Service\RewardService.svc.cs">
       <DependentUpon>RewardService.svc</DependentUpon>

@@ -34,7 +34,6 @@
     <EntitySetMapping Name="tb_share">
       <EntityTypeMapping TypeName="ShareWeiModel.tb_share">
         <MappingFragment StoreEntitySet="tb_share">
-          <ScalarProperty Name="fk_superUser_rewardTmp_id" ColumnName="fk_superUser_rewardTmp_id" />
           <ScalarProperty Name="bit_isDelete" ColumnName="bit_isDelete" />
           <ScalarProperty Name="pk_share_id" ColumnName="pk_share_id" />
           <ScalarProperty Name="nvr_shareName" ColumnName="nvr_shareName" />

@@ -50,6 +50,8 @@ namespace WcTusService.Service
         int DelShare(int id);
         [OperationContract]
         List<tb_share> GetShareList();
+        [OperationContract]
+        List<tb_share> GetHotShareList();
         #endregion
 
         #region  任务相关
@@ -82,7 +84,8 @@ namespace WcTusService.Service
         List<RewardUserGrantEntity> GetTaskExecuteByTaskName(string name, DateTime actionDate, DateTime endDate);
         
         //按用户分类查询奖品发放信息
-
+        [OperationContract]
+        List<RewardUserGrantEntity> GetTaskExecuteByUser(string nickName, string name, string phoneNum);
 
         //根据用户ID发放奖品
         [OperationContract]

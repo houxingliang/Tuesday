@@ -82,5 +82,14 @@ namespace WcTusService.TuesdayBLL
             else
                 return null;
         }
+        /// <summary>
+        /// 获取热门分享内容
+        /// </summary>
+        /// <returns></returns>
+        public List<tb_share> GetHotShare()
+        {
+            sharedata = new ShareData();
+            return sharedata.GetHotShare();
+        }
     }
 }

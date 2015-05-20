@@ -54,5 +54,22 @@ namespace WcTusService.TuesdayBLL
             userData = new UserData();
             return userData.IsUsedPhone(phoneNum);
         }
+
+        /// <summary>
+        /// 根据微信名称或用户名或电话号码查询
+        /// 用户信息
+        /// </summary>
+        /// <param name="nickName">微信昵称</param>
+        /// <param name="name">用户名</param>
+        /// <param name="phoneNum">电话号码</param>
+        /// <returns></returns>
+        public List<tb_user> GetUserByNameOrPhone(string nickName, string name, string phoneNum)
+        {
+            List<tb_user> query = new UserData().GetUserByNameOrPhone(nickName,name,phoneNum);
+            if (query != null)
+                return query.ToList();
+            else
+                return null;
+        }
     }
 }

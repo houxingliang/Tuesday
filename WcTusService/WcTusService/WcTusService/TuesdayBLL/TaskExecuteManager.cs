@@ -133,5 +133,48 @@ namespace WcTusService.TuesdayBLL
             }
             return null;
         }
+        /// <summary>
+        /// 根据用户信息查询奖励发放情况
+        /// </summary>
+        /// <param name="nickName">微信昵称</param>
+        /// <param name="name">用户名</param>
+        /// <param name="phoneNum">电话号码</param>
+        /// <returns></returns>
+        public List<RewardUserGrantEntity> GetTaskExecuteByUser(string nickName,string name,string phoneNum)
+        {
+            UserManager userManager = new UserManager();
+            List < tb_user > userList= userManager.GetUserByNameOrPhone(nickName,name,phoneNum);
+            if (userList != null)
+            {
+                foreach (tb_user user in userList)
+                {
+                    List<tb_taskExecute> taskExecuteList = new List<tb_taskExecute>();
+                    taskExecuteList.AddRange(taskExecuteData.GetRewardTmpList(user.int_user_id));
+                    if (taskExecuteList != null && taskExecuteList.Count > 0)
+                    {
+                        foreach (tb_taskExecute taskExecute in taskExecuteList)
+                        {
+                            RewardUserGrantEntity grant = new RewardUserGrantEntity();
+                            grant.TaskExecute = taskExecute;
+                            grant.User = userData.GetUserByID(taskExecute.fk_user_id);
+                            //根据任务项获取奖励模板的奖品信息
+                            RewardTmpImpData rewardTmpData = new RewardTmpImpData();
+                            RewardData rewardData = new RewardData();
+                            List<tb_reward_Template_imp> impList = rewardTmpData.GetRewardImpList(user.fk_rewardTemplate_id);
+                            List<tb_reward> rewardList = new List<tb_reward>();
+                            foreach (tb_reward_Template_imp imp in impList)
+                            {
+                                tb_reward reward = new tb_reward();
+                                reward.dbl_count = imp.dbl_count;
+                                reward.nvr_rewardName = rewardData.GetRewardByID(imp.fk_reward_id).nvr_rewardName;
+                                grant.Reward.Add(reward);
+
+                            }
+                        }
+                    }
+                }
+            }
+            return null;
+        }
     }
 }

@@ -203,6 +203,16 @@ namespace WcTusService.Service
             shareManager = new ShareManager();
             return shareManager.GetShareList();
         }
+        /// <summary>
+        /// 获取热门分享信息列表
+        /// </summary>
+        /// <returns></returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public List<tb_share> GetHotShareList()
+        {
+            shareManager = new ShareManager();
+            return shareManager.GetHotShare();
+        }
         #endregion
 
         #region 任务相关
@@ -342,6 +352,19 @@ namespace WcTusService.Service
             return taskExecuteManager.GetTaskExecuteByTaskName("测试",DateTime.Now,DateTime.Now);
         }
         /// <summary>
+        /// 根据用户信息查询奖品发放信息
+        /// </summary>
+        /// <param name="nickName">微信昵称</param>
+        /// <param name="name">用户名</param>
+        /// <param name="phoneNum">电话号码</param>
+        /// <returns></returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        List<RewardUserGrantEntity> GetTaskExecuteByUser(string nickName, string name, string phoneNum)
+        {
+            taskExecuteManager = new TaskExecuteManager();
+            return taskExecuteManager.GetTaskExecuteByUser(nickName,name,phoneNum);
+        }
+        /// <summary>
         /// 根据用户ID发放奖品
         /// </summary>
         /// <param name="id">用户ID</param>
@@ -363,6 +386,8 @@ namespace WcTusService.Service
             taskExecuteManager = new TaskExecuteManager();
             return taskExecuteManager.TaskApplication(id);
         }
+
+
         #endregion
 
         #region 统计报表

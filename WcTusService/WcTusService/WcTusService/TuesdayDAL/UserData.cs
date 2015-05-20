@@ -91,5 +91,25 @@ namespace WcTusService.Data
             else
                 return false;
         }
+        /// <summary>
+        /// 根据微信名称或用户名或电话号码查询
+        /// 用户信息
+        /// </summary>
+        /// <param name="nickName">微信昵称</param>
+        /// <param name="name">用户名</param>
+        /// <param name="phoneNum">电话号码</param>
+        /// <returns></returns>
+        public List<tb_user> GetUserByNameOrPhone(string nickName, string name, string phoneNum)
+        {
+            var query = from p in share.tb_user
+                        where p.nvr_wxName.Contains(nickName) ||
+                        p.nvr_userName.Contains(name) ||
+                        p.vr_phoneNum.Contains(phoneNum)
+                        select p;
+            if (query != null)
+                return query.ToList();
+            else
+                return null;
+        }
     }
 }

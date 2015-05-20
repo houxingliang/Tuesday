@@ -76,5 +76,19 @@ namespace WcTusService.Data
                 return null;
             }
         }
+        /// <summary>
+        /// 获取热门分享内容
+        /// </summary>
+        /// <returns></returns>
+        public List<tb_share> GetHotShare()
+        {
+            var query = from p in share.tb_share
+                        orderby (p.int_firstShareTime + p.int_secondShareTime)
+                        select p;
+            if (query != null)
+                return query.ToList();
+            else
+                return null;
+        }
     }
 }

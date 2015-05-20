@@ -13,7 +13,7 @@
       <publishTime>05/08/2015 15:53:09</publishTime>
     </File>
     <File Include="bin/WcTusService.dll">
-      <publishTime>05/19/2015 16:22:43</publishTime>
+      <publishTime>05/15/2015 10:42:27</publishTime>
     </File>
     <File Include="bin/zh-Hans/EntityFramework.resources.dll">
       <publishTime>05/08/2015 15:53:12</publishTime>
@@ -28,7 +28,7 @@
       <publishTime>05/08/2015 15:53:55</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/19/2015 16:22:43</publishTime>
+      <publishTime>05/15/2015 10:42:28</publishTime>
     </File>
   </ItemGroup>
 </Project>

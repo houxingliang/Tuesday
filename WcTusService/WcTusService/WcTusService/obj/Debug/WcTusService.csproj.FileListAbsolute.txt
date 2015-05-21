@@ -6,14 +6,6 @@ D:\Project\星期二\WcTusService\WcTusService\WcTusService\bin\EntityFramework.
 D:\Project\星期二\WcTusService\WcTusService\WcTusService\bin\zh-Hans\EntityFramework.resources.dll
 D:\Project\星期二\WcTusService\WcTusService\WcTusService\obj\Debug\WcTusService.dll
 D:\Project\星期二\WcTusService\WcTusService\WcTusService\obj\Debug\WcTusService.pdb
-D:\Project\星期二\Tuesday\WcTusService\WcTusService\WcTusService\bin\WcTusService.dll
-D:\Project\星期二\Tuesday\WcTusService\WcTusService\WcTusService\bin\WcTusService.pdb
-D:\Project\星期二\Tuesday\WcTusService\WcTusService\WcTusService\bin\EntityFramework.dll
-D:\Project\星期二\Tuesday\WcTusService\WcTusService\WcTusService\bin\EntityFramework.xml
-D:\Project\星期二\Tuesday\WcTusService\WcTusService\WcTusService\bin\zh-Hans\EntityFramework.resources.dll
-D:\Project\星期二\Tuesday\WcTusService\WcTusService\WcTusService\obj\Debug\WcTusService.dll
-D:\Project\星期二\Tuesday\WcTusService\WcTusService\WcTusService\obj\Debug\WcTusService.pdb
-D:\Project\星期二\Tuesday\WcTusService\WcTusService\WcTusService\obj\Debug\WcTusService.csprojResolveAssemblyReference.cache
 C:\Users\星亮\Desktop\Tuesday\WcTusService\WcTusService\WcTusService\bin\WcTusService.dll
 C:\Users\星亮\Desktop\Tuesday\WcTusService\WcTusService\WcTusService\bin\WcTusService.pdb
 C:\Users\星亮\Desktop\Tuesday\WcTusService\WcTusService\WcTusService\bin\EntityFramework.dll
@@ -22,3 +14,11 @@ C:\Users\星亮\Desktop\Tuesday\WcTusService\WcTusService\WcTusService\bin\zh-Ha
 C:\Users\星亮\Desktop\Tuesday\WcTusService\WcTusService\WcTusService\obj\Debug\WcTusService.csprojResolveAssemblyReference.cache
 C:\Users\星亮\Desktop\Tuesday\WcTusService\WcTusService\WcTusService\obj\Debug\WcTusService.dll
 C:\Users\星亮\Desktop\Tuesday\WcTusService\WcTusService\WcTusService\obj\Debug\WcTusService.pdb
+D:\Project\星期二\Tuesday\WcTusService\WcTusService\WcTusService\bin\WcTusService.dll
+D:\Project\星期二\Tuesday\WcTusService\WcTusService\WcTusService\bin\WcTusService.pdb
+D:\Project\星期二\Tuesday\WcTusService\WcTusService\WcTusService\bin\EntityFramework.dll
+D:\Project\星期二\Tuesday\WcTusService\WcTusService\WcTusService\bin\EntityFramework.xml
+D:\Project\星期二\Tuesday\WcTusService\WcTusService\WcTusService\bin\zh-Hans\EntityFramework.resources.dll
+D:\Project\星期二\Tuesday\WcTusService\WcTusService\WcTusService\obj\Debug\WcTusService.csprojResolveAssemblyReference.cache
+D:\Project\星期二\Tuesday\WcTusService\WcTusService\WcTusService\obj\Debug\WcTusService.dll
+D:\Project\星期二\Tuesday\WcTusService\WcTusService\WcTusService\obj\Debug\WcTusService.pdb

@@ -160,7 +160,7 @@ namespace WcTusService.TuesdayBLL
                             //根据任务项获取奖励模板的奖品信息
                             RewardTmpImpData rewardTmpData = new RewardTmpImpData();
                             RewardData rewardData = new RewardData();
-                            List<tb_reward_Template_imp> impList = rewardTmpData.GetRewardImpList(user.fk_rewardTemplate_id);
+                            List<tb_reward_Template_imp> impList = rewardTmpData.GetRewardImpList(1);
                             List<tb_reward> rewardList = new List<tb_reward>();
                             foreach (tb_reward_Template_imp imp in impList)
                             {

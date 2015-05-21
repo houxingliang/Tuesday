@@ -21,6 +21,7 @@ namespace WcTusService.TuesdayBLL
         public List<Statistical_UserShare_Business> FirstShare(int taskId)
         {
             tb_task task = new TaskData().GettaskByid(taskId);
+            userData = new UserData();
             if (task != null)
             {
                 //获取任务的所有任务项信息
@@ -42,21 +43,27 @@ namespace WcTusService.TuesdayBLL
                         List<tb_userShare> userShareList = new List<tb_userShare>();
                         foreach (int i in shareIdList)
                         {
-                            tb_userShare userShare=userShareData.GetUserShareByID(i);
+                            List<tb_userShare> userShare=userShareData.GetUserShareListByShareID(i);
+
                             //是否是首次转发(首次转发将数据放入列表)
-                            if (userShare!=null&&userShare.bit_firstShare == true)
+                            if (userShare!=null)
                             {
-                                userShareList.Add(userShare);
-                                Statistical_UserShare_Business business = new Statistical_UserShare_Business();
-                                business.UserShare = userShare;
-                                tb_user user = userData.GetUserByID(userShare.fk_user_id);
-                                if (user != null)
+                                foreach (var us in userShare)
                                 {
-                                    business.User = user;
+                                    if (us.bit_firstShare == true)
+                                    {
+                                        userShareList.Add(us);
+                                        Statistical_UserShare_Business business = new Statistical_UserShare_Business();
+                                        business.UserShare = us;
+                                        tb_user user = userData.GetUserByID(us.fk_user_id);
+                                        if (user != null)
+                                        {
+                                            business.User = user;
+                                        }
+                                        businessList.Add(business);
+                                    }
                                 }
-                                businessList.Add(business);
                             }
-                            
                         }
                     }
                     return businessList;

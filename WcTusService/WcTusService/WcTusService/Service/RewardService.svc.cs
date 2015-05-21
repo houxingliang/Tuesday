@@ -359,7 +359,7 @@ namespace WcTusService.Service
         /// <param name="phoneNum">电话号码</param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        List<RewardUserGrantEntity> GetTaskExecuteByUser(string nickName, string name, string phoneNum)
+        public List<RewardUserGrantEntity> GetTaskExecuteByUser(string nickName, string name, string phoneNum)
         {
             taskExecuteManager = new TaskExecuteManager();
             return taskExecuteManager.GetTaskExecuteByUser(nickName,name,phoneNum);

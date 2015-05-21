@@ -122,7 +122,7 @@
     <Property Name="bit_firstShare" Type="bit" Nullable="false" />
     <Property Name="dtm_shareTime" Type="datetime" Nullable="false" />
     <Property Name="fk_shareReward_id" Type="int" />
-    <Property Name="dbl_count" Type="datetime" Nullable="false" />
+    <Property Name="dbl_count" Type="float" Nullable="false" />
     <Property Name="bit_grantReward" Type="bit" Nullable="false" />
     <Property Name="bit_isDelete" Type="bit" Nullable="false" />
   </EntityType>

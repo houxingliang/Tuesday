@@ -115,15 +115,15 @@
     <Key>
       <PropertyRef Name="pk_userShare_ID" />
     </Key>
-    <Property Name="pk_userShare_ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-    <Property Name="fk_shareContents_id" Type="Int32" Nullable="false" />
-    <Property Name="fk_user_id" Type="Int32" Nullable="false" />
-    <Property Name="fk_superUser_id" Type="Int32" />
-    <Property Name="bit_firstShare" Type="Boolean" Nullable="false" />
-    <Property Name="dtm_shareTime" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="fk_shareReward_id" Type="Int32" />
-    <Property Name="dbl_count" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="bit_grantReward" Type="Boolean" Nullable="false" />
+    <Property Type="Int32" Name="pk_userShare_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="fk_shareContents_id" Nullable="false" />
+    <Property Type="Int32" Name="fk_user_id" Nullable="false" />
+    <Property Type="Int32" Name="fk_superUser_id" />
+    <Property Type="Boolean" Name="bit_firstShare" Nullable="false" />
+    <Property Type="DateTime" Name="dtm_shareTime" Nullable="false" Precision="3" />
+    <Property Type="Int32" Name="fk_shareReward_id" />
+    <Property Type="Double" Name="dbl_count" Nullable="false" />
+    <Property Type="Boolean" Name="bit_grantReward" Nullable="false" />
     <Property Type="Boolean" Name="bit_isDelete" Nullable="false" />
   </EntityType>
 </Schema>

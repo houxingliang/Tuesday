@@ -127,7 +127,7 @@
           <Property Name="bit_firstShare" Type="bit" Nullable="false" />
           <Property Name="dtm_shareTime" Type="datetime" Nullable="false" />
           <Property Name="fk_shareReward_id" Type="int" />
-          <Property Name="dbl_count" Type="datetime" Nullable="false" />
+          <Property Name="dbl_count" Type="float" Nullable="false" />
           <Property Name="bit_grantReward" Type="bit" Nullable="false" />
           <Property Name="bit_isDelete" Type="bit" Nullable="false" />
         </EntityType>
@@ -250,15 +250,15 @@
           <Key>
             <PropertyRef Name="pk_userShare_ID" />
           </Key>
-          <Property Name="pk_userShare_ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="fk_shareContents_id" Type="Int32" Nullable="false" />
-          <Property Name="fk_user_id" Type="Int32" Nullable="false" />
-          <Property Name="fk_superUser_id" Type="Int32" />
-          <Property Name="bit_firstShare" Type="Boolean" Nullable="false" />
-          <Property Name="dtm_shareTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="fk_shareReward_id" Type="Int32" />
-          <Property Name="dbl_count" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="bit_grantReward" Type="Boolean" Nullable="false" />
+          <Property Type="Int32" Name="pk_userShare_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="fk_shareContents_id" Nullable="false" />
+          <Property Type="Int32" Name="fk_user_id" Nullable="false" />
+          <Property Type="Int32" Name="fk_superUser_id" />
+          <Property Type="Boolean" Name="bit_firstShare" Nullable="false" />
+          <Property Type="DateTime" Name="dtm_shareTime" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="fk_shareReward_id" />
+          <Property Type="Double" Name="dbl_count" Nullable="false" />
+          <Property Type="Boolean" Name="bit_grantReward" Nullable="false" />
           <Property Type="Boolean" Name="bit_isDelete" Nullable="false" />
         </EntityType>
       </Schema>
@@ -379,15 +379,15 @@
             <EntityTypeMapping TypeName="ShareWeiModel.tb_userShare">
               <MappingFragment StoreEntitySet="tb_userShare">
                 <ScalarProperty Name="bit_isDelete" ColumnName="bit_isDelete" />
-                <ScalarProperty Name="pk_userShare_ID" ColumnName="pk_userShare_ID" />
-                <ScalarProperty Name="fk_shareContents_id" ColumnName="fk_shareContents_id" />
-                <ScalarProperty Name="fk_user_id" ColumnName="fk_user_id" />
-                <ScalarProperty Name="fk_superUser_id" ColumnName="fk_superUser_id" />
-                <ScalarProperty Name="bit_firstShare" ColumnName="bit_firstShare" />
-                <ScalarProperty Name="dtm_shareTime" ColumnName="dtm_shareTime" />
-                <ScalarProperty Name="fk_shareReward_id" ColumnName="fk_shareReward_id" />
-                <ScalarProperty Name="dbl_count" ColumnName="dbl_count" />
                 <ScalarProperty Name="bit_grantReward" ColumnName="bit_grantReward" />
+                <ScalarProperty Name="dbl_count" ColumnName="dbl_count" />
+                <ScalarProperty Name="fk_shareReward_id" ColumnName="fk_shareReward_id" />
+                <ScalarProperty Name="dtm_shareTime" ColumnName="dtm_shareTime" />
+                <ScalarProperty Name="bit_firstShare" ColumnName="bit_firstShare" />
+                <ScalarProperty Name="fk_superUser_id" ColumnName="fk_superUser_id" />
+                <ScalarProperty Name="fk_user_id" ColumnName="fk_user_id" />
+                <ScalarProperty Name="fk_shareContents_id" ColumnName="fk_shareContents_id" />
+                <ScalarProperty Name="pk_userShare_ID" ColumnName="pk_userShare_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

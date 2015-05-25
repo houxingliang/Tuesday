@@ -282,7 +282,10 @@ namespace WcTusService.TuesdayBLL
                     userRank.RewardType = new RewardData().GetRewardByID(RewardId).nvr_rewardName;
                     rewardName=userRank.RewardType;
                     //赋值奖品数量
-                    userRank.He = imp.dbl_count;
+                    if (imp != null)
+                    { 
+                        userRank.He = imp.dbl_count;
+                    }
                     rankList.Add(userRank);
 
                 }

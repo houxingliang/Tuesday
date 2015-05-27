@@ -313,5 +313,153 @@ namespace WcTusService.TuesdayBLL
             }
             return returnRankList;
         }
+        /// <summary>
+        /// 获取糖币明细信息
+        /// </summary>
+        /// <param name="actionTime"></param>
+        /// <param name="endTime"></param>
+        /// <returns></returns>
+        public List<TangbiDetail> GetTangbiDetal(DateTime actionTime,DateTime endTime)
+        {
+            //建立糖币明细集合
+            List<TangbiDetail> tangbiList = new List<TangbiDetail>();
+            //获取用户分享表的所有有效数据
+            userShareData = new UserShareData();
+            userData=new UserData();
+            List<tb_userShare> userShareList = userShareData.GetUserShareList();
+            if (userShareList != null)
+            {
+                var temp = from p in userShareList
+                           where p.dtm_shareTime >= actionTime &&
+                           p.dtm_shareTime <= endTime
+                           select p;
+                foreach (var userShare in temp)
+                {
+                    TangbiDetail tangbiDetail = new TangbiDetail();
+                    //糖币明细中的用户信息
+                    tangbiDetail.User = userData.GetUserByID(userShare.fk_user_id);
+                    //糖币明细中的分享时间
+                    tangbiDetail.ShareTime = userShare.dtm_shareTime;
+                    //糖币明细中的活动名称
+                    tb_share share = new ShareData().GetshareByid(userShare.fk_shareContents_id);
+                    if (share != null)
+                    {
+                        tangbiDetail.Name = share.nvr_shareName;
+                    }
+                    //如果用户是首次分享
+                    if (userShare.bit_firstShare)
+                    {
+                        tangbiDetail.ShareType = "首次分享";
+                        tb_rewardTemplate rt = new tb_rewardTemplate();
+                        rt = new RewardTemplateData().GetRewardTmpById(share.fk_rewardTemplate_id_f);
+                        if (rt != null)
+                        {
+                            List<tb_reward_Template_imp> impList = new RewardTmpImpData().GetRewardImpList(rt.pk_rewardTemplate_id);
+                            if (impList != null)
+                            {
+                                foreach (var imp in impList)
+                                {
+                                    tb_reward reward = new RewardData().GetRewardByID(imp.fk_reward_id);
+                                    if (reward.nvr_rewardName.Equals("糖币"))
+                                    {
+                                        tangbiDetail.Sum = imp.dbl_count;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        tangbiDetail.ShareType = "二次分享";
+                        tb_rewardTemplate rt = new tb_rewardTemplate();
+                        rt = new RewardTemplateData().GetRewardTmpById(share.fk_rewardTemplate_id_s);
+                        if (rt != null)
+                        {
+                            List<tb_reward_Template_imp> impList = new RewardTmpImpData().GetRewardImpList(rt.pk_rewardTemplate_id);
+                            if (impList != null)
+                            {
+                                foreach (var imp in impList)
+                                {
+                                    tb_reward reward = new RewardData().GetRewardByID(imp.fk_reward_id);
+                                    if (reward.nvr_rewardName.Equals("糖币"))
+                                    {
+                                        tangbiDetail.Sum = imp.dbl_count;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    if (userShare.fk_superUser_id != 0&&userShare.fk_superUser_id!=null
+                        && share.fk_superUser_rewardTmp_id != null)
+                    {
+                        TangbiDetail tangbiDetailSuper = new TangbiDetail();
+                        tangbiDetailSuper.User =userData.GetUserByID((int)userShare.fk_superUser_id);
+                        tangbiDetailSuper.ShareType = "二次返还";
+                        tangbiDetailSuper.ShareTime = userShare.dtm_shareTime;
+                        tangbiDetailSuper.Name = tangbiDetail.Name;
+
+                        tb_rewardTemplate rt = new tb_rewardTemplate();
+                        rt = new RewardTemplateData().GetRewardTmpById((int)share.fk_superUser_rewardTmp_id);
+                        if (rt != null)
+                        {
+                            List<tb_reward_Template_imp> impList = new RewardTmpImpData().GetRewardImpList(rt.pk_rewardTemplate_id);
+                            if (impList != null)
+                            {
+                                foreach (var imp in impList)
+                                {
+                                    tb_reward reward = new RewardData().GetRewardByID(imp.fk_reward_id);
+                                    if (reward.nvr_rewardName.Equals("糖币"))
+                                    {
+                                        tangbiDetailSuper.Sum = imp.dbl_count;
+                                    }
+                                }
+                            }
+                        }
+                        tangbiList.Add(tangbiDetailSuper);
+                    }
+                    tangbiList.Add(tangbiDetail);
+                }
+            }
+            //获取任务执行表的所有有效数据
+            List<tb_taskExecute> taskExecuteList = new TaskExecuteData().GetRewardTmpList();
+            if (taskExecuteList != null)
+            {
+                var temp = from p in taskExecuteList
+                           where p.dtm_executeTime >= actionTime &&
+                           p.dtm_executeTime <= endTime
+                           select p;
+                foreach (var taskExecute in temp)
+                {
+                    TangbiDetail tangbiDetail = new TangbiDetail();
+                    tangbiDetail.ShareType = "首次分享";
+                    tangbiDetail.ShareTime = taskExecute.dtm_executeTime;
+                    //任务执行名称
+                    tb_taskItem taskItem = new TaskItemData().GetItemByid(taskExecute.fk_taskItem_id);
+                    if (taskItem != null)
+                    {
+                        tb_rewardTemplate rt = new tb_rewardTemplate();
+                        rt = new RewardTemplateData().GetRewardTmpById((int)taskItem.fk_rewardTemplate_id);
+                        if (rt != null)
+                        {
+                            List<tb_reward_Template_imp> impList = new RewardTmpImpData().GetRewardImpList(rt.pk_rewardTemplate_id);
+                            if (impList != null)
+                            {
+                                foreach (var imp in impList)
+                                {
+                                    tb_reward reward = new RewardData().GetRewardByID(imp.fk_reward_id);
+                                    if (reward.nvr_rewardName.Equals("糖币"))
+                                    {
+                                        tangbiDetail.Sum = imp.dbl_count;
+                                    }
+                                }
+                            }
+                        }
+                        tangbiDetail.Name = new TaskData().GettaskByid(taskItem.fk_task_id).nvr_taskName;
+                    }
+                    tangbiList.Add(tangbiDetail);
+                }
+            }
+            return tangbiList;
+        }
     }
 }

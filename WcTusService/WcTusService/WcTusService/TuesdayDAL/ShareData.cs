@@ -90,5 +90,19 @@ namespace WcTusService.Data
             else
                 return null;
         }
+        /// <summary>
+        /// 获取最新分享内容
+        /// </summary>
+        /// <returns></returns>
+        public List<tb_share> GetNewShare()
+        {
+            var query = (from p in share.tb_share
+                        orderby p.dtm_createTime descending
+                        select p).Take(10);
+            if (query != null)
+                return query.ToList();
+            else
+                return null;
+        }
     }
 }

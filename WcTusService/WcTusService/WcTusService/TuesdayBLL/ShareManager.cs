@@ -91,5 +91,11 @@ namespace WcTusService.TuesdayBLL
             sharedata = new ShareData();
             return sharedata.GetHotShare();
         }
+
+        public List<tb_share> GetNewShare()
+        {
+            sharedata = new ShareData();
+            return sharedata.GetNewShare();
+        }
     }
 }

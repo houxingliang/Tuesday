@@ -67,6 +67,7 @@ namespace WcTusService.Data
         public List<tb_rewardTemplate> GetRewardTmpList()
         {
             var rt = from r in db.tb_rewardTemplate
+                     where r.bit_isDelete==false
                      select r;
             return rt.ToList();
         }

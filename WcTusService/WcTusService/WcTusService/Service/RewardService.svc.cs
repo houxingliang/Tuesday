@@ -224,6 +224,16 @@ namespace WcTusService.Service
             shareManager = new ShareManager();
             return shareManager.GetHotShare();
         }
+        /// <summary>
+        /// 获取最新分享信息列表
+        /// </summary>
+        /// <returns></returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public List<tb_share> GetNewShareList()
+        {
+            shareManager = new ShareManager();
+            return shareManager.GetNewShare();
+        }
         #endregion
 
         #region 任务相关
@@ -476,6 +486,17 @@ namespace WcTusService.Service
         {
             statisticalManager = new StatisticalManager();
             return statisticalManager.UserRewardSum(actionTime,endTime,RewardId);
+        }
+        /// <summary>
+        /// 获取糖币明细
+        /// </summary>
+        /// <param name="actionTime">开始时间</param>
+        /// <param name="endTime">结束时间</param>
+        /// <returns>糖币明细集合</returns>
+        public List<TangbiDetail> GetTangBiDetail(DateTime actionTime,DateTime endTime)
+        {
+            statisticalManager = new StatisticalManager();
+            return statisticalManager.GetTangbiDetal(actionTime,endTime);
         }
 
         #endregion

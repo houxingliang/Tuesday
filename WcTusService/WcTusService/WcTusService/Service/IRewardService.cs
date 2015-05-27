@@ -124,8 +124,12 @@ namespace WcTusService.Service
         //用户奖品总数统计
         [OperationContract]
         List<Statistical_UserRank_Business> UserRewardSum(DateTime actionTime, DateTime endTime, int RewardId);
-
-
+        //糖币明细
+        [OperationContract]
+        List<TangbiDetail> GetTangBiDetail(DateTime actionTime,DateTime endTime);
+        //获取最新分享统计信息
+        [OperationContract]
+        List<tb_share> GetNewShareList();
         #endregion
 
         #region 用户相关

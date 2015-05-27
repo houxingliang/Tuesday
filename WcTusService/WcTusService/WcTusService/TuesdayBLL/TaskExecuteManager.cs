@@ -176,5 +176,66 @@ namespace WcTusService.TuesdayBLL
             }
             return null;
         }
+        /// <summary>
+        /// 按任务分类(主键ID)查询奖品发放列表
+        /// </summary>
+        /// <param name="id">主键ID</param>
+        /// <param name="actionDate">开始时间</param>
+        /// <param name="endDate">结束时间</param>
+        public List<RewardUserGrantEntity> GetTaskExecuteByTaskID(int id, DateTime actionDate, DateTime endDate)
+        {
+            taskExecuteData = new TaskExecuteData();
+            taskItemData = new TaskItemData();
+            userData = new UserData();
+            List<tb_task> taskList = taskExecuteData.GetTaskByID(id, actionDate, endDate);
+            //需要拼接业务实体，将任务表和任务执行表的信息拼接到一起。
+            if (taskList != null)
+            {
+                foreach (tb_task task in taskList)
+                {
+                    //获取任务的所有任务项
+                    List<tb_taskItem> taskItemList = taskItemData.GetItemBytaskid(task.pk_task_id);
+                    //根据任务项查询符合条件的任务执行情况
+                    List<RewardUserGrantEntity> grantList = new List<RewardUserGrantEntity>();
+                    if (taskItemList != null)
+                    {
+                        foreach (tb_taskItem taskItem in taskItemList)
+                        {
+                            List<tb_taskExecute> taskExecuteList = new List<tb_taskExecute>();
+                            List<tb_taskExecute> temp = taskExecuteData.GetRewardTmpListByItemId(taskItem.pk_taskItem_id);
+                            if (temp != null)
+                            {
+                                taskExecuteList.AddRange(temp);
+                                if (taskExecuteList != null && taskExecuteList.Count > 0)
+                                {
+                                    foreach (tb_taskExecute taskExecute in taskExecuteList)
+                                    {
+                                        RewardUserGrantEntity grant = new RewardUserGrantEntity();
+                                        grant.TaskExecute = taskExecute;
+                                        grant.User = userData.GetUserByID(taskExecute.fk_user_id);
+                                        //根据任务项获取奖励模板的奖品信息
+                                        RewardTmpImpData rewardTmpData = new RewardTmpImpData();
+                                        RewardData rewardData = new RewardData();
+                                        List<tb_reward_Template_imp> impList = rewardTmpData.GetRewardImpList(taskItem.fk_rewardTemplate_id);
+                                        List<tb_reward> rewardList = new List<tb_reward>();
+                                        grant.Reward = new List<tb_reward>();
+                                        foreach (tb_reward_Template_imp imp in impList)
+                                        {
+                                            tb_reward reward = new tb_reward();
+                                            reward.dbl_count = imp.dbl_count;
+                                            reward.nvr_rewardName = rewardData.GetRewardByID(imp.fk_reward_id).nvr_rewardName;
+                                            grant.Reward.Add(reward);
+                                        }
+                                        grantList.Add(grant);
+                                    }
+                                }   
+                            }
+                        }
+                    }
+                    return grantList;
+                }
+            }
+            return null;
+        }
     }
 }

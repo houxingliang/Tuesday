@@ -175,5 +175,24 @@ namespace WcTusService.Data
             else
                 return null;
         }
+
+        /// <summary>
+        /// 根据任务名称和时间
+        /// 查询符合条件的任务列表
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public List<tb_task> GetTaskByID(int id, DateTime actionDate, DateTime endDate)
+        {
+            var query = from p in db.tb_task
+                        where p.pk_task_id==id &&
+                        p.dtm_actionTime <= actionDate &&
+                        p.dtm_endTime >= endDate && p.bit_isDelete == false
+                        select p;
+            if (query != null)
+                return query.ToList();
+            else
+                return null;
+        }
     }
 }

@@ -349,7 +349,20 @@ namespace WcTusService.Service
         public List<RewardUserGrantEntity> GetTaskExecuteByTaskName(string name, DateTime actionDate, DateTime endDate)
         {
             taskExecuteManager = new TaskExecuteManager();
-            return taskExecuteManager.GetTaskExecuteByTaskName("测试",DateTime.Now,DateTime.Now);
+            return taskExecuteManager.GetTaskExecuteByTaskName(name,DateTime.Now,DateTime.Now);
+        }
+        /// <summary>
+        /// 按任务分类主键ID查询列表信息
+        /// </summary>
+        /// <param name="id">主键ID</param>
+        /// <param name="actionDate">开始时间</param>
+        /// <param name="endDate">结束时间</param>
+        /// <returns></returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public List<RewardUserGrantEntity> GetTaskExecuteByTaskID(int id, DateTime actionDate, DateTime endDate)
+        {
+            taskExecuteManager = new TaskExecuteManager();
+            return taskExecuteManager.GetTaskExecuteByTaskID(id, actionDate, endDate);
         }
         /// <summary>
         /// 根据用户信息查询奖品发放信息

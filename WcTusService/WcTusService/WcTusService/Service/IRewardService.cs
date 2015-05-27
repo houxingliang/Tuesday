@@ -82,7 +82,11 @@ namespace WcTusService.Service
         //按任务分类查询列表信息
         [OperationContract]
         List<RewardUserGrantEntity> GetTaskExecuteByTaskName(string name, DateTime actionDate, DateTime endDate);
-        
+
+        //按任务分类的主键ID查询列表信息
+        [OperationContract]
+        List<RewardUserGrantEntity> GetTaskExecuteByTaskID(int id, DateTime actionDate, DateTime endDate);
+
         //按用户分类查询奖品发放信息
         [OperationContract]
         List<RewardUserGrantEntity> GetTaskExecuteByUser(string nickName, string name, string phoneNum);
@@ -90,6 +94,7 @@ namespace WcTusService.Service
         //根据用户ID发放奖品
         [OperationContract]
         int GrantRewardByUserID(int id);
+
         //根据登录用户ID申请奖品
         [OperationContract]
         int TaskApplication(int id);

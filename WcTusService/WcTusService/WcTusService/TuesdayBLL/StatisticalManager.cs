@@ -287,7 +287,6 @@ namespace WcTusService.TuesdayBLL
                         userRank.He = imp.dbl_count;
                     }
                     rankList.Add(userRank);
-
                 }
             }
             //根据奖励模板，查询所有的奖励信息（名称和数量）

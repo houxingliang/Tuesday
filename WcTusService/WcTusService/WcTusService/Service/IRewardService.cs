@@ -39,6 +39,9 @@ namespace WcTusService.Service
 
         [OperationContract]
         List<RewardTemplate> GetRewrdTmpList();
+
+        [OperationContract]
+        List<tb_reward_Template_imp> GetRewardImpList(int tmpID);
         #endregion
 
         #region 分享相关

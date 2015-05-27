@@ -132,6 +132,7 @@
     <Compile Include="TuesdayModel\Statistical_UserRank_Business.cs" />
     <Compile Include="TuesdayModel\Statistical_UserShare_Business.cs" />
     <Compile Include="TuesdayModel\SugarList.cs" />
+    <Compile Include="TuesdayModel\TangbiDetail.cs" />
     <Compile Include="TuesdayModel\TaskExecuteBusinessEntity.cs" />
     <Compile Include="TuesdayModel\tb_reward.cs">
       <DependentUpon>ShareModel.tt</DependentUpon>

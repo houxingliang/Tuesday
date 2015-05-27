@@ -156,6 +156,17 @@ namespace WcTusService.Service
             RewardTemplateManager rtm = new RewardTemplateManager();
             return rtm.GetRewardTemplateList();
         }
+        /// <summary>
+        /// 根据模板主键ID查询奖励模板的所有奖品信息
+        /// </summary>
+        /// <param name="tmpID">模板主键ID</param>
+        /// <returns>模板下的奖品列表</returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public List<tb_reward_Template_imp> GetRewardImpList(int tmpID)
+        {
+            RewardTemplateManager rtm = new RewardTemplateManager();
+            return rtm.GetRewardImpList(tmpID);
+        }
         #endregion
 
         #region 分享相关

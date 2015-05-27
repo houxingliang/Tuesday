@@ -185,5 +185,16 @@ namespace WcTusService.TuesdayBLL
             }
             return rtd.EditRewardTmp(trt);
         }
+
+        /// <summary>
+        /// 根据奖品模板ID
+        /// 获取奖品模板奖品集合
+        /// </summary>
+        /// <returns></returns>
+        public List<tb_reward_Template_imp> GetRewardImpList(int tmpID)
+        {
+            rtid = new RewardTmpImpData();
+            return rtid.GetRewardImpList(tmpID);
+        }
     }
 }

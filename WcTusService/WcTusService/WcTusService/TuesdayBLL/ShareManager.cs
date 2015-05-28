@@ -73,10 +73,10 @@ namespace WcTusService.TuesdayBLL
         /// 获取分享内容列表信息
         /// </summary>
         /// <returns></returns>
-        public List<tb_share> GetShareList()
+        public List<tb_share> GetShareList(bool status)
         {
             sharedata = new ShareData();
-            List<tb_share> shareList = sharedata.GetshareAll();
+            List<tb_share> shareList = sharedata.GetshareAll(status);
             if (shareList != null)
                 return shareList;
             else

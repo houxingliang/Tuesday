@@ -55,7 +55,7 @@ namespace WcTusService.Service
         [OperationContract]
         int DelShare(int id, string token);
         [OperationContract]
-        List<tb_share> GetShareList(string token);
+        List<tb_share> GetShareList(bool status,string token);
         [OperationContract]
         List<tb_share> GetHotShareList(string token);
         [OperationContract]
@@ -153,7 +153,7 @@ namespace WcTusService.Service
         #region token相关
 
         [OperationContract]
-        TokenEntity EditToken(string appid, string timestamp);
+        TokenEntity EditToken(string appid);
         [OperationContract]
         TokenEntity GetToken(string appid);
         #endregion

@@ -55,6 +55,7 @@
     <Property Name="dtm_createTime" Type="DateTime" Nullable="false" Precision="3" />
     <Property Type="Boolean" Name="bit_isDelete" Nullable="false" />
     <Property Type="Int32" Name="fk_superUser_rewardTmp_id" />
+    <Property Type="Boolean" Name="bit_status" Nullable="false" />
   </EntityType>
   <EntityType Name="tb_task">
     <Key>

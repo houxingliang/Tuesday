@@ -42,6 +42,8 @@ public partial class tb_share
 
     public Nullable<int> fk_superUser_rewardTmp_id { get; set; }
 
+    public bool bit_status { get; set; }
+
 }
 
 }

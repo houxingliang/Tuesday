@@ -61,19 +61,37 @@ namespace WcTusService.Data
         /// 得到全部分享内容
         /// </summary>
         /// <param name="task"></param>
-        public List<tb_share> GetshareAll()
+        public List<tb_share> GetshareAll(bool status)
         {
-            var ta = from p in share.tb_share
-                     where p.bit_isDelete==false
-                     select p;
-            if (ta.Count() != 0)
+            if (status)
             {
-                return ta.ToList();
+                var ta = from p in share.tb_share
+                         where p.bit_isDelete == false && p.bit_status==true
+                             select p;
+                if (ta.Count() != 0)
+                {
+                    return ta.ToList();
 
+                }
+                else
+                {
+                    return null;
+                }
             }
             else
             {
-                return null;
+                var ta = from p in share.tb_share
+                         where p.bit_isDelete == false
+                         select p;
+                if (ta.Count() != 0)
+                {
+                    return ta.ToList();
+
+                }
+                else
+                {
+                    return null;
+                }
             }
         }
         /// <summary>
@@ -83,6 +101,7 @@ namespace WcTusService.Data
         public List<tb_share> GetHotShare()
         {
             var query = from p in share.tb_share
+                        where p.bit_isDelete == false
                         orderby (p.int_firstShareTime + p.int_secondShareTime)
                         select p;
             if (query != null)
@@ -97,6 +116,7 @@ namespace WcTusService.Data
         public List<tb_share> GetNewShare()
         {
             var query = (from p in share.tb_share
+                         where p.bit_isDelete==false
                         orderby p.dtm_createTime descending
                         select p).Take(10);
             if (query != null)

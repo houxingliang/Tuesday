@@ -25,7 +25,7 @@ namespace WcTusService.Service
         {
         }
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public List<string> GetList()
+        public List<string> GetList(string token)
         {
             List<string> list = new List<string>();
             list.Add("s");
@@ -236,11 +236,11 @@ namespace WcTusService.Service
         /// </summary>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public List<tb_share> GetShareList(string token)
+        public List<tb_share> GetShareList(bool status,string token)
         {
             new TokenManager().IsToken(token);
             shareManager = new ShareManager();
-            return shareManager.GetShareList();
+            return shareManager.GetShareList(status);
         }
 
         /// <summary>
@@ -646,8 +646,9 @@ namespace WcTusService.Service
         /// <param name="appid"></param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public TokenEntity EditToken(string appid,string timestamp)
+        public TokenEntity EditToken(string appid)
         {
+            string timestamp = DateTime.Now.ToBinary().ToString();
             var q = from p in share.tb_token
                         where p.vr_appid == appid
                         select p;

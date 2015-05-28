@@ -60,6 +60,7 @@
           <Property Name="int_secondShareTime" Type="int" Nullable="false" />
           <Property Name="dtm_createTime" Type="datetime" Nullable="false" />
           <Property Name="bit_isDelete" Type="bit" Nullable="false" />
+          <Property Name="bit_status" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="tb_task">
           <Key>
@@ -200,6 +201,7 @@
           <Property Name="dtm_createTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Type="Boolean" Name="bit_isDelete" Nullable="false" />
           <Property Type="Int32" Name="fk_superUser_rewardTmp_id" />
+          <Property Type="Boolean" Name="bit_status" Nullable="false" />
         </EntityType>
         <EntityType Name="tb_task">
           <Key>
@@ -320,6 +322,7 @@
           <EntitySetMapping Name="tb_share">
             <EntityTypeMapping TypeName="ShareWeiModel.tb_share">
               <MappingFragment StoreEntitySet="tb_share">
+                <ScalarProperty Name="bit_status" ColumnName="bit_status" />
                 <ScalarProperty Name="fk_superUser_rewardTmp_id" ColumnName="fk_superUser_rewardTmp_id" />
                 <ScalarProperty Name="bit_isDelete" ColumnName="bit_isDelete" />
                 <ScalarProperty Name="pk_share_id" ColumnName="pk_share_id" />

@@ -98,6 +98,7 @@
     <Compile Include="TuesdayBLL\StatisticalManager.cs" />
     <Compile Include="TuesdayBLL\TaskExecuteManager.cs" />
     <Compile Include="TuesdayBLL\TaskManager.cs" />
+    <Compile Include="TuesdayBLL\TokenManager.cs" />
     <Compile Include="TuesdayBLL\UserManager.cs" />
     <Compile Include="TuesdayDAL\RewardData.cs" />
     <Compile Include="TuesdayDAL\RewardTemplateData.cs" />
@@ -155,12 +156,16 @@
     <Compile Include="TuesdayModel\tb_taskItem.cs">
       <DependentUpon>ShareModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="TuesdayModel\tb_token.cs">
+      <DependentUpon>ShareModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="TuesdayModel\tb_user.cs">
       <DependentUpon>ShareModel.tt</DependentUpon>
     </Compile>
     <Compile Include="TuesdayModel\tb_userShare.cs">
       <DependentUpon>ShareModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="TuesdayModel\TokenEntity.cs" />
     <Compile Include="TuesdayModel\Ttime.cs" />
     <Compile Include="TuesdayModel\TtimeRanking.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

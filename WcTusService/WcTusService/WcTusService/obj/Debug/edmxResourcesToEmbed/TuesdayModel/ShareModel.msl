@@ -125,5 +125,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="tb_token">
+      <EntityTypeMapping TypeName="ShareWeiModel.tb_token">
+        <MappingFragment StoreEntitySet="tb_token">
+          <ScalarProperty Name="dtm_tokenTime" ColumnName="dtm_tokenTime" />
+          <ScalarProperty Name="vr_token" ColumnName="vr_token" />
+          <ScalarProperty Name="vr_appid" ColumnName="vr_appid" />
+          <ScalarProperty Name="pk_tokenID" ColumnName="pk_tokenID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

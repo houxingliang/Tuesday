@@ -8,6 +8,7 @@
     <EntitySet Name="tb_task" EntityType="ShareWeiModel.Store.tb_task" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="tb_taskExecute" EntityType="ShareWeiModel.Store.tb_taskExecute" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="tb_taskItem" EntityType="ShareWeiModel.Store.tb_taskItem" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tb_token" EntityType="ShareWeiModel.Store.tb_token" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="tb_user" EntityType="ShareWeiModel.Store.tb_user" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="tb_userShare" EntityType="ShareWeiModel.Store.tb_userShare" store:Type="Tables" Schema="dbo" />
   </EntityContainer>
@@ -98,6 +99,15 @@
     <Property Name="fk_rewardTemplate_id" Type="int" Nullable="false" />
     <Property Name="bit_isDelete" Type="bit" Nullable="false" />
     <Property Name="bit_isInherit" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_token">
+    <Key>
+      <PropertyRef Name="pk_tokenID" />
+    </Key>
+    <Property Name="pk_tokenID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="vr_appid" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="vr_token" Type="varchar" MaxLength="50" />
+    <Property Name="dtm_tokenTime" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="tb_user">
     <Key>

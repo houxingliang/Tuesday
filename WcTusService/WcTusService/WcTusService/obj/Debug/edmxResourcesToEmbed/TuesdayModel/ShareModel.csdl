@@ -10,6 +10,7 @@
     <EntitySet Name="tb_taskItem" EntityType="ShareWeiModel.tb_taskItem" />
     <EntitySet Name="tb_user" EntityType="ShareWeiModel.tb_user" />
     <EntitySet Name="tb_userShare" EntityType="ShareWeiModel.tb_userShare" />
+    <EntitySet Name="tb_token" EntityType="ShareWeiModel.tb_token" />
   </EntityContainer>
   <EntityType Name="tb_reward">
     <Key>
@@ -125,5 +126,14 @@
     <Property Type="Double" Name="dbl_count" Nullable="false" />
     <Property Type="Boolean" Name="bit_grantReward" Nullable="false" />
     <Property Type="Boolean" Name="bit_isDelete" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_token">
+    <Key>
+      <PropertyRef Name="pk_tokenID" />
+    </Key>
+    <Property Type="Int32" Name="pk_tokenID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="vr_appid" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="vr_token" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="dtm_tokenTime" Precision="3" Nullable="false" />
   </EntityType>
 </Schema>

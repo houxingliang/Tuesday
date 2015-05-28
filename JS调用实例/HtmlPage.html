@@ -747,6 +747,38 @@
                 }
             });
         }
+        function GetToken() {
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/GetToken",
+                data: '{"appid":"114951f42e6e58840a6904bc3148aea136d9e015"}',
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data+"error");
+                }
+            });
+        }
+        function EditToken() {
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/EditToken",
+                data: '{"appid":"1001011","timestamp":""}',
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (su) {
+                    alert(su+"");
+                }
+            });
+        }
     </script>
 
 </head>
@@ -805,9 +837,11 @@
      <input type="button" onclick="AddUser()" value="添加用户" />
     <input type="button" onclick="EditUser()" value="修改用户信息" />
     <input type="button" onclick="GetUserById()" value="获取用户信息" />
-    <input type="button" onclick="IsUsedPhone()" value="查看手机号是否被占用" />
+    <input type="button" onclick="IsUsedPhone()" value="查看手机号是否被占用" /><br /><br />
+    关于Token:<br />
 
-
+    <input type="button" onclick="GetToken()" value="获取token" />
+    <input type="button" onclick="EditToken()" value="更新token" />
 
 </body>
 </html>

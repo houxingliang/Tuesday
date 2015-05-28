@@ -50,6 +50,8 @@ public partial class ShareWeiEntities : DbContext
 
     public DbSet<tb_userShare> tb_userShare { get; set; }
 
+    public DbSet<tb_token> tb_token { get; set; }
+
 }
 
 }

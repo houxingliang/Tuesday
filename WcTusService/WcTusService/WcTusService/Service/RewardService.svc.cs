@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -8,6 +9,7 @@ using System.ServiceModel;
 using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
 using System.Text;
+using System.Web.Security;
 using WcTusService.TuesdayBLL;
 using WcTusService.TuesdayModel;
 
@@ -40,8 +42,9 @@ namespace WcTusService.Service
         /// <param name="reward"></param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public int AddReward(tb_reward reward)
+        public int AddReward(tb_reward reward,string token)
         {
+            new TokenManager().IsToken(token);
             RewardManager rm = new RewardManager();
             return rm.AddReward(reward);
         }
@@ -51,8 +54,9 @@ namespace WcTusService.Service
         /// <param name="reward"></param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public int EditReward(tb_reward reward)
+        public int EditReward(tb_reward reward, string token)
         {
+            new TokenManager().IsToken(token);
             RewardManager manager = new RewardManager();
             return manager.EditReward(reward);
         }
@@ -61,8 +65,9 @@ namespace WcTusService.Service
         /// </summary>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public List<tb_reward> GetRewardList()
+        public List<tb_reward> GetRewardList(string token)
         {
+            new TokenManager().IsToken(token);
             RewardManager rm = new RewardManager();
             return rm.GetRewardList();
         }
@@ -72,8 +77,9 @@ namespace WcTusService.Service
         /// <param name="id"></param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public int DelRewardList(int id)
+        public int DelRewardList(int id, string token)
         {
+            new TokenManager().IsToken(token);
             RewardManager rm = new RewardManager();
             return rm.DelRewardById(id);
         }
@@ -86,8 +92,9 @@ namespace WcTusService.Service
         /// <param name="rt"></param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public int AddRewardTmp(RewardTemplate rt)
+        public int AddRewardTmp(RewardTemplate rt, string token)
         {
+            new TokenManager().IsToken(token);
             //rt = new RewardTemplate();
             //rt.RewardTemplateImp = new List<tb_reward_Template_imp>();
             //tb_reward_Template_imp imp = new tb_reward_Template_imp();
@@ -121,8 +128,9 @@ namespace WcTusService.Service
         /// <param name="rt">奖励模板实体</param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public int EditRewardTmp(RewardTemplate rt)
+        public int EditRewardTmp(RewardTemplate rt, string token)
         {
+            new TokenManager().IsToken(token);
             DataContractJsonSerializer json = new DataContractJsonSerializer(typeof(RewardTemplate));
             byte[] byteArr;
             using (MemoryStream ms = new MemoryStream())
@@ -142,8 +150,9 @@ namespace WcTusService.Service
         /// <param name="rewardTmpId"></param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public int DelRewardTmp(int rewardTmpId)
+        public int DelRewardTmp(int rewardTmpId, string token)
         {
+            new TokenManager().IsToken(token);
             RewardTemplateManager rewardTmp = new RewardTemplateManager();
             return rewardTmp.DelRewardTemplate(rewardTmpId);
         }
@@ -152,8 +161,9 @@ namespace WcTusService.Service
         /// </summary>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public List<RewardTemplate> GetRewrdTmpList()
+        public List<RewardTemplate> GetRewrdTmpList(string token)
         {
+            new TokenManager().IsToken(token);
             RewardTemplateManager rtm = new RewardTemplateManager();
             return rtm.GetRewardTemplateList();
         }
@@ -163,8 +173,9 @@ namespace WcTusService.Service
         /// <param name="id"></param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public tb_reward GetTangbiByTmpId(int id)
+        public tb_reward GetTangbiByTmpId(int id, string token)
         {
+            new TokenManager().IsToken(token);
             RewardTemplateManager rtm = new RewardTemplateManager();
             return rtm.GetTangbiByTmpId(id);
         }
@@ -174,8 +185,9 @@ namespace WcTusService.Service
         /// <param name="tmpID">模板主键ID</param>
         /// <returns>模板下的奖品列表</returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public List<tb_reward_Template_imp> GetRewardImpList(int tmpID)
+        public List<tb_reward_Template_imp> GetRewardImpList(int tmpID, string token)
         {
+            new TokenManager().IsToken(token);
             RewardTemplateManager rtm = new RewardTemplateManager();
             return rtm.GetRewardImpList(tmpID);
         }
@@ -189,8 +201,9 @@ namespace WcTusService.Service
         /// <param name="share"></param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public int AddShare(tb_share share)
+        public int AddShare(tb_share share, string token)
         {
+            new TokenManager().IsToken(token);
             shareManager = new ShareManager();
             return shareManager.AddShare(share);
         }
@@ -200,8 +213,9 @@ namespace WcTusService.Service
         /// <param name="share"></param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public int EditShare(tb_share share)
+        public int EditShare(tb_share share, string token)
         {
+            new TokenManager().IsToken(token);
             shareManager = new ShareManager();
             return shareManager.EditShare(share);
         }
@@ -211,8 +225,9 @@ namespace WcTusService.Service
         /// <param name="id"></param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public int DelShare(int id)
+        public int DelShare(int id, string token)
         {
+            new TokenManager().IsToken(token);
             shareManager = new ShareManager();
             return shareManager.DelShare(id);
         }
@@ -221,8 +236,9 @@ namespace WcTusService.Service
         /// </summary>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public List<tb_share> GetShareList()
+        public List<tb_share> GetShareList(string token)
         {
+            new TokenManager().IsToken(token);
             shareManager = new ShareManager();
             return shareManager.GetShareList();
         }
@@ -233,8 +249,9 @@ namespace WcTusService.Service
         /// <param name="id">主键ID</param>
         /// <returns>分享信息</returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public tb_share GetShareById(int id)
+        public tb_share GetShareById(int id, string token)
         {
+            new TokenManager().IsToken(token);
             shareManager = new ShareManager();
             return shareManager.GetShareById(id);
         }
@@ -243,8 +260,9 @@ namespace WcTusService.Service
         /// </summary>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public List<tb_share> GetHotShareList()
+        public List<tb_share> GetHotShareList(string token)
         {
+            new TokenManager().IsToken(token);
             shareManager = new ShareManager();
             return shareManager.GetHotShare();
         }
@@ -253,8 +271,9 @@ namespace WcTusService.Service
         /// </summary>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public List<tb_share> GetNewShareList()
+        public List<tb_share> GetNewShareList(string token)
         {
+            new TokenManager().IsToken(token);
             shareManager = new ShareManager();
             return shareManager.GetNewShare();
         }
@@ -268,8 +287,9 @@ namespace WcTusService.Service
         /// <param name="task"></param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public int AddTask(tb_task task)
+        public int AddTask(tb_task task, string token)
         {
+            new TokenManager().IsToken(token);
             taskManager = new TaskManager();
             return taskManager.AddTask(task);
         }
@@ -279,8 +299,9 @@ namespace WcTusService.Service
         /// <param name="task"></param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public int EditTask(tb_task task)
+        public int EditTask(tb_task task, string token)
         {
+            new TokenManager().IsToken(token);
             taskManager = new TaskManager();
             return taskManager.EditTask(task);
         }
@@ -290,8 +311,9 @@ namespace WcTusService.Service
         /// <param name="task"></param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public int DelTask(int id)
+        public int DelTask(int id, string token)
         {
+            new TokenManager().IsToken(token);
             taskManager = new TaskManager();
             return taskManager.DelTask(id);
         }
@@ -300,8 +322,9 @@ namespace WcTusService.Service
         /// </summary>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public List<tb_task> GetTaskList()
+        public List<tb_task> GetTaskList(string token)
         {
+            new TokenManager().IsToken(token);
             taskManager = new TaskManager();
             return taskManager.GetTaskList();
         }
@@ -312,8 +335,9 @@ namespace WcTusService.Service
         /// <param name="id">主键ID、</param>
         /// <returns>任务实体信息</returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public tb_task GetTaskById(int id)
+        public tb_task GetTaskById(int id, string token)
         {
+            new TokenManager().IsToken(token);
             taskManager = new TaskManager();
             return taskManager.GetTaskById(id);
         }
@@ -328,8 +352,9 @@ namespace WcTusService.Service
         /// <param name="taskItem"></param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public int AddTaskItem(tb_taskItem taskItem)
+        public int AddTaskItem(tb_taskItem taskItem, string token)
         {
+            new TokenManager().IsToken(token);
             //{"bit_isDelete":false,"bit_isInherit":true,"bit_status":true,"dtm_actionTime":"\\/Date(1431931532208+0800)\\/","dtm_endTime":"\\/Date(1431931532208+0800)\\/","fk_rewardTemplate_id":1,"fk_share_id":1,"fk_task_id":1,"int_forward":1,"int_order":1,"pk_taskItem_id":0}
             //DataContractJsonSerializer json = new DataContractJsonSerializer(typeof(tb_taskItem));
             //byte[] byteArr;
@@ -351,8 +376,9 @@ namespace WcTusService.Service
         /// <param name="taskItem"></param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public int EditTaskItem(tb_taskItem taskItem)
+        public int EditTaskItem(tb_taskItem taskItem, string token)
         {
+            new TokenManager().IsToken(token);
             taskManager = new TaskManager();
             return taskManager.EditTaskItem(taskItem);
         }
@@ -363,8 +389,9 @@ namespace WcTusService.Service
         /// <param name="id"></param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public tb_taskItem GetTaskItem(int id)
+        public tb_taskItem GetTaskItem(int id, string token)
         {
+            new TokenManager().IsToken(token);
             taskManager = new TaskManager();
             return taskManager.GetTaskItemById(id);
         }
@@ -375,8 +402,9 @@ namespace WcTusService.Service
         /// <param name="id"></param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public int DelTaskItem(int id)
+        public int DelTaskItem(int id, string token)
         {
+            new TokenManager().IsToken(token);
             taskManager = new TaskManager();
             return taskManager.DelTaskItem(id) ;
         }
@@ -387,8 +415,9 @@ namespace WcTusService.Service
         /// <param name="id"></param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public List<tb_taskItem> GetTaskItemList(int id)
+        public List<tb_taskItem> GetTaskItemList(int id, string token)
         {
+            new TokenManager().IsToken(token);
             taskManager = new TaskManager();
             return taskManager.GetTaskItemByTaskId(id);
         }
@@ -404,8 +433,9 @@ namespace WcTusService.Service
         /// <param name="endDate">任务结束时间</param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public List<RewardUserGrantEntity> GetTaskExecuteByTaskName(string name, DateTime actionDate, DateTime endDate)
+        public List<RewardUserGrantEntity> GetTaskExecuteByTaskName(string name, DateTime actionDate, DateTime endDate, string token)
         {
+            new TokenManager().IsToken(token);
             taskExecuteManager = new TaskExecuteManager();
             return taskExecuteManager.GetTaskExecuteByTaskName(name,DateTime.Now,DateTime.Now);
         }
@@ -417,8 +447,9 @@ namespace WcTusService.Service
         /// <param name="endDate">结束时间</param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public List<RewardUserGrantEntity> GetTaskExecuteByTaskID(int id, DateTime actionDate, DateTime endDate)
+        public List<RewardUserGrantEntity> GetTaskExecuteByTaskID(int id, DateTime actionDate, DateTime endDate, string token)
         {
+            new TokenManager().IsToken(token);
             taskExecuteManager = new TaskExecuteManager();
             return taskExecuteManager.GetTaskExecuteByTaskID(id, actionDate, endDate);
         }
@@ -430,8 +461,9 @@ namespace WcTusService.Service
         /// <param name="phoneNum">电话号码</param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public List<RewardUserGrantEntity> GetTaskExecuteByUser(string nickName, string name, string phoneNum)
+        public List<RewardUserGrantEntity> GetTaskExecuteByUser(string nickName, string name, string phoneNum, string token)
         {
+            new TokenManager().IsToken(token);
             taskExecuteManager = new TaskExecuteManager();
             return taskExecuteManager.GetTaskExecuteByUser(nickName,name,phoneNum);
         }
@@ -441,8 +473,9 @@ namespace WcTusService.Service
         /// <param name="id">用户ID</param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public int GrantRewardByUserID(int id)
+        public int GrantRewardByUserID(int id, string token)
         {
+            new TokenManager().IsToken(token);
             taskExecuteManager = new TaskExecuteManager();
             return taskExecuteManager.GrantRewardByUserID(id);
         }
@@ -452,8 +485,9 @@ namespace WcTusService.Service
         /// <param name="id">用户ID</param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public int TaskApplication(int id)
+        public int TaskApplication(int id, string token)
         {
+            new TokenManager().IsToken(token);
             taskExecuteManager = new TaskExecuteManager();
             return taskExecuteManager.TaskApplication(id);
         }
@@ -469,8 +503,9 @@ namespace WcTusService.Service
         /// <param name="taskId">任务ID</param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public List<Statistical_UserShare_Business> FirstShare(int taskId)
+        public List<Statistical_UserShare_Business> FirstShare(int taskId, string token)
         {
+            new TokenManager().IsToken(token);
             statisticalManager = new StatisticalManager();
             return statisticalManager.FirstShare(taskId);
         }
@@ -481,8 +516,9 @@ namespace WcTusService.Service
         /// <param name="taskId">任务ID</param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public List<Statistical_UserShare_Business> TotalShare(int taskId)
+        public List<Statistical_UserShare_Business> TotalShare(int taskId, string token)
         {
+            new TokenManager().IsToken(token);
             statisticalManager = new StatisticalManager();
             return statisticalManager.TotalShare(taskId);
         }
@@ -493,8 +529,9 @@ namespace WcTusService.Service
         /// <param name="taskId">任务ID集合</param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public List<Statistical_Rank_business> FirstRank(List<int> taskId)
+        public List<Statistical_Rank_business> FirstRank(List<int> taskId, string token)
         {
+            new TokenManager().IsToken(token);
             statisticalManager = new StatisticalManager();
             return statisticalManager.FirstRank(taskId);
         }
@@ -505,8 +542,9 @@ namespace WcTusService.Service
         /// <param name="taskId">任务ID集合</param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public List<Statistical_Rank_business> TotalRank(List<int> taskId)
+        public List<Statistical_Rank_business> TotalRank(List<int> taskId, string token)
         {
+            new TokenManager().IsToken(token);
             statisticalManager = new StatisticalManager();
             return statisticalManager.TotalRank(taskId);
         }
@@ -519,8 +557,9 @@ namespace WcTusService.Service
         /// <param name="RewardId">任务ID</param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public List<Statistical_UserRank_Business> UserRewardSum(DateTime actionTime, DateTime endTime, int RewardId)
+        public List<Statistical_UserRank_Business> UserRewardSum(DateTime actionTime, DateTime endTime, int RewardId, string token)
         {
+            new TokenManager().IsToken(token);
             statisticalManager = new StatisticalManager();
             return statisticalManager.UserRewardSum(actionTime,endTime,RewardId);
         }
@@ -530,8 +569,9 @@ namespace WcTusService.Service
         /// <param name="actionTime">开始时间</param>
         /// <param name="endTime">结束时间</param>
         /// <returns>糖币明细集合</returns>
-        public List<TangbiDetail> GetTangBiDetail(DateTime actionTime,DateTime endTime)
+        public List<TangbiDetail> GetTangBiDetail(DateTime actionTime, DateTime endTime, string token)
         {
+            new TokenManager().IsToken(token);
             statisticalManager = new StatisticalManager();
             return statisticalManager.GetTangbiDetal(actionTime,endTime);
         }
@@ -546,8 +586,9 @@ namespace WcTusService.Service
         /// <param name="user">用户实体</param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public int AddUser(tb_user user)
+        public int AddUser(tb_user user, string token)
         {
+            new TokenManager().IsToken(token);
             //DataContractJsonSerializer json = new DataContractJsonSerializer(typeof(tb_user));
             //byte[] byteArr;
             //using (MemoryStream ms = new MemoryStream())
@@ -567,8 +608,9 @@ namespace WcTusService.Service
         /// <param name="user">用户实体</param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public int EditUser(tb_user user)
+        public int EditUser(tb_user user, string token)
         {
+            new TokenManager().IsToken(token);
             return userManager.EditUser(user);
         }
         /// <summary>
@@ -577,8 +619,9 @@ namespace WcTusService.Service
         /// <param name="id"></param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public tb_user GetUserById(int id)
+        public tb_user GetUserById(int id, string token)
         {
+            new TokenManager().IsToken(token);
             return userManager.GetUserById(id);
         }
         /// <summary>
@@ -587,9 +630,71 @@ namespace WcTusService.Service
         /// <param name="phoneNum">手机号</param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public bool IsUsedPhone(string phoneNum)
+        public bool IsUsedPhone(string phoneNum, string token)
         {
+            new TokenManager().IsToken(token);
             return userManager.IsUsedPhone(phoneNum);
+        }
+        #endregion
+
+        #region token相关
+        //数据库模型
+        ShareWeiEntities share = new ShareWeiEntities();
+        /// <summary>
+        /// 更新token令牌
+        /// </summary>
+        /// <param name="appid"></param>
+        /// <returns></returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public TokenEntity EditToken(string appid,string timestamp)
+        {
+            var q = from p in share.tb_token
+                        where p.vr_appid == appid
+                        select p;
+            if (q.FirstOrDefault() == null)
+            {
+                throw new Exception("无效的AppId");
+            }
+            else
+            {
+                var query = from p in share.tb_token
+                            where p.vr_appid == appid
+                            select p;
+                tb_token token = query.FirstOrDefault();
+                token.vr_token =GenerateToken(appid,timestamp);
+                token.dtm_tokenTime = DateTime.Now.AddHours(2);
+                //更新数据库实体
+                share.Entry(token).State = EntityState.Modified;
+                share.SaveChanges();
+                TokenEntity returnToken = new TokenEntity();
+                returnToken.Token = token.vr_token;
+                returnToken.TokenTime = token.dtm_tokenTime;
+                return returnToken;
+            }
+        }
+
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public TokenEntity GetToken(string appid)
+        {
+            var query = from p in share.tb_token
+                        where p.vr_appid == appid
+                        select p;
+            tb_token token = query.FirstOrDefault();
+            if (token != null)
+            {
+                TokenEntity returnToken = new TokenEntity();
+                returnToken.Token = token.vr_token;
+                returnToken.TokenTime = token.dtm_tokenTime;
+                return returnToken;
+            }
+            else
+                throw new Exception("无效的AppId");
+           
+        }
+        //生成token
+        public string GenerateToken(string appid, string timeStamp)
+        {
+            return FormsAuthentication.HashPasswordForStoringInConfigFile((appid+timeStamp), "SHA1").ToLower();
         }
         #endregion
     }

@@ -13,6 +13,7 @@
           <EntitySet Name="tb_task" EntityType="ShareWeiModel.Store.tb_task" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tb_taskExecute" EntityType="ShareWeiModel.Store.tb_taskExecute" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tb_taskItem" EntityType="ShareWeiModel.Store.tb_taskItem" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tb_token" EntityType="ShareWeiModel.Store.tb_token" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tb_user" EntityType="ShareWeiModel.Store.tb_user" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tb_userShare" EntityType="ShareWeiModel.Store.tb_userShare" store:Type="Tables" Schema="dbo" />
         </EntityContainer>
@@ -104,6 +105,15 @@
           <Property Name="bit_isDelete" Type="bit" Nullable="false" />
           <Property Name="bit_isInherit" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="tb_token">
+          <Key>
+            <PropertyRef Name="pk_tokenID" />
+          </Key>
+          <Property Name="pk_tokenID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="vr_appid" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="vr_token" Type="varchar" MaxLength="50" />
+          <Property Name="dtm_tokenTime" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="tb_user">
           <Key>
             <PropertyRef Name="int_user_id" />
@@ -145,6 +155,7 @@
           <EntitySet Name="tb_taskItem" EntityType="ShareWeiModel.tb_taskItem" />
           <EntitySet Name="tb_user" EntityType="ShareWeiModel.tb_user" />
           <EntitySet Name="tb_userShare" EntityType="ShareWeiModel.tb_userShare" />
+          <EntitySet Name="tb_token" EntityType="ShareWeiModel.tb_token" />
         </EntityContainer>
         <EntityType Name="tb_reward">
           <Key>
@@ -260,6 +271,15 @@
           <Property Type="Double" Name="dbl_count" Nullable="false" />
           <Property Type="Boolean" Name="bit_grantReward" Nullable="false" />
           <Property Type="Boolean" Name="bit_isDelete" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_token">
+          <Key>
+            <PropertyRef Name="pk_tokenID" />
+          </Key>
+          <Property Type="Int32" Name="pk_tokenID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="vr_appid" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vr_token" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dtm_tokenTime" Precision="3" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -388,6 +408,16 @@
                 <ScalarProperty Name="fk_user_id" ColumnName="fk_user_id" />
                 <ScalarProperty Name="fk_shareContents_id" ColumnName="fk_shareContents_id" />
                 <ScalarProperty Name="pk_userShare_ID" ColumnName="pk_userShare_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_token">
+            <EntityTypeMapping TypeName="ShareWeiModel.tb_token">
+              <MappingFragment StoreEntitySet="tb_token">
+                <ScalarProperty Name="dtm_tokenTime" ColumnName="dtm_tokenTime" />
+                <ScalarProperty Name="vr_token" ColumnName="vr_token" />
+                <ScalarProperty Name="vr_appid" ColumnName="vr_appid" />
+                <ScalarProperty Name="pk_tokenID" ColumnName="pk_tokenID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

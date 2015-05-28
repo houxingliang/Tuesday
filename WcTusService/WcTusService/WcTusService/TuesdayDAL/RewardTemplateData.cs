@@ -71,5 +71,34 @@ namespace WcTusService.Data
                      select r;
             return rt.ToList();
         }
+        /// <summary>
+        /// 根据奖励模板ID获取糖币信息
+        /// </summary>
+        /// <param name="id">奖励模板ID</param>
+        /// <returns>糖币信息</returns>
+        public tb_reward GetTangbiByTmpId(int id)
+        {
+            tb_rewardTemplate rt =GetRewardTmpById(id);
+            if (rt != null)
+            {
+                List<tb_reward_Template_imp> impList = new RewardTmpImpData().GetRewardImpList(rt.pk_rewardTemplate_id);
+                if (impList != null)
+                {
+                    foreach (var imp in impList)
+                    {
+                        tb_reward reward = new RewardData().GetRewardByID(imp.fk_reward_id);
+                        if (reward.nvr_rewardName.Equals("糖币"))
+                        {
+                            return reward;
+                        }
+                    }
+                }
+                return null;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }

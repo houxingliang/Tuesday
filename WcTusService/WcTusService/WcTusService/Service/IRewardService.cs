@@ -42,6 +42,9 @@ namespace WcTusService.Service
 
         [OperationContract]
         List<tb_reward_Template_imp> GetRewardImpList(int tmpID);
+
+        [OperationContract]
+        tb_reward GetTangbiByTmpId(int id);
         #endregion
 
         #region 分享相关
@@ -55,6 +58,8 @@ namespace WcTusService.Service
         List<tb_share> GetShareList();
         [OperationContract]
         List<tb_share> GetHotShareList();
+        [OperationContract]
+        tb_share GetShareById(int id);
         #endregion
 
         #region  任务相关
@@ -66,6 +71,8 @@ namespace WcTusService.Service
         int DelTask(int id);
         [OperationContract]
         List<tb_task> GetTaskList();
+        [OperationContract]
+        tb_task GetTaskById(int id);
         #endregion
 
         #region 任务项相关

@@ -151,10 +151,22 @@ namespace WcTusService.Service
         /// 奖品模板集合
         /// </summary>
         /// <returns></returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
         public List<RewardTemplate> GetRewrdTmpList()
         {
             RewardTemplateManager rtm = new RewardTemplateManager();
             return rtm.GetRewardTemplateList();
+        }
+        /// <summary>
+        /// 根据奖励模板ID获取糖币信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public tb_reward GetTangbiByTmpId(int id)
+        {
+            RewardTemplateManager rtm = new RewardTemplateManager();
+            return rtm.GetTangbiByTmpId(id);
         }
         /// <summary>
         /// 根据模板主键ID查询奖励模板的所有奖品信息
@@ -213,6 +225,18 @@ namespace WcTusService.Service
         {
             shareManager = new ShareManager();
             return shareManager.GetShareList();
+        }
+
+        /// <summary>
+        /// 根据分享主键ID获取分享信息
+        /// </summary>
+        /// <param name="id">主键ID</param>
+        /// <returns>分享信息</returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public tb_share GetShareById(int id)
+        {
+            shareManager = new ShareManager();
+            return shareManager.GetShareById(id);
         }
         /// <summary>
         /// 获取热门分享信息列表
@@ -281,6 +305,19 @@ namespace WcTusService.Service
             taskManager = new TaskManager();
             return taskManager.GetTaskList();
         }
+
+        /// <summary>
+        /// 根据任务主键ID获取任务信息
+        /// </summary>
+        /// <param name="id">主键ID、</param>
+        /// <returns>任务实体信息</returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public tb_task GetTaskById(int id)
+        {
+            taskManager = new TaskManager();
+            return taskManager.GetTaskById(id);
+        }
+
         #endregion
 
         #region  任务项相关

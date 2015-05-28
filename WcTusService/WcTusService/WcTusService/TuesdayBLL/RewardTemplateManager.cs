@@ -170,6 +170,18 @@ namespace WcTusService.TuesdayBLL
             return rtList; 
         }
         /// <summary>
+        /// 根据奖励模板ID获取糖币信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public tb_reward GetTangbiByTmpId(int id)
+        {
+            rtd = new RewardTemplateData();
+            return rtd.GetTangbiByTmpId(id);
+
+        }
+
+        /// <summary>
         /// 删除奖品模板信息
         /// </summary>
         /// <param name="id"></param>

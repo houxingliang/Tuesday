@@ -21,7 +21,7 @@
 
             $.ajax({
                 type: "post",
-                url: " http://localhost:16025/Service/RewardService.svc/GetList",
+                url: " http://www.myapus.com:8082/Service/RewardService.svc/GetList",
           
                 dataType: "json",
                 contentType: 'application/json; charset=utf-8',
@@ -75,7 +75,7 @@
 
             $.ajax({
                 type: "post",
-                url: " http://localhost:16025/Service/RewardService.svc/GetRewardList",
+                url: " http://www.myapus.com:8082/Service/RewardService.svc/GetRewardList",
                 dataType: "json",
                 contentType: 'application/json; charset=utf-8',
                 success: function (su) {
@@ -177,6 +177,41 @@
             });
         }
 
+        function GetRewardTmpById()
+        {
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/GetRewardImpList",
+                dataType: "json",
+                data: '{"tmpID":1}',
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+
+            });
+        }
+        function GetTangbiByTmpID() {
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/GetTangbiByTmpId",
+                dataType: "json",
+                data: '{"id":1}',
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+
+            });
+        }
         function AddShare() {
             $.ajax({
                 type: "post",
@@ -244,9 +279,25 @@
                 error: function (data) {
                     alert(data.responseText + "error");
                 }
-
             });
         }
+        function GetShareById() {
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/GetShareById",
+                dataType: "json",
+                data: '{"id":4}',
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+            });
+        }
+
 
         function AddTask() {
             $.ajax({
@@ -318,7 +369,23 @@
 
             });
         }
+        function GetTaskById() {
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/GetTaskById",
+                dataType: "json",
+                data:'{"id":1}',
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
 
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+
+            });
+        }
         function AddTaskItem() {
             $.ajax({
                 type: "post",
@@ -411,6 +478,24 @@
                 type: "post",
                 url: " http://localhost:16025/Service/RewardService.svc/GetTaskExecuteByTaskName",
                 data: '{"name":1,"actionDate":"\\/Date(1431931532208+0800)\\/","endDate":"\\/Date(1431931532208+0800)\\/"}',
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+
+            });
+        }
+        function GetTaskTypeById()
+        {
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/GetTaskExecuteByTaskID",
+                data: '{"id":1,"actionDate":"\\/Date(1431931532208+0800)\\/","endDate":"\\/Date(1431931532208+0800)\\/"}',
                 dataType: "json",
                 contentType: 'application/json; charset=utf-8',
                 success: function (su) {
@@ -536,12 +621,57 @@
             $.ajax({
                 type: "post",
                 url: " http://localhost:16025/Service/RewardService.svc/UserRewardSum",
-                data: '{"actionTime":"\\/Date(1431931532208+0800)\\/","endTime":"\\/Date(1431931532208+0800)\\/","RewardId":1}',
+                data: '{"actionTime":"\\/Date(1430031532208+0800)\\/","endTime":"\\/Date(1431931532208+0800)\\/","RewardId":1}',
                 dataType: "json",
                 contentType: 'application/json; charset=utf-8',
                 success: function (su) {
                     alert(su + "success");
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+            });
+        }
 
+        function GetTangbi() {
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/GetTangBiDetail",
+                data: '{"actionTime":"\\/Date(1430031532208+0800)\\/","endTime":"\\/Date(1431931532208+0800)\\/"}',
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+            });
+        }
+
+        function GetHotShare() {
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/GetHotShareList",
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+            });
+        }
+
+        function GetNewShare() {
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/GetNewShareList",
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
                 },
                 error: function (data) {
                     alert(data.responseText + "error");
@@ -630,17 +760,21 @@
     <input type="button" onclick="AddRewardTmp()" value="添加奖励模板" />
     <input type="button" onclick="EditRewardTmp()" value="修改奖励模板" />
     <input type="button" onclick="DelRewardTmp_()" value="删除奖励模板" />
-    <input type="button" onclick="GetRewrdTmpList()" value="获取奖励模板列表" /><br />
+    <input type="button" onclick="GetRewrdTmpList()" value="获取奖励模板列表" />
+    <input type="button" onclick="GetRewardTmpById()" value="根据模板ID获取信息" />
+    <input type="button" onclick="GetTangbiByTmpID()" value="根据模板ID获取糖币信息"<br />
     <br />
     <input type="button" onclick="AddShare()" value="发布分享内容" />
     <input type="button" onclick="EditShare()" value="修改分享内容" />
     <input type="button" onclick="DelShare()" value="删除分享内容" />
-    <input type="button" onclick="GetShareList()" value="获取内容列表" /><br />
+    <input type="button" onclick="GetShareList()" value="获取内容列表" />
+    <input type="button" onclick="GetShareById()" value="根据主键ID获取分享信息" /><br />
     <br />
     <input type="button" onclick="AddTask()" value="发布任务" />
     <input type="button" onclick="EditTask()" value="修改任务" />
     <input type="button" onclick="DelTask()" value="删除任务" />
-    <input type="button" onclick="GetTaskList()" value="获取任务列表" /><br />
+    <input type="button" onclick="GetTaskList()" value="获取任务列表" />
+    <input type="button" onclick="GetTaskById()" value="根据主键ID获取任务信息"<br />
     <br />
     <input type="button" onclick="AddTaskItem()" value="添加任务项" />
     <input type="button" onclick="GetTaskItem()" value="查看任务项" />
@@ -650,6 +784,7 @@
     说明：此处需要用到辅助方法，例如，根据是否继承任务查询内容ID/是否允许继承
     <br /><br />
     <input type="button" onclick="GetTaskTypeList()" value="按任务分类查询列表信息" />
+    <input type="button" onclick="GetTaskTypeById()" value="按任务主键ID查询任务项" />
     <input type="button" onclick="GetUserTypeList()" value="按用户分类查询奖品发放信息" />
     <input type="button" onclick="GrantRawardByUserId()" value="根据用户ID发放奖品" />
     <input type="button" onclick="ApplicationRaward()" value="用户申请奖品" />
@@ -660,7 +795,10 @@
     <input type="button" onclick="FirstRank()" value="活动用户首转排名" />
     <input type="button" onclick="TotalRank()" value="活动用户总转排名" />
     <input type="button" onclick="UserRewardSum()" value="用户奖品总数统计" />
-    <input type="button" onclick="" style="color:red" value="糖币明细" /><br />
+    <input type="button" onclick="GetTangbi()"value="糖币明细" />
+    <input type="button" onclick="GetHotShare()" value="获取最热门分享" />
+    <input type="button" onclick="GetNewShare()" value="获取最新分享" /><br />
+
     <br />
     用户相关内容：
     <br />

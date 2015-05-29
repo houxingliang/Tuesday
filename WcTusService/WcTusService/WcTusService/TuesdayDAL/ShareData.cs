@@ -124,5 +124,59 @@ namespace WcTusService.Data
             else
                 return null;
         }
+        /// <summary>
+        /// 根据活动得到奖品明细
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public List<tb_reward> GetRewardByShareId(int id)
+        {
+            var query = from p in share.tb_share
+                        where p.pk_share_id == id
+                        select p;
+            tb_share shareEntity = query.FirstOrDefault();
+            if (shareEntity != null)
+            {
+                var rewardTmp = from p in share.tb_rewardTemplate
+                                where p.pk_rewardTemplate_id == shareEntity.fk_rewardTemplate_id_f ||
+                                p.pk_rewardTemplate_id == shareEntity.fk_rewardTemplate_id_s ||
+                                p.pk_rewardTemplate_id == shareEntity.fk_superUser_rewardTmp_id
+                                select p;
+                List<tb_reward> rewardList = new List<tb_reward>();
+                if (rewardTmp != null)
+                {
+                    List<tb_rewardTemplate> tmpList = new List<tb_rewardTemplate>();
+                    tmpList = rewardTmp.ToList(); ;
+                    if (tmpList != null)
+                    {
+                        foreach (var tmp in tmpList)
+                        {
+                            var query_imp = from p in share.tb_reward_Template_imp
+                                            where p.fk_rewardTemplate_id == tmp.pk_rewardTemplate_id
+                                            select p;
+                            List<tb_reward_Template_imp> impList = query_imp.ToList();
+                            if (impList != null)
+                            {
+                                foreach (tb_reward_Template_imp i in impList)
+                                {
+                                    var re = from p in share.tb_reward
+                                             where p.pk_reward_id == i.fk_reward_id
+                                             select p;
+                                    tb_reward reward = re.FirstOrDefault();
+                                    rewardList.Add(reward);
+                                }
+                            }
+
+                        }
+                    }
+                }
+                return rewardList;
+            }
+            else
+            {
+                return null;
+            }
+            
+        }
     }
 }

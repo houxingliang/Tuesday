@@ -91,11 +91,24 @@ namespace WcTusService.TuesdayBLL
             sharedata = new ShareData();
             return sharedata.GetHotShare();
         }
-
+        /// <summary>
+        /// 获取最新分享内容
+        /// </summary>
+        /// <returns></returns>
         public List<tb_share> GetNewShare()
         {
             sharedata = new ShareData();
             return sharedata.GetNewShare();
+        }
+        /// <summary>
+        /// 根据活动得到奖品明细
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>奖品明细</returns>
+        public List<tb_reward> GetRewardByShareId(int id)
+        {
+            sharedata = new ShareData();
+            return sharedata.GetRewardByShareId(id);
         }
     }
 }

@@ -151,5 +151,15 @@ namespace WcTusService.TuesdayBLL
             else
                 return null;
         }
+        /// <summary>
+        /// 根据任务得到奖品明细
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public List<tb_reward> GetRewardByTaskId(int id)
+        {
+            taskdata = new TaskData();
+            return taskdata.GetRewardByTaskId(id);
+        }
     }
 }

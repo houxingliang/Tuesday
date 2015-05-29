@@ -201,7 +201,41 @@
                 type: "post",
                 url: " http://localhost:16025/Service/RewardService.svc/GetTangbiByTmpId",
                 dataType: "json",
-                data: '{"id":1}',
+                data: '{"id":1,"token":"7bce26557717e7539bce5d1d32f32b8ec070e04a"}',
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+
+            });
+        }
+        function GetRewardByTaskId() {
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/GetRewardByTaskId",
+                dataType: "json",
+                data: '{"id":1,"token":"7bce26557717e7539bce5d1d32f32b8ec070e04a"}',
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+
+            });
+        }
+        function GetRewardByShareId() {
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/GetRewardByShareId",
+                dataType: "json",
+                data: '{"id":4,"token":"7bce26557717e7539bce5d1d32f32b8ec070e04a"}',
                 contentType: 'application/json; charset=utf-8',
                 success: function (su) {
                     alert(su + "success");
@@ -802,13 +836,15 @@
     <input type="button" onclick="EditShare()" value="修改分享内容" />
     <input type="button" onclick="DelShare()" value="删除分享内容" />
     <input type="button" onclick="GetShareList()" value="获取内容列表" />
-    <input type="button" onclick="GetShareById()" value="根据主键ID获取分享信息" /><br />
+    <input type="button" onclick="GetShareById()" value="根据主键ID获取分享信息" />
+    <input type="button" onclick="GetRewardByShareId()" value="根据分享主键ID获取奖励信息"<br />
     <br />
     <input type="button" onclick="AddTask()" value="发布任务" />
     <input type="button" onclick="EditTask()" value="修改任务" />
     <input type="button" onclick="DelTask()" value="删除任务" />
     <input type="button" onclick="GetTaskList()" value="获取任务列表" />
-    <input type="button" onclick="GetTaskById()" value="根据主键ID获取任务信息"<br />
+    <input type="button" onclick="GetTaskById()" value="根据主键ID获取任务信息" />
+    <input type="button" onclick="GetRewardByTaskId()" value="根据任务主键获取奖励" /><br />
     <br />
     <input type="button" onclick="AddTaskItem()" value="添加任务项" />
     <input type="button" onclick="GetTaskItem()" value="查看任务项" />

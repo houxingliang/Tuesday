@@ -60,6 +60,8 @@ namespace WcTusService.Service
         List<tb_share> GetHotShareList(string token);
         [OperationContract]
         tb_share GetShareById(int id, string token);
+        [OperationContract]
+        List<tb_reward> GetRewardByShareId(int id, string token);
         #endregion
 
         #region  任务相关
@@ -73,6 +75,8 @@ namespace WcTusService.Service
         List<tb_task> GetTaskList(string token);
         [OperationContract]
         tb_task GetTaskById(int id, string token);
+        [OperationContract]
+        List<tb_reward> GetRewardByTaskId(int id, string token);
         #endregion
 
         #region 任务项相关

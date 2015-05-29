@@ -277,6 +277,19 @@ namespace WcTusService.Service
             shareManager = new ShareManager();
             return shareManager.GetNewShare();
         }
+        /// <summary>
+        /// 根据分享主键ID获取奖品明细
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="token"></param>
+        /// <returns>奖品明细</returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public List<tb_reward> GetRewardByShareId(int id,string token)
+        {
+            new TokenManager().IsToken(token);
+            shareManager = new ShareManager();
+            return shareManager.GetRewardByShareId(id);
+        }
         #endregion
 
         #region 任务相关
@@ -334,14 +347,25 @@ namespace WcTusService.Service
         /// </summary>
         /// <param name="id">主键ID、</param>
         /// <returns>任务实体信息</returns>
-        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
         public tb_task GetTaskById(int id, string token)
         {
             new TokenManager().IsToken(token);
             taskManager = new TaskManager();
             return taskManager.GetTaskById(id);
         }
-
+        /// <summary>
+        /// 根据任务ID获取奖品明细
+        /// </summary>
+        /// <param name="id">任务主键ID</param>
+        /// <param name="token"></param>
+        /// <returns>奖品明细</returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public List<tb_reward> GetRewardByTaskId(int id,string token)
+        {
+            new TokenManager().IsToken(token);
+            taskManager = new TaskManager();
+            return taskManager.GetRewardByTaskId(id);
+        }
         #endregion
 
         #region  任务项相关

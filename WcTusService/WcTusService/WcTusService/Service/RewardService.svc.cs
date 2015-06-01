@@ -484,7 +484,7 @@ namespace WcTusService.Service
         /// <param name="endDate">结束时间</param>
         /// <param name="token">验证token</param>
         /// <returns>活动列表</returns>
-        public List<tb_share> GetShareList(string name, DateTime actionDate, DateTime endDate, string token)
+        public List<tb_share> GetShareList_Grant(string name, DateTime actionDate, DateTime endDate, string token)
         {
             new TokenManager().IsToken(token);
             shareManager = new ShareManager();

@@ -115,8 +115,6 @@
         <MappingFragment StoreEntitySet="tb_userShare">
           <ScalarProperty Name="bit_isDelete" ColumnName="bit_isDelete" />
           <ScalarProperty Name="bit_grantReward" ColumnName="bit_grantReward" />
-          <ScalarProperty Name="dbl_count" ColumnName="dbl_count" />
-          <ScalarProperty Name="fk_shareReward_id" ColumnName="fk_shareReward_id" />
           <ScalarProperty Name="dtm_shareTime" ColumnName="dtm_shareTime" />
           <ScalarProperty Name="bit_firstShare" ColumnName="bit_firstShare" />
           <ScalarProperty Name="fk_superUser_id" ColumnName="fk_superUser_id" />

@@ -277,8 +277,9 @@ namespace WcTusService.TuesdayBLL
                     Statistical_UserRank_Business userRank = new Statistical_UserRank_Business();
                     userRank.UserShare = u;
                     userRank.User = new UserData().GetUserByID(u.fk_user_id);
+                    tb_share share = new ShareData().GetshareByid(u.fk_shareContents_id);
                     //赋值奖品类型
-                    tb_reward_Template_imp imp = new RewardTmpImpData().GetRewardImpByIdAndRewardId((int)u.fk_shareReward_id, RewardId);
+                    tb_reward_Template_imp imp = new RewardTmpImpData().GetRewardImpByIdAndRewardId(share.fk_rewardTemplate_id_f, RewardId);
                     userRank.RewardType = new RewardData().GetRewardByID(RewardId).nvr_rewardName;
                     rewardName=userRank.RewardType;
                     //赋值奖品数量

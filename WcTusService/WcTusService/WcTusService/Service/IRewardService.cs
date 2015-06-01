@@ -101,7 +101,7 @@ namespace WcTusService.Service
         List<RewardUserGrantEntity> GetTaskExecuteByTaskName(string name, DateTime actionDate, DateTime endDate, string token);
         //按活动内容分类查询列表
         [OperationContract]
-        List<tb_share> GetShareList(string name, DateTime actionDate, DateTime endDate, string token);
+        List<tb_share> GetShareList_Grant(string name, DateTime actionDate, DateTime endDate, string token);
         //按任务分类的主键ID查询列表信息
         [OperationContract]
         List<RewardUserGrantEntity> GetTaskExecuteByTaskID(int id, DateTime actionDate, DateTime endDate, string token);

@@ -143,9 +143,12 @@ namespace WcTusService.TuesdayBLL
         public List<RewardUserGrantEntity> GetTaskExecuteByUser(string nickName,string name,string phoneNum)
         {
             UserManager userManager = new UserManager();
+            taskExecuteData = new TaskExecuteData();
+            userData = new UserData();
             List < tb_user > userList= userManager.GetUserByNameOrPhone(nickName,name,phoneNum);
             if (userList != null)
             {
+                List<RewardUserGrantEntity> returnList = new List<RewardUserGrantEntity>();
                 foreach (tb_user user in userList)
                 {
                     List<tb_taskExecute> taskExecuteList = new List<tb_taskExecute>();
@@ -157,6 +160,7 @@ namespace WcTusService.TuesdayBLL
                             RewardUserGrantEntity grant = new RewardUserGrantEntity();
                             grant.TaskExecute = taskExecute;
                             grant.User = userData.GetUserByID(taskExecute.fk_user_id);
+                            grant.Reward=new List<tb_reward>();
                             //根据任务项获取奖励模板的奖品信息
                             RewardTmpImpData rewardTmpData = new RewardTmpImpData();
                             RewardData rewardData = new RewardData();
@@ -165,14 +169,15 @@ namespace WcTusService.TuesdayBLL
                             foreach (tb_reward_Template_imp imp in impList)
                             {
                                 tb_reward reward = new tb_reward();
+                                reward = rewardData.GetRewardByID(imp.fk_reward_id);
                                 reward.dbl_count = imp.dbl_count;
-                                reward.nvr_rewardName = rewardData.GetRewardByID(imp.fk_reward_id).nvr_rewardName;
                                 grant.Reward.Add(reward);
-
                             }
+                            returnList.Add(grant);
                         }
                     }
                 }
+                return returnList;
             }
             return null;
         }

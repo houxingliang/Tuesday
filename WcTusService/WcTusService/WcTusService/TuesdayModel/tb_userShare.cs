@@ -30,10 +30,6 @@ public partial class tb_userShare
 
     public System.DateTime dtm_shareTime { get; set; }
 
-    public Nullable<int> fk_shareReward_id { get; set; }
-
-    public double dbl_count { get; set; }
-
     public bool bit_grantReward { get; set; }
 
     public bool bit_isDelete { get; set; }

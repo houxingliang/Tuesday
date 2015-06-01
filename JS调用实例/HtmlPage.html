@@ -40,7 +40,7 @@
             $.ajax({
                 type: "post",
                 url: " http://localhost:16025/Service/RewardService.svc/AddReward",
-                data: '{"reward":{{"pk_reward_id":2,"nvr_rewardName":"电话卡","dbl_count":1000.00,"bit_isDelete":0}},"token":"7bce26557717e7539bce5d1d32f32b8ec070e04a"}',
+                data: '{"reward":{{"pk_reward_id":2,"nvr_rewardName":"电话卡","dbl_count":1000.00,"bit_isDelete":0}},"token":"63f3346d6dc05d7950615185a83e5c5d7c05c0c3"}',
                 dataType: "json",
                 contentType: 'application/json; charset=utf-8',
                 success: function (su) {
@@ -58,7 +58,7 @@
             $.ajax({
                 type: "post",
                 url: " http://localhost:16025/Service/RewardService.svc/EditReward",
-                data: '{"reward":{{"pk_reward_id":2,"nvr_rewardName":"电话卡","dbl_count":1000.00,"bit_isDelete":0}},"token":"7bce26557717e7539bce5d1d32f32b8ec070e04a"}',
+                data: '{"reward":{{"pk_reward_id":2,"nvr_rewardName":"电话卡","dbl_count":1000.00,"bit_isDelete":0}},"token":"63f3346d6dc05d7950615185a83e5c5d7c05c0c3"}',
                 dataType: "json",
                 contentType: 'application/json; charset=utf-8',
                 success: function (su) {
@@ -77,7 +77,7 @@
                 type: "post",
                 url: " http://localhost:16025/Service/RewardService.svc/GetRewardList",
                 dataType: "json",
-                data: '{"token":"7bce26557717e7539bce5d1d32f32b8ec070e04a"}',
+                data: '{"token":"63f3346d6dc05d7950615185a83e5c5d7c05c0c3"}',
                 contentType: 'application/json; charset=utf-8',
                 success: function (su) {
                     alert(su + "success");
@@ -182,9 +182,9 @@
         {
             $.ajax({
                 type: "post",
-                url: " http://localhost:16025/Service/RewardService.svc/GetRewardImpList",
+                url: " http://localhost:16025/Service/RewardService.svc/GetRewardTmpById",
                 dataType: "json",
-                data: '{"tmpID":1}',
+                data: '{"id":1,"token":"63f3346d6dc05d7950615185a83e5c5d7c05c0c3"}',
                 contentType: 'application/json; charset=utf-8',
                 success: function (su) {
                     alert(su + "success");
@@ -201,7 +201,7 @@
                 type: "post",
                 url: " http://localhost:16025/Service/RewardService.svc/GetTangbiByTmpId",
                 dataType: "json",
-                data: '{"id":1,"token":"7bce26557717e7539bce5d1d32f32b8ec070e04a"}',
+                data: '{"id":1,"token":"63f3346d6dc05d7950615185a83e5c5d7c05c0c3"}',
                 contentType: 'application/json; charset=utf-8',
                 success: function (su) {
                     alert(su + "success");
@@ -218,7 +218,7 @@
                 type: "post",
                 url: " http://localhost:16025/Service/RewardService.svc/GetRewardByTaskId",
                 dataType: "json",
-                data: '{"id":1,"token":"7bce26557717e7539bce5d1d32f32b8ec070e04a"}',
+                data: '{"id":1,"token":"63f3346d6dc05d7950615185a83e5c5d7c05c0c3"}',
                 contentType: 'application/json; charset=utf-8',
                 success: function (su) {
                     alert(su + "success");
@@ -235,7 +235,7 @@
                 type: "post",
                 url: " http://localhost:16025/Service/RewardService.svc/GetRewardByShareId",
                 dataType: "json",
-                data: '{"id":4,"token":"7bce26557717e7539bce5d1d32f32b8ec070e04a"}',
+                data: '{"id":4,"token":"63f3346d6dc05d7950615185a83e5c5d7c05c0c3"}',
                 contentType: 'application/json; charset=utf-8',
                 success: function (su) {
                     alert(su + "success");
@@ -305,7 +305,7 @@
             $.ajax({
                 type: "post",
                 url: " http://localhost:16025/Service/RewardService.svc/GetShareList",
-                data: '{"status":1,"token":"7bce26557717e7539bce5d1d32f32b8ec070e04a"}',
+                data: '{"status":1,"token":"63f3346d6dc05d7950615185a83e5c5d7c05c0c3"}',
                 dataType: "json",
                 contentType: 'application/json; charset=utf-8',
                 success: function (su) {
@@ -442,7 +442,7 @@
             $.ajax({
                 type: "post",
                 url: " http://localhost:16025/Service/RewardService.svc/GetTaskItem",
-                data: '{"id":1,"token":"7bce26557717e7539bce5d1d32f32b8ec070e04a"}',
+                data: '{"id":1,"token":"63f3346d6dc05d7950615185a83e5c5d7c05c0c3"}',
                 dataType: "json",
                 contentType: 'application/json; charset=utf-8',
                 success: function (su) {

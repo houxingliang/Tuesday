@@ -168,6 +168,19 @@ namespace WcTusService.Service
             return rtm.GetRewardTemplateList();
         }
         /// <summary>
+        /// 根据奖励模板ID获取奖励模板信息
+        /// </summary>
+        /// <param name="id">主键ID</param>
+        /// <param name="token"></param>
+        /// <returns>模板信息</returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public RewardTemplate GetRewardTmpById(int id, string token)
+        {
+            new TokenManager().IsToken(token);
+            RewardTemplateManager m = new RewardTemplateManager();
+            return m.GetRewardTemplateById(id);
+        }
+        /// <summary>
         /// 根据奖励模板ID获取糖币信息
         /// </summary>
         /// <param name="id"></param>

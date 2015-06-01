@@ -45,6 +45,8 @@ namespace WcTusService.Service
 
         [OperationContract]
         tb_reward GetTangbiByTmpId(int id, string token);
+        [OperationContract]
+        RewardTemplate GetRewardTmpById(int id, string token);
         #endregion
 
         #region 分享相关

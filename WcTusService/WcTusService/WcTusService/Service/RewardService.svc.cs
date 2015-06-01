@@ -477,6 +477,34 @@ namespace WcTusService.Service
             return taskExecuteManager.GetTaskExecuteByTaskName(name,DateTime.Now,DateTime.Now);
         }
         /// <summary>
+        /// 根据活动内容分类查询奖品发放列表信息
+        /// </summary>
+        /// <param name="name">活动内容名称</param>
+        /// <param name="actionDate">开始时间</param>
+        /// <param name="endDate">结束时间</param>
+        /// <param name="token">验证token</param>
+        /// <returns>活动列表</returns>
+        public List<tb_share> GetShareList(string name, DateTime actionDate, DateTime endDate, string token)
+        {
+            new TokenManager().IsToken(token);
+            shareManager = new ShareManager();
+            return shareManager.GetShareList(name,actionDate,endDate);
+        }
+        /// <summary>
+        /// 根据分享主键ID获取用户的奖品信息
+        /// </summary>
+        /// <param name="id">分享主键</param>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        public List<RewardShareGrantEntity> GetShareGrantListById(int id, string token)
+        {
+            //
+            //用户分享表设计有缺陷，需修正。
+            //
+            return null;
+        }
+
+        /// <summary>
         /// 按任务分类主键ID查询列表信息
         /// </summary>
         /// <param name="id">主键ID</param>

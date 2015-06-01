@@ -112,6 +112,7 @@
     <Compile Include="TuesdayModel\Ftime.cs" />
     <Compile Include="TuesdayModel\FtimeRanking.cs" />
     <Compile Include="TuesdayModel\Prizes.cs" />
+    <Compile Include="TuesdayModel\RewardShareGrantEntity.cs" />
     <Compile Include="TuesdayModel\RewardTemplate.cs" />
     <Compile Include="TuesdayModel\RewardUserGrantEntity.cs" />
     <Compile Include="TuesdayModel\ShareModel.Context.cs">

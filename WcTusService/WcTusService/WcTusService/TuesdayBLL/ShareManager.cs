@@ -83,6 +83,19 @@ namespace WcTusService.TuesdayBLL
                 return null;
         }
         /// <summary>
+        /// 根据活动名称和时间段查询
+        /// 分享列表
+        /// </summary>
+        /// <param name="name">活动名称</param>
+        /// <param name="actionDate">开始时间</param>
+        /// <param name="endDate">结束时间</param>
+        /// <returns></returns>
+        public List<tb_share> GetShareList(string name, DateTime actionDate, DateTime endDate)
+        {
+            sharedata = new ShareData();
+            return sharedata.getShareList(name, actionDate, endDate);
+        }
+        /// <summary>
         /// 获取热门分享内容
         /// </summary>
         /// <returns></returns>

@@ -178,5 +178,26 @@ namespace WcTusService.Data
             }
             
         }
+        /// <summary>
+        /// 根据活动名称和时间段查询
+        /// 分享列表
+        /// </summary>
+        /// <param name="name">活动名称</param>
+        /// <param name="actionDate">开始时间</param>
+        /// <param name="endDate">结束时间</param>
+        /// <returns></returns>
+        public List<tb_share> getShareList(string name, DateTime actionDate, DateTime endDate)
+        {
+            var query = from p in share.tb_share
+                        where p.nvr_shareName.Contains(name) &&
+                        p.dtm_createTime >= actionDate &&
+                        p.dtm_createTime <= endDate
+                        select p;
+            List<tb_share> shareList = query.ToList();
+            if (shareList == null)
+                return null;
+            else
+                return shareList;
+        }
     }
 }

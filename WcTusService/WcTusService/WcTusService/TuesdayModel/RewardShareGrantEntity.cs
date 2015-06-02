@@ -31,5 +31,21 @@ namespace WcTusService.TuesdayModel
             get { return reward; }
             set { reward = value; }
         }
+
+        private string type;
+
+        public string Type
+        {
+            get { return type; }
+            set { type = value; }
+        }
+
+        private string tmpName;
+
+        public string TmpName
+        {
+            get { return tmpName; }
+            set { tmpName = value; }
+        }
     }
 }

@@ -36,6 +36,8 @@ public partial class tb_taskExecute
 
     public bool bit_isDelete { get; set; }
 
+    public Nullable<int> fk_shareContents_id { get; set; }
+
 }
 
 }

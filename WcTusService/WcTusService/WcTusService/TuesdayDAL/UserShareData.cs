@@ -72,6 +72,23 @@ namespace WcTusService.Data
             }
         }
         /// <summary>
+        /// 根据用户ID查询用户分享列表信息
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public List<tb_userShare> GetUserShareListByUserId(int userId)
+        {
+            var userShare = from p in share.tb_userShare
+                            where (p.fk_user_id == userId || p.fk_superUser_id == userId) &&
+                            p.bit_isDelete == false
+                            select p;
+            if (userShare.ToList().Count > 0)
+                return userShare.ToList();
+            else
+                return null;
+                          
+        }
+        /// <summary>
         /// 根据分享内容主键ID
         /// 查询用户分享信息集合
         /// </summary>

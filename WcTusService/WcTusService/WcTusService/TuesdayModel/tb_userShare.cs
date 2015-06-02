@@ -22,7 +22,7 @@ public partial class tb_userShare
 
     public int fk_shareContents_id { get; set; }
 
-    public int fk_user_id { get; set; }
+    public Nullable<int> fk_user_id { get; set; }
 
     public Nullable<int> fk_superUser_id { get; set; }
 
@@ -33,6 +33,12 @@ public partial class tb_userShare
     public bool bit_grantReward { get; set; }
 
     public bool bit_isDelete { get; set; }
+
+    public bool bit_isApply { get; set; }
+
+    public Nullable<System.DateTime> dtm_ApplyTime { get; set; }
+
+    public Nullable<System.DateTime> dtm_grantTime { get; set; }
 
 }
 

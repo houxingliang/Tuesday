@@ -129,7 +129,7 @@ namespace WcTusService.Data
         /// </summary>
         /// <param name="userid">用户ID</param>
         /// <returns></returns>
-        public List<tb_taskExecute> GetRewardTmpList(int id)
+        public List<tb_taskExecute> GetTaskExecuteListByUserId(int id)
         {
             var rt = from r in db.tb_taskExecute
                      where r.fk_user_id==id
@@ -163,34 +163,74 @@ namespace WcTusService.Data
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public List<tb_task> GetTaskByName(string name,DateTime actionDate,DateTime endDate)
+        public List<tb_task> GetTaskById(int id,DateTime actionDate,DateTime endDate)
         {
-            var query = from p in db.tb_task
-                        where p.nvr_taskName.Contains(name) &&
-                        p.dtm_actionTime >= actionDate &&
-                        p.dtm_endTime <= endDate && p.bit_isDelete==false
-                        select p;
-            if (query != null)
-                return query.ToList();
+            if (id != 0)
+            {
+                var query = from p in db.tb_task
+                            where p.pk_task_id == id &&
+                            p.dtm_actionTime >= actionDate &&
+                            p.dtm_endTime <= endDate && p.bit_isDelete == false
+                            select p;
+                if (query != null)
+                    return query.ToList();
+                else
+                    return null;
+            }
             else
-                return null;
+            {
+                var query = from p in db.tb_task
+                            where p.dtm_actionTime >= actionDate &&
+                            p.dtm_endTime <= endDate && p.bit_isDelete == false
+                            select p;
+                if (query != null)
+                    return query.ToList();
+                else
+                    return null;
+            }
         }
-
+        /// <summary>
+        /// 根据时间
+        /// 查询任务执行信息
+        /// </summary>
+        /// <param name="actionDate"></param>
+        /// <param name="endDate"></param>
+        /// <returns></returns>
+        public List<tb_taskExecute> GetTaskExecuteByTime(DateTime actionDate,DateTime endDate)
+        {
+            var query = from p in db.tb_taskExecute
+                        where p.dtm_executeTime >= actionDate && p.dtm_executeTime <= endDate
+                        select p;
+            return query.ToList();
+        }
         /// <summary>
         /// 根据任务名称和时间
         /// 查询符合条件的任务列表
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public List<tb_task> GetTaskByID(int id, DateTime actionDate, DateTime endDate)
+        public List<tb_task> GetTaskByID(int id)
         {
             var query = from p in db.tb_task
-                        where p.pk_task_id==id &&
-                        p.dtm_actionTime <= actionDate &&
-                        p.dtm_endTime >= endDate && p.bit_isDelete == false
+                        where p.pk_task_id==id  && p.bit_isDelete == false
                         select p;
             if (query != null)
                 return query.ToList();
+            else
+                return null;
+        }
+        /// <summary>
+        /// 根据主键ID获取任务执行信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public tb_taskExecute GetTaskExecuteById(int id)
+        {
+            var query = from p in db.tb_taskExecute
+                        where p.pk_taskExecute_id == id
+                        select p;
+            if (query != null)
+                return query.FirstOrDefault();
             else
                 return null;
         }

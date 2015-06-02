@@ -31,5 +31,52 @@ namespace WcTusService.TuesdayModel
             get { return taskExecute; }
             set { taskExecute = value; }
         }
+
+        private tb_userShare userShare;//用户分享情况
+
+        public tb_userShare UserShare
+        {
+            get { return userShare; }
+            set { userShare = value; }
+        }
+
+        private string type;//类型
+
+        public string Type
+        {
+            get { return type; }
+            set { type = value; }
+        }
+
+        private tb_task task;
+
+        public tb_task Task
+        {
+            get { return task; }
+            set { task = value; }
+        }
+
+        private tb_share share;
+
+        public tb_share Share
+        {
+            get { return share; }
+            set { share = value; }
+        }
+        private int entityType;//0代表分享，1代表任务
+
+        public int EntityType
+        {
+            get { return entityType; }
+            set { entityType = value; }
+        }
+
+        private string tmpName;//奖励模板名称
+
+        public string TmpName
+        {
+            get { return tmpName; }
+            set { tmpName = value; }
+        }
     }
 }

@@ -68,6 +68,7 @@
     <EntitySetMapping Name="tb_taskExecute">
       <EntityTypeMapping TypeName="ShareWeiModel.tb_taskExecute">
         <MappingFragment StoreEntitySet="tb_taskExecute">
+          <ScalarProperty Name="fk_shareContents_id" ColumnName="fk_shareContents_id" />
           <ScalarProperty Name="bit_isDelete" ColumnName="bit_isDelete" />
           <ScalarProperty Name="pk_taskExecute_id" ColumnName="pk_taskExecute_id" />
           <ScalarProperty Name="fk_taskItem_id" ColumnName="fk_taskItem_id" />
@@ -113,6 +114,9 @@
     <EntitySetMapping Name="tb_userShare">
       <EntityTypeMapping TypeName="ShareWeiModel.tb_userShare">
         <MappingFragment StoreEntitySet="tb_userShare">
+          <ScalarProperty Name="dtm_grantTime" ColumnName="dtm_grantTime" />
+          <ScalarProperty Name="dtm_ApplyTime" ColumnName="dtm_ApplyTime" />
+          <ScalarProperty Name="bit_isApply" ColumnName="bit_isApply" />
           <ScalarProperty Name="bit_isDelete" ColumnName="bit_isDelete" />
           <ScalarProperty Name="bit_grantReward" ColumnName="bit_grantReward" />
           <ScalarProperty Name="dtm_shareTime" ColumnName="dtm_shareTime" />

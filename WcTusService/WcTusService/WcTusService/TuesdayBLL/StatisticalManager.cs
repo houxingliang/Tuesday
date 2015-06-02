@@ -12,110 +12,62 @@ namespace WcTusService.TuesdayBLL
     /// </summary>
     public class StatisticalManager
     {
-        //TaskData taskData = null;//任务数据访问类
-        //TaskItemData taskItemData = null;//任务项数据访问类
-        //ShareData shareData = null;//分享数据库访问类
         UserShareData userShareData = null;//用户分享数据访问类
         UserData userData = null;//用户数据访问类
-        //活动首次转发统计
-        public List<Statistical_UserShare_Business> FirstShare(int taskId)
+        /// <summary>
+        /// 活动首次转发统计
+        /// </summary>
+        /// <param name="shareId">分享内容ID</param>
+        /// <returns></returns>
+        public List<Statistical_UserShare_Business> FirstShare(int shareId)
         {
-            tb_task task = new TaskData().GettaskByid(taskId);
-            userData = new UserData();
-            if (task != null)
-            {
-                //获取任务的所有任务项信息
-                List<tb_taskItem> taskItemList = new TaskItemData().GetItemBytaskid(task.pk_task_id);
-                List<int> shareIdList = new List<int>();//分享内容ID集合
-                if (taskItemList != null)
-                {
-                    foreach (tb_taskItem taskItem in taskItemList)
-                    {
-                        shareIdList.Add(taskItem.fk_share_id);
-                    }
-                    //首次分享的业务实体类
-                    List<Statistical_UserShare_Business> businessList = new List<Statistical_UserShare_Business>();
-                    shareIdList.Add(task.fk_share_id);
-                    shareIdList = shareIdList.Distinct().ToList();//去除集合中的重复数据
-                    userShareData = new UserShareData();
-                    if (shareIdList != null && shareIdList.Count > 0)
-                    {
-                        List<tb_userShare> userShareList = new List<tb_userShare>();
-                        foreach (int i in shareIdList)
-                        {
-                            List<tb_userShare> userShare=userShareData.GetUserShareListByShareID(i);
+            //根据活动ID获取分享后的活动列表
+            List<tb_userShare> userShareList = new UserShareData().GetUserShareListByShareID(shareId);
 
-                            //是否是首次转发(首次转发将数据放入列表)
-                            if (userShare!=null)
-                            {
-                                foreach (var us in userShare)
-                                {
-                                    if (us.bit_firstShare == true)
-                                    {
-                                        userShareList.Add(us);
-                                        Statistical_UserShare_Business business = new Statistical_UserShare_Business();
-                                        business.UserShare = us;
-                                        tb_user user = userData.GetUserByID(us.fk_user_id);
-                                        if (user != null)
-                                        {
-                                            business.User = user;
-                                        }
-                                        businessList.Add(business);
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    return businessList;
-                }
-            }
-            return null;
-        }
-        //总转发次数统计
-        public List<Statistical_UserShare_Business> TotalShare(int taskId)
-        {
-            tb_task task = new TaskData().GettaskByid(taskId);
-            if (task != null)
+            List<Statistical_UserShare_Business> busList = new List<Statistical_UserShare_Business>();
+            foreach (tb_userShare userShare in userShareList)
             {
-                //获取任务的所有任务项信息
-                List<tb_taskItem> taskItemList = new TaskItemData().GetItemBytaskid(task.pk_task_id);
-                List<int> shareIdList = new List<int>();//分享内容ID集合
-                if (taskItemList != null)
+                Statistical_UserShare_Business b = new Statistical_UserShare_Business();
+                if (userShare.bit_firstShare)
                 {
-                    foreach (tb_taskItem taskItem in taskItemList)
-                    {
-                        shareIdList.Add(taskItem.fk_share_id);
-                    }
-                    //首次分享的业务实体类
-                    List<Statistical_UserShare_Business> businessList = new List<Statistical_UserShare_Business>();
-                    shareIdList.Add(task.fk_share_id);
-                    shareIdList = shareIdList.Distinct().ToList();//去除集合中的重复数据
-                    userShareData = new UserShareData();
-                    if (shareIdList != null && shareIdList.Count > 0)
-                    {
-                        List<tb_userShare> userShareList = new List<tb_userShare>();
-                        foreach (int i in shareIdList)
-                        {
-                            tb_userShare userShare = userShareData.GetUserShareByID(i);
-                            if (userShare != null)
-                            {
-                                //是否是首次转发(首次转发将数据放入列表)
-                                userShareList.Add(userShare);
-                                Statistical_UserShare_Business business = new Statistical_UserShare_Business();
-                                business.UserShare = userShare;
-                                tb_user user = userData.GetUserByID(userShare.fk_user_id);
-                                if (user != null)
-                                {
-                                    business.User = user;
-                                }
-                                businessList.Add(business);
-                            }
-                        }
-                    }
-                    return businessList;
-                }
+                    b.User = new UserData().GetUserByID((int)userShare.fk_user_id);
+                }               
+                b.UserShare = userShare;
+                busList.Add(b);
             }
-            return null;
+            return busList;
+        }
+        /// <summary>
+        /// 总转发次数统计
+        /// </summary>
+        /// <param name="shareId">分享活动主键ID</param>
+        /// <returns>分享转发 业务实体</returns>
+        public List<Statistical_UserShare_Business> TotalShare(int shareId)
+        {
+            //根据活动ID获取分享后的活动列表
+            List<tb_userShare> userShareList = new UserShareData().GetUserShareListByShareID(shareId);
+
+            List<Statistical_UserShare_Business> busList = new List<Statistical_UserShare_Business>();
+            foreach (tb_userShare userShare in userShareList)
+            {
+                Statistical_UserShare_Business b = new Statistical_UserShare_Business();
+                if (userShare.bit_firstShare)
+                {
+                    b.User = new UserData().GetUserByID((int)userShare.fk_user_id);
+                }
+                else if (!userShare.bit_firstShare && userShare.fk_user_id != null)
+                {
+                    b.User = new UserData().GetUserByID((int)userShare.fk_user_id);
+                }
+                 //二次分享返还
+                else if (!userShare.bit_firstShare && userShare.fk_user_id == null && userShare.fk_superUser_id != null)
+                {
+                    b.User = new UserData().GetUserByID((int)userShare.fk_user_id);
+                }
+                b.UserShare = userShare;
+                busList.Add(b);
+            }
+            return busList;
         }
         /// <summary>
         /// 活动用户首次转发排名统计
@@ -159,7 +111,7 @@ namespace WcTusService.TuesdayBLL
                                     userShareList.Add(userShare);
                                     Statistical_UserShare_Business business = new Statistical_UserShare_Business();
                                     business.UserShare = userShare;
-                                    tb_user user = userData.GetUserByID(userShare.fk_user_id);
+                                    tb_user user = userData.GetUserByID((int)userShare.fk_user_id);
                                     if (user != null)
                                     {
                                         business.User = user;
@@ -230,7 +182,7 @@ namespace WcTusService.TuesdayBLL
                                 business.UserShare = userShare;
                                 if (userShare != null)
                                 {
-                                    tb_user user = userData.GetUserByID(userShare.fk_user_id);
+                                    tb_user user = userData.GetUserByID((int)userShare.fk_user_id);
                                     if (user != null)
                                     {
                                         business.User = user;
@@ -269,27 +221,116 @@ namespace WcTusService.TuesdayBLL
             //获取指定时间段内，用户分享的数据集
             userShareData = new UserShareData();
             List<tb_userShare> userShareList = userShareData.GetUserShareListByTime(actionTime, endTime);
-            //根据用户分享表中的分享内容ID，查询所有的奖励模板ID
             if (userShareList != null)
             {
-                foreach (tb_userShare u in userShareList)
+                foreach (tb_userShare userShare in userShareList)
                 {
-                    Statistical_UserRank_Business userRank = new Statistical_UserRank_Business();
-                    userRank.UserShare = u;
-                    userRank.User = new UserData().GetUserByID(u.fk_user_id);
-                    tb_share share = new ShareData().GetshareByid(u.fk_shareContents_id);
-                    //赋值奖品类型
-                    tb_reward_Template_imp imp = new RewardTmpImpData().GetRewardImpByIdAndRewardId(share.fk_rewardTemplate_id_f, RewardId);
-                    userRank.RewardType = new RewardData().GetRewardByID(RewardId).nvr_rewardName;
-                    rewardName=userRank.RewardType;
-                    //赋值奖品数量
-                    if (imp != null)
-                    { 
-                        userRank.He = imp.dbl_count;
+                    Statistical_UserRank_Business grant = new Statistical_UserRank_Business();
+                    //首次分享
+                    if (userShare.bit_firstShare)
+                    {
+                        tb_share share = new ShareData().GetshareByid(userShare.fk_shareContents_id);
+                        tb_rewardTemplate rewardTemplate = new RewardTemplateData().GetRewardTmpById(share.fk_rewardTemplate_id_f);
+                        //根据奖励模板获取奖品信息
+                        if (rewardTemplate != null)
+                        {
+                            List<tb_reward_Template_imp> impList = new RewardTmpImpData().GetRewardImpList(rewardTemplate.pk_rewardTemplate_id);
+                            foreach (tb_reward_Template_imp imp in impList)
+                            {
+                                if (imp.fk_reward_id == RewardId)
+                                {
+                                    grant.He += imp.dbl_count;
+                                }
+                            }
+                        }
+                        if (grant.He> 0)
+                        {
+                            grant.UserShare = userShare;
+                            grant.User = new UserData().GetUserByID((int)userShare.fk_user_id);
+                            rankList.Add(grant);
+                        }
                     }
-                    rankList.Add(userRank);
+                    //二次分享
+                    else if (!userShare.bit_firstShare && userShare.fk_user_id != null)
+                    {
+                        tb_share share = new ShareData().GetshareByid(userShare.fk_shareContents_id);
+                        tb_rewardTemplate rewardTemplate = new RewardTemplateData().GetRewardTmpById(share.fk_rewardTemplate_id_s);
+                        //根据奖励模板获取奖品信息
+                        if (rewardTemplate != null)
+                        {
+                            List<tb_reward_Template_imp> impList = new RewardTmpImpData().GetRewardImpList(rewardTemplate.pk_rewardTemplate_id);
+                            foreach (tb_reward_Template_imp imp in impList)
+                            {
+                                if (imp.fk_reward_id == RewardId)
+                                {
+                                    grant.He += imp.dbl_count;
+                                }
+                            }
+                        }
+                        if (grant.He > 0)
+                        {
+                            grant.UserShare = userShare;
+                            grant.User = new UserData().GetUserByID((int)userShare.fk_user_id);
+                            rankList.Add(grant);
+                        }
+                    }
+                    //二次分享返还
+                    else if (!userShare.bit_firstShare && userShare.fk_user_id == null && userShare.fk_superUser_id != null)
+                    {
+                        tb_share share = new ShareData().GetshareByid(userShare.fk_shareContents_id);
+                        tb_rewardTemplate rewardTemplate = new RewardTemplateData().GetRewardTmpById((int)share.fk_superUser_rewardTmp_id);
+                        //根据奖励模板获取奖品信息
+                        if (rewardTemplate != null)
+                        {
+                            List<tb_reward_Template_imp> impList = new RewardTmpImpData().GetRewardImpList(rewardTemplate.pk_rewardTemplate_id);
+                            foreach (tb_reward_Template_imp imp in impList)
+                            {
+                                if (imp.fk_reward_id == RewardId)
+                                {
+                                    grant.He += imp.dbl_count;
+                                }
+                            }
+                        }
+                        if (grant.He > 0)
+                        {
+                            grant.UserShare = userShare;
+                            grant.User = new UserData().GetUserByID((int)userShare.fk_user_id);
+                            rankList.Add(grant);
+                        }
+                    }
                 }
             }
+            //获取指定时间段内，任务执行的数据集
+            List<tb_taskExecute> taskExecuteList = new TaskExecuteData().GetTaskExecuteByTime(actionTime, endTime);
+            if (taskExecuteList != null)
+            {
+                foreach (tb_taskExecute taskExecute in taskExecuteList)
+                {
+                    Statistical_UserRank_Business grant = new Statistical_UserRank_Business();
+                    tb_taskItem taskItem = new TaskItemData().GetItemByid(taskExecute.fk_taskItem_id);
+                    //通过奖励模板ID获取奖励模板信息
+                    tb_rewardTemplate rewardTemplate = new RewardTemplateData().GetRewardTmpById(taskItem.fk_rewardTemplate_id);
+                    //根据奖励模板获取奖品信息
+                    if (rewardTemplate != null)
+                    {
+                        List<tb_reward_Template_imp> impList = new RewardTmpImpData().GetRewardImpList(rewardTemplate.pk_rewardTemplate_id);
+                        foreach (tb_reward_Template_imp imp in impList)
+                        {
+                            if (imp.fk_reward_id == RewardId)
+                            {
+                                grant.He += imp.dbl_count;
+                            }
+                        }
+                    }
+                    if (grant.He > 0)
+                    {
+                        grant.User = new UserData().GetUserByID((int)taskExecute.fk_user_id);
+                        rankList.Add(grant);
+                    }
+                }
+            }
+            //-----------------------------------------------------------------------------------------------------------------------------------
+
             //根据奖励模板，查询所有的奖励信息（名称和数量）
             var returnRank = from p in rankList
                              group p by p.User into g
@@ -299,8 +340,6 @@ namespace WcTusService.TuesdayBLL
                              {
                                  sum =(from g1 in g
                                            select g1.He).Sum(),
-                                 typeName=(from g1 in g
-                                               select g1.RewardType),
                                  message = g.Key
                              };
             List<Statistical_UserRank_Business> returnRankList = new List<Statistical_UserRank_Business>();
@@ -309,7 +348,6 @@ namespace WcTusService.TuesdayBLL
                 Statistical_UserRank_Business b = new Statistical_UserRank_Business();
                 b.User = temp.message;
                 b.He = temp.sum;
-                b.RewardType = rewardName;
                 returnRankList.Add(b);
             }
             return returnRankList;
@@ -338,7 +376,7 @@ namespace WcTusService.TuesdayBLL
                 {
                     TangbiDetail tangbiDetail = new TangbiDetail();
                     //糖币明细中的用户信息
-                    tangbiDetail.User = userData.GetUserByID(userShare.fk_user_id);
+                    tangbiDetail.User = userData.GetUserByID((int)userShare.fk_user_id);
                     //糖币明细中的分享时间
                     tangbiDetail.ShareTime = userShare.dtm_shareTime;
                     //糖币明细中的活动名称
@@ -432,8 +470,9 @@ namespace WcTusService.TuesdayBLL
                 foreach (var taskExecute in temp)
                 {
                     TangbiDetail tangbiDetail = new TangbiDetail();
-                    tangbiDetail.ShareType = "首次分享";
+                    tangbiDetail.ShareType = "任务奖励";
                     tangbiDetail.ShareTime = taskExecute.dtm_executeTime;
+                    tangbiDetail.User = new UserData().GetUserByID(taskExecute.fk_user_id);
                     //任务执行名称
                     tb_taskItem taskItem = new TaskItemData().GetItemByid(taskExecute.fk_taskItem_id);
                     if (taskItem != null)

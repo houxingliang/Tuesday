@@ -84,6 +84,7 @@
     <Property Name="bit_isGrant" Type="Boolean" Nullable="false" />
     <Property Name="dtm_grantTime" Type="DateTime" Precision="3" />
     <Property Type="Boolean" Name="bit_isDelete" Nullable="false" />
+    <Property Type="Int32" Name="fk_shareContents_id" />
   </EntityType>
   <EntityType Name="tb_taskItem">
     <Key>
@@ -119,12 +120,15 @@
     </Key>
     <Property Type="Int32" Name="pk_userShare_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Type="Int32" Name="fk_shareContents_id" Nullable="false" />
-    <Property Type="Int32" Name="fk_user_id" Nullable="false" />
+    <Property Type="Int32" Name="fk_user_id" />
     <Property Type="Int32" Name="fk_superUser_id" />
     <Property Type="Boolean" Name="bit_firstShare" Nullable="false" />
     <Property Type="DateTime" Name="dtm_shareTime" Nullable="false" Precision="3" />
     <Property Type="Boolean" Name="bit_grantReward" Nullable="false" />
     <Property Type="Boolean" Name="bit_isDelete" Nullable="false" />
+    <Property Type="Boolean" Name="bit_isApply" Nullable="false" />
+    <Property Type="DateTime" Name="dtm_ApplyTime" Precision="3" />
+    <Property Type="DateTime" Name="dtm_grantTime" Precision="3" />
   </EntityType>
   <EntityType Name="tb_token">
     <Key>

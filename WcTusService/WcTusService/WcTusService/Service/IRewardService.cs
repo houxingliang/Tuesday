@@ -65,6 +65,8 @@ namespace WcTusService.Service
         tb_share GetShareById(int id, string token);
         [OperationContract]
         List<tb_reward> GetRewardByShareId(int id, string token);
+        [OperationContract]
+        List<RewardShareGrantEntity> GetShareGrantListById(int id, string token);
         #endregion
 
         #region  任务相关
@@ -98,13 +100,13 @@ namespace WcTusService.Service
         #region 奖品发放相关
         //按任务分类查询列表信息
         [OperationContract]
-        List<RewardUserGrantEntity> GetTaskExecuteByTaskName(string name, DateTime actionDate, DateTime endDate, string token);
+        List<RewardUserGrantEntity> GetTaskExecuteByTaskName(int id, DateTime actionDate, DateTime endDate, string token);
         //按活动内容分类查询列表
         [OperationContract]
         List<tb_share> GetShareList_Grant(string name, DateTime actionDate, DateTime endDate, string token);
         //按任务分类的主键ID查询列表信息
         [OperationContract]
-        List<RewardUserGrantEntity> GetTaskExecuteByTaskID(int id, DateTime actionDate, DateTime endDate, string token);
+        List<RewardUserGrantEntity> GetTaskExecuteByTaskID(int id, string token);
 
         //按用户分类查询奖品发放信息
         [OperationContract]
@@ -117,17 +119,22 @@ namespace WcTusService.Service
         //根据登录用户ID申请奖品
         [OperationContract]
         int TaskApplication(int id, string token);
-
+        //根据任务执行表主键发放奖励
+        [OperationContract]
+        int FafangTask(List<int> idList,string token);
+        //根据用户分享表主键ID发放奖励
+        [OperationContract]
+        int FafangShare(List<int> idList, string token);
         #endregion
 
         #region 统计报表
         //活动首次转发统计
         [OperationContract]
-        List<Statistical_UserShare_Business> FirstShare(int taskId, string token);
+        List<Statistical_UserShare_Business> FirstShare(int shareId, string token);
 
         //总转发次数统计
         [OperationContract]
-        List<Statistical_UserShare_Business> TotalShare(int taskId, string token);
+        List<Statistical_UserShare_Business> TotalShare(int shareId, string token);
 
         //活动用户首次转发排名统计
         [OperationContract]

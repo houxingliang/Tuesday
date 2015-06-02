@@ -470,11 +470,11 @@ namespace WcTusService.Service
         /// <param name="endDate">任务结束时间</param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public List<RewardUserGrantEntity> GetTaskExecuteByTaskName(string name, DateTime actionDate, DateTime endDate, string token)
+        public List<RewardUserGrantEntity> GetTaskExecuteByTaskName(int id, DateTime actionDate, DateTime endDate, string token)
         {
             new TokenManager().IsToken(token);
             taskExecuteManager = new TaskExecuteManager();
-            return taskExecuteManager.GetTaskExecuteByTaskName(name,DateTime.Now,DateTime.Now);
+            return taskExecuteManager.GetTaskExecuteByTaskId(id,actionDate,endDate);
         }
         /// <summary>
         /// 根据活动内容分类查询奖品发放列表信息
@@ -484,6 +484,7 @@ namespace WcTusService.Service
         /// <param name="endDate">结束时间</param>
         /// <param name="token">验证token</param>
         /// <returns>活动列表</returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
         public List<tb_share> GetShareList_Grant(string name, DateTime actionDate, DateTime endDate, string token)
         {
             new TokenManager().IsToken(token);
@@ -496,12 +497,12 @@ namespace WcTusService.Service
         /// <param name="id">分享主键</param>
         /// <param name="token"></param>
         /// <returns></returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
         public List<RewardShareGrantEntity> GetShareGrantListById(int id, string token)
         {
-            //
-            //用户分享表设计有缺陷，需修正。
-            //
-            return null;
+            new TokenManager().IsToken(token);
+            shareManager = new ShareManager();
+            return shareManager.GetShareGrantListById(id);
         }
 
         /// <summary>
@@ -512,11 +513,11 @@ namespace WcTusService.Service
         /// <param name="endDate">结束时间</param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public List<RewardUserGrantEntity> GetTaskExecuteByTaskID(int id, DateTime actionDate, DateTime endDate, string token)
+        public List<RewardUserGrantEntity> GetTaskExecuteByTaskID(int id, string token)
         {
             new TokenManager().IsToken(token);
             taskExecuteManager = new TaskExecuteManager();
-            return taskExecuteManager.GetTaskExecuteByTaskID(id, actionDate, endDate);
+            return taskExecuteManager.GetTaskExecuteByTaskID(id);
         }
         /// <summary>
         /// 根据用户信息查询奖品发放信息
@@ -556,8 +557,32 @@ namespace WcTusService.Service
             taskExecuteManager = new TaskExecuteManager();
             return taskExecuteManager.TaskApplication(id);
         }
-
-
+        /// <summary>
+        /// 根据任务执行表主键ID发放奖励
+        /// </summary>
+        /// <param name="idList">任务执行表主键集合</param>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public int FafangTask(List<int> idList,string token)
+        {
+            new TokenManager().IsToken(token);
+            taskExecuteManager = new TaskExecuteManager();
+            return taskExecuteManager.FafangTask(idList);
+        }
+        /// <summary>
+        /// 根据用户分项表主键ID发放奖励
+        /// </summary>
+        /// <param name="idList">用户分享表主键集合</param>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public int FafangShare(List<int> idList,string token)
+        {
+            new TokenManager().IsToken(token);
+            shareManager=new ShareManager();
+            return shareManager.FafangShare(idList);
+        }
         #endregion
 
         #region 统计报表
@@ -565,27 +590,27 @@ namespace WcTusService.Service
         /// <summary>
         /// 活动首次转发统计
         /// </summary>
-        /// <param name="taskId">任务ID</param>
+        /// <param name="shareId">任务ID</param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public List<Statistical_UserShare_Business> FirstShare(int taskId, string token)
+        public List<Statistical_UserShare_Business> FirstShare(int shareId, string token)
         {
             new TokenManager().IsToken(token);
             statisticalManager = new StatisticalManager();
-            return statisticalManager.FirstShare(taskId);
+            return statisticalManager.FirstShare(shareId);
         }
 
         /// <summary>
         /// 总转发次数统计
         /// </summary>
-        /// <param name="taskId">任务ID</param>
+        /// <param name="shareId">任务ID</param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public List<Statistical_UserShare_Business> TotalShare(int taskId, string token)
+        public List<Statistical_UserShare_Business> TotalShare(int shareId, string token)
         {
             new TokenManager().IsToken(token);
             statisticalManager = new StatisticalManager();
-            return statisticalManager.TotalShare(taskId);
+            return statisticalManager.TotalShare(shareId);
         }
 
         /// <summary>

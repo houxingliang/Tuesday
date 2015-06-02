@@ -42,10 +42,10 @@ namespace WcTusService.Data
         /// 根据主键得到分享内容
         /// </summary>
         /// <param name="task"></param>
-        public tb_share GetshareByid(int taskid)
+        public tb_share GetshareByid(int shareid)
         {
             var ta = from p in share.tb_share
-                     where p.pk_share_id == taskid
+                     where p.pk_share_id == shareid
                      select p;
             if (ta.Count() != 0)
             {

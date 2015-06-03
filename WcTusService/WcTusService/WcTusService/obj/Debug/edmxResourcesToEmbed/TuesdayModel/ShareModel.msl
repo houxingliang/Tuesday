@@ -114,11 +114,11 @@
     <EntitySetMapping Name="tb_userShare">
       <EntityTypeMapping TypeName="ShareWeiModel.tb_userShare">
         <MappingFragment StoreEntitySet="tb_userShare">
+          <ScalarProperty Name="bit_isGrant" ColumnName="bit_isGrant" />
           <ScalarProperty Name="dtm_grantTime" ColumnName="dtm_grantTime" />
           <ScalarProperty Name="dtm_ApplyTime" ColumnName="dtm_ApplyTime" />
           <ScalarProperty Name="bit_isApply" ColumnName="bit_isApply" />
           <ScalarProperty Name="bit_isDelete" ColumnName="bit_isDelete" />
-          <ScalarProperty Name="bit_grantReward" ColumnName="bit_grantReward" />
           <ScalarProperty Name="dtm_shareTime" ColumnName="dtm_shareTime" />
           <ScalarProperty Name="bit_firstShare" ColumnName="bit_firstShare" />
           <ScalarProperty Name="fk_superUser_id" ColumnName="fk_superUser_id" />

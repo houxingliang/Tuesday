@@ -217,7 +217,6 @@ namespace WcTusService.TuesdayBLL
         public List<Statistical_UserRank_Business> UserRewardSum(DateTime actionTime, DateTime endTime, int RewardId)
         {
             List<Statistical_UserRank_Business> rankList = new List<Statistical_UserRank_Business>();
-            string rewardName="";
             //获取指定时间段内，用户分享的数据集
             userShareData = new UserShareData();
             List<tb_userShare> userShareList = userShareData.GetUserShareListByTime(actionTime, endTime);

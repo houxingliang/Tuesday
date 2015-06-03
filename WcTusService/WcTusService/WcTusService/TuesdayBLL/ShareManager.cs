@@ -128,16 +128,16 @@ namespace WcTusService.TuesdayBLL
         /// </summary>
         /// <param name="id">分项表主键ID</param>
         /// <returns></returns>
-        public List<RewardShareGrantEntity> GetShareGrantListById(int id)
+        public List<RewardUserGrantEntity> GetShareGrantListById(int id,bool isApply,bool isGrant)
         {
             List<tb_userShare> userShareList = new UserShareData().GetUserShareListByShareID(id);
 
             if (userShareList != null)
             {
-                List<RewardShareGrantEntity> grantList = new List<RewardShareGrantEntity>();
+                List<RewardUserGrantEntity> grantList = new List<RewardUserGrantEntity>();
                 foreach (tb_userShare userShare in userShareList)
                 {
-                    RewardShareGrantEntity grant = new RewardShareGrantEntity();
+                    RewardUserGrantEntity grant = new RewardUserGrantEntity();
                     grant.UserShare = userShare;
                     //首次分享
                     if (userShare.bit_firstShare)
@@ -156,9 +156,17 @@ namespace WcTusService.TuesdayBLL
                                 reward.dbl_count = imp.dbl_count;
                                 rewardList.Add(reward);
                             }
+                            grant.Task = new tb_task();
+                            grant.Task.dtm_createTime = DateTime.Now;
+                            grant.Task.dtm_actionTime = DateTime.Now;
+                            grant.Task.dtm_endTime = DateTime.Now;
+                            grant.Task.nvr_taskName = share.nvr_shareName;
+                            grant.Task.pk_task_id = share.pk_share_id;
+                            grant.EntityType = 0;
                             grant.TmpName = rewardTemplate.nvr_tmpName;
                             grant.Reward = rewardList;
                         }
+                        grant.UserShare = userShare;
                         grant.User = new UserData().GetUserByID((int)userShare.fk_user_id);
                     }
                     //二次分享
@@ -178,9 +186,18 @@ namespace WcTusService.TuesdayBLL
                                 reward.dbl_count = imp.dbl_count;
                                 rewardList.Add(reward);
                             }
+
+                            grant.Task = new tb_task();
+                            grant.Task.dtm_createTime = DateTime.Now;
+                            grant.Task.dtm_actionTime = DateTime.Now;
+                            grant.Task.dtm_endTime = DateTime.Now;
+                            grant.Task.nvr_taskName = share.nvr_shareName;
+                            grant.Task.pk_task_id = share.pk_share_id;
+                            grant.EntityType = 0;
                             grant.TmpName = rewardTemplate.nvr_tmpName;
                             grant.Reward = rewardList;
                         }
+                        grant.UserShare = userShare;
                         grant.User = new UserData().GetUserByID((int)userShare.fk_user_id);
                     }
                     //二次分享返还
@@ -200,14 +217,30 @@ namespace WcTusService.TuesdayBLL
                                 reward.dbl_count = imp.dbl_count;
                                 rewardList.Add(reward);
                             }
+                            grant.Task = new tb_task();
+                            grant.Task.dtm_createTime = DateTime.Now;
+                            grant.Task.dtm_actionTime = DateTime.Now;
+                            grant.Task.dtm_endTime = DateTime.Now;
+                            grant.Task.nvr_taskName = share.nvr_shareName;
+                            grant.Task.pk_task_id = share.pk_share_id;
+                            grant.EntityType = 0;
                             grant.TmpName = rewardTemplate.nvr_tmpName;
                             grant.Reward = rewardList;
                         }
+                        grant.UserShare = userShare;
                         grant.User = new UserData().GetUserByID((int)userShare.fk_superUser_id);
                     }
                     grantList.Add(grant);
                 }
-                return grantList;
+                if (grantList != null)
+                {
+                    var query = from p in grantList
+                                where p.UserShare.bit_isApply == isApply &&
+                                p.UserShare.bit_isGrant == isGrant
+                                select p;
+                    return query.ToList();
+                }
+                
             }
             return null;
         }
@@ -225,7 +258,7 @@ namespace WcTusService.TuesdayBLL
                 foreach (int i in idList)
                 {
                     tb_userShare userShare = userShareData.GetUserShareByID(i);
-                    userShare.bit_grantReward = true;
+                    userShare.bit_isGrant = true;
                     returnNum += userShareData.EditUserShare(userShare);
                 }
             }

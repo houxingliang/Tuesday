@@ -531,7 +531,7 @@
             $.ajax({
                 type: "post",
                 url: " http://localhost:16025/Service/RewardService.svc/GetTaskExecuteByTaskID",
-                data: '{"id":1,"token":"284357c4344a3dcf2ec5cebec65f68960839bad6"}',
+                data: '{"id":1,"isApply":false,"isGrant":true,"token":"ce978b1acd8324bc2f4010b92357b600be3c3211"}',
                 dataType: "json",
                 contentType: 'application/json; charset=utf-8',
                 success: function (su) {
@@ -584,7 +584,7 @@
             $.ajax({
                 type: "post",
                 url: " http://localhost:16025/Service/RewardService.svc/GetTaskExecuteByUser",
-                data: '{"nickName":"浊","name":"","phoneNum":"","token":"284357c4344a3dcf2ec5cebec65f68960839bad6"}',
+                data: '{"nickName":"浊","name":"","phoneNum":"","token":"83a8284e3fbf1649affbd64ed80197f1e0bbc220"}',
                 dataType: "json",
                 contentType: 'application/json; charset=utf-8',
                 success: function (su) {
@@ -674,7 +674,7 @@
             $.ajax({
                 type: "post",
                 url: " http://localhost:16025/Service/RewardService.svc/UserRewardSum",
-                data: '{"actionTime":"\\/Date(1430031532208+0800)\\/","endTime":"\\/Date(1431931532208+0800)\\/","RewardId":1,"token":"58d6af9a3212c5b42e8d9a29e5407a52b809e72c"}',
+                data: '{"actionTime":"\\/Date(1430031532208+0800)\\/","endTime":"\\/Date(1431931532208+0800)\\/","RewardId":1,"token":"5f8041705eb66fe2b66c77818623ba9066815658"}',
                 dataType: "json",
                 contentType: 'application/json; charset=utf-8',
                 success: function (su) {
@@ -788,7 +788,7 @@
             $.ajax({
                 type: "post",
                 url: " http://localhost:16025/Service/RewardService.svc/IsUsedPhone",
-                data: '{"phoneNum":"13663212624"}',
+                data: '{"phoneNum":"13663212624","token":"ce978b1acd8324bc2f4010b92357b600be3c3211"}',
                 dataType: "json",
                 contentType: 'application/json; charset=utf-8',
                 success: function (su) {
@@ -836,7 +836,7 @@
             $.ajax({
                 type: "post",
                 url: " http://localhost:16025/Service/RewardService.svc/GetShareList_Grant",
-                data: '{"name":"","actionDate":"\\/Date(1431931532208+0800)\\/","endDate":"\\/Date(1431931532208+0800)\\/","token":"a8df36cc6d20fb61065384bd2bd7771304ae7b3e"}',
+                data: '{"name":"","actionDate":"\\/Date(1431931432208+0800)\\/","endDate":"\\/Date(1431931632208+0800)\\/","token":"83a8284e3fbf1649affbd64ed80197f1e0bbc220"}',
                 dataType: "json",
                 contentType: 'application/json; charset=utf-8',
                 success: function (su) {
@@ -854,7 +854,7 @@
             $.ajax({
                 type: "post",
                 url: " http://localhost:16025/Service/RewardService.svc/GetShareGrantListById",
-                data: '{"id":4,"token":"284357c4344a3dcf2ec5cebec65f68960839bad6"}',
+                data: '{"id":4,"isApply":false,"isGrant":false,"token":"83a8284e3fbf1649affbd64ed80197f1e0bbc220"}',
                 dataType: "json",
                 contentType: 'application/json; charset=utf-8',
                 success: function (su) {

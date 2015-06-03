@@ -30,8 +30,6 @@ public partial class tb_userShare
 
     public System.DateTime dtm_shareTime { get; set; }
 
-    public bool bit_grantReward { get; set; }
-
     public bool bit_isDelete { get; set; }
 
     public bool bit_isApply { get; set; }
@@ -39,6 +37,8 @@ public partial class tb_userShare
     public Nullable<System.DateTime> dtm_ApplyTime { get; set; }
 
     public Nullable<System.DateTime> dtm_grantTime { get; set; }
+
+    public bool bit_isGrant { get; set; }
 
 }
 

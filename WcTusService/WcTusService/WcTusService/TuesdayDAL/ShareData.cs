@@ -191,7 +191,8 @@ namespace WcTusService.Data
             var query = from p in share.tb_share
                         where p.nvr_shareName.Contains(name) &&
                         p.dtm_createTime >= actionDate &&
-                        p.dtm_createTime <= endDate
+                        p.dtm_createTime <= endDate &&
+                        p.bit_isDelete==false
                         select p;
             List<tb_share> shareList = query.ToList();
             if (shareList == null)

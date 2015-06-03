@@ -498,11 +498,11 @@ namespace WcTusService.Service
         /// <param name="token"></param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public List<RewardShareGrantEntity> GetShareGrantListById(int id, string token)
+        public List<RewardUserGrantEntity> GetShareGrantListById(int id, bool isApply, bool isGrant, string token)
         {
             new TokenManager().IsToken(token);
             shareManager = new ShareManager();
-            return shareManager.GetShareGrantListById(id);
+            return shareManager.GetShareGrantListById(id,isApply,isGrant);
         }
 
         /// <summary>
@@ -513,11 +513,11 @@ namespace WcTusService.Service
         /// <param name="endDate">结束时间</param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public List<RewardUserGrantEntity> GetTaskExecuteByTaskID(int id, string token)
+        public List<RewardUserGrantEntity> GetTaskExecuteByTaskID(int id, bool isApply, bool isGrant, string token)
         {
             new TokenManager().IsToken(token);
             taskExecuteManager = new TaskExecuteManager();
-            return taskExecuteManager.GetTaskExecuteByTaskID(id);
+            return taskExecuteManager.GetTaskExecuteByTaskID(id,isApply,isGrant);
         }
         /// <summary>
         /// 根据用户信息查询奖品发放信息

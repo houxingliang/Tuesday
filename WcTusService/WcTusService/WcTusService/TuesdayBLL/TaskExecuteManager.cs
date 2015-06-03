@@ -281,7 +281,7 @@ namespace WcTusService.TuesdayBLL
         /// <param name="id">主键ID</param>
         /// <param name="actionDate">开始时间</param>
         /// <param name="endDate">结束时间</param>
-        public List<RewardUserGrantEntity> GetTaskExecuteByTaskID(int id)
+        public List<RewardUserGrantEntity> GetTaskExecuteByTaskID(int id,bool isApply,bool isGrant)
         {
             taskExecuteData = new TaskExecuteData();
             taskItemData = new TaskItemData();
@@ -325,6 +325,9 @@ namespace WcTusService.TuesdayBLL
                                             reward.nvr_rewardName = rewardData.GetRewardByID(imp.fk_reward_id).nvr_rewardName;
                                             grant.Reward.Add(reward);
                                         }
+                                        grant.Type = "任务奖励";
+                                        grant.Task = task;
+                                        grant.EntityType = 1;
                                         grant.TmpName = new RewardTemplateData().GetRewardTmpById(taskItem.fk_rewardTemplate_id).nvr_tmpName;
                                         grantList.Add(grant);
                                     }
@@ -332,7 +335,14 @@ namespace WcTusService.TuesdayBLL
                             }
                         }
                     }
-                    return grantList;
+                    if (grantList != null)
+                    {
+                        var query = from p in grantList
+                                    where p.TaskExecute.bit_isApply == isApply &&
+                                    p.TaskExecute.bit_isGrant == isGrant
+                                    select p;
+                        return query.ToList();
+                    }
                 }
             }
             return null;

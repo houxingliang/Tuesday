@@ -66,7 +66,7 @@ namespace WcTusService.Service
         [OperationContract]
         List<tb_reward> GetRewardByShareId(int id, string token);
         [OperationContract]
-        List<RewardShareGrantEntity> GetShareGrantListById(int id, string token);
+        List<RewardUserGrantEntity> GetShareGrantListById(int id, bool isApply, bool isGrant, string token);
         #endregion
 
         #region  任务相关
@@ -106,7 +106,7 @@ namespace WcTusService.Service
         List<tb_share> GetShareList_Grant(string name, DateTime actionDate, DateTime endDate, string token);
         //按任务分类的主键ID查询列表信息
         [OperationContract]
-        List<RewardUserGrantEntity> GetTaskExecuteByTaskID(int id, string token);
+        List<RewardUserGrantEntity> GetTaskExecuteByTaskID(int id, bool isApply, bool isGrant, string token);
 
         //按用户分类查询奖品发放信息
         [OperationContract]

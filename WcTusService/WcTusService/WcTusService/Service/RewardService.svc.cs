@@ -616,20 +616,32 @@ namespace WcTusService.Service
         /// <summary>
         /// 活动用户首次转发排名统计
         /// </summary>
-        /// <param name="taskId">任务ID集合</param>
+        /// <param name="taskId">活动ID集合</param>
         /// <returns></returns>
-        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
         public List<Statistical_Rank_business> FirstRank(List<int> taskId, string token)
         {
             new TokenManager().IsToken(token);
             statisticalManager = new StatisticalManager();
             return statisticalManager.FirstRank(taskId);
         }
-
+        /// <summary>
+        /// 活动用户首次转发排名统计前十
+        /// </summary>
+        /// <param name="taskId"></param>
+        /// <param name="top">前几条数据</param>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public List<Statistical_Rank_business> FirstRankTop10(List<int> taskId,int top, string token)
+        {
+            new TokenManager().IsToken(token);
+            statisticalManager = new StatisticalManager();
+            return statisticalManager.FirstRank(taskId);
+        }
         /// <summary>
         /// 活动用户总转排名统计
         /// </summary>
-        /// <param name="taskId">任务ID集合</param>
+        /// <param name="taskId">活动ID集合</param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
         public List<Statistical_Rank_business> TotalRank(List<int> taskId, string token)
@@ -639,6 +651,19 @@ namespace WcTusService.Service
             return statisticalManager.TotalRank(taskId);
         }
 
+        /// <summary>
+        /// 活动用户总转排名统计前10
+        /// </summary>
+        /// <param name="taskId">活动ID集合</param>
+        /// <param name="top">前几条数据</param>
+        /// <returns></returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public List<Statistical_Rank_business> TotalRankTop10(List<int> taskId,int top,string token)
+        {
+            new TokenManager().IsToken(token);
+            statisticalManager = new StatisticalManager();
+            return statisticalManager.TotalRank(taskId);
+        }
         /// <summary>
         /// 用户奖品总数统计
         /// </summary>
@@ -665,7 +690,20 @@ namespace WcTusService.Service
             statisticalManager = new StatisticalManager();
             return statisticalManager.GetTangbiDetal(actionTime,endTime);
         }
-
+        /// <summary>
+        /// 统计报表
+        /// 获取所有奖品的发放总数
+        /// </summary>
+        /// <param name="actionTime"></param>
+        /// <param name="endTime"></param>
+        /// <param name="token"></param>
+        /// <returns></returns>
+         public List<tb_reward> GetTotalRewardByTime(DateTime actionTime, DateTime endTime,string token)
+        {
+            new TokenManager().IsToken(token);
+            statisticalManager = new StatisticalManager();
+            return statisticalManager.GetTotalRewardByTime(actionTime, endTime);
+        }
         #endregion
 
         #region 用户相关

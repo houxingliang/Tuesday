@@ -252,7 +252,7 @@
                 type: "post",
                 url: " http://localhost:16025/Service/RewardService.svc/AddShare",
                 dataType: "json",
-                data: '{"share":{"bit_isDelete":false,"bit_secondShare":false,"dbl_secondShareLimit":1.11,"dtm_createTime":"\\/Date(1431925741901+0800)\\/","fk_rewardTemplate_id_f":1,"fk_rewardTemplate_id_s":1,"int_secondShareTime":0,"nvr_shareContents":"这是个测试","nvr_shareName":"测试帝","pk_share_id":0}}',
+                data: '{"share":{"bit_secondShare":false,"dbl_secondShareLimit":1.11,"dtm_createTime":"\\/Date(1431925741901+0800)\\/","fk_rewardTemplate_id_f":1,"fk_rewardTemplate_id_s":1,"int_firstShareTime":1,"int_secondShareTime":0,"nvr_shareContents":"这是个测试","nvr_shareName":"测试帝","pk_share_id":0,"fk_superUser_rewardTmp_id":1},"token":"64652e8b2d7bec9c3df002d7277e92f19f008075"}',
                 contentType: 'application/json; charset=utf-8',
                 success: function (su) {
                     alert(su + "success");
@@ -261,7 +261,6 @@
                 error: function (data) {
                     alert(data.responseText + "error");
                 }
-
             });
         }
 
@@ -602,7 +601,7 @@
             $.ajax({
                 type: "post",
                 url: " http://localhost:16025/Service/RewardService.svc/FirstShare",
-                data: '{"shareId":4,"token":"58d6af9a3212c5b42e8d9a29e5407a52b809e72c"}',
+                data: '{"shareId":4,"token":"64652e8b2d7bec9c3df002d7277e92f19f008075"}',
                 dataType: "json",
                 contentType: 'application/json; charset=utf-8',
                 success: function (su) {
@@ -612,7 +611,6 @@
                 error: function (data) {
                     alert(data.responseText + "error");
                 }
-
             });
         }
         function TotalShare() {
@@ -620,7 +618,7 @@
             $.ajax({
                 type: "post",
                 url: " http://localhost:16025/Service/RewardService.svc/TotalShare",
-                data: '{"shareId":4,"token":"58d6af9a3212c5b42e8d9a29e5407a52b809e72c"}',
+                data: '{"shareId":4,"token":"acd420d94c406a15a55efb7c4be9fce28fe097c8"}',
                 dataType: "json",
                 contentType: 'application/json; charset=utf-8',
                 success: function (su) {
@@ -638,7 +636,7 @@
             $.ajax({
                 type: "post",
                 url: " http://localhost:16025/Service/RewardService.svc/FirstRank",
-                data: '{"taskId":[1,2]}',
+                data: '{"taskId":[3,2],"token":"acd420d94c406a15a55efb7c4be9fce28fe097c8"}',
                 dataType: "json",
                 contentType: 'application/json; charset=utf-8',
                 success: function (su) {
@@ -656,7 +654,7 @@
             $.ajax({
                 type: "post",
                 url: " http://localhost:16025/Service/RewardService.svc/TotalRank",
-                data: '{"taskId":[1,2]}',
+                data: '{"taskId":[3,2],"token":"acd420d94c406a15a55efb7c4be9fce28fe097c8"}',
                 dataType: "json",
                 contentType: 'application/json; charset=utf-8',
                 success: function (su) {
@@ -674,7 +672,7 @@
             $.ajax({
                 type: "post",
                 url: " http://localhost:16025/Service/RewardService.svc/UserRewardSum",
-                data: '{"actionTime":"\\/Date(1430031532208+0800)\\/","endTime":"\\/Date(1431931532208+0800)\\/","RewardId":1,"token":"5f8041705eb66fe2b66c77818623ba9066815658"}',
+                data: '{"actionTime":"\\/Date(1430031532208+0800)\\/","endTime":"\\/Date(1431931532208+0800)\\/","RewardId":1,"token":"232df8e499722ede82a5e94dc70fc72eda489935"}',
                 dataType: "json",
                 contentType: 'application/json; charset=utf-8',
                 success: function (su) {
@@ -731,7 +729,21 @@
                 }
             });
         }
-
+        function GetTotalRewardByTime() {
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/GetTotalRewardByTime",
+                data: '{"actionTime":"\\/Date(1430031532208+0800)\\/","endTime":"\\/Date(1431931532208+0800)\\/","token":"146123b0aae6d0c9517c83c85aa66d844f261f5e"}',
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+            });
+        }
         function AddUser()
         {
             $.ajax({
@@ -920,7 +932,7 @@
     <input type="button" onclick="GetTangbi()"value="糖币明细" />
     <input type="button" onclick="GetHotShare()" value="获取最热门分享" />
     <input type="button" onclick="GetNewShare()" value="获取最新分享" /><br />
-
+    <input type="button" onclick="GetTotalRewardByTime()" value="获取奖品总数" />
     <br />
     用户相关内容：
     <br />

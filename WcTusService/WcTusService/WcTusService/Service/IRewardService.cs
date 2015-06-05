@@ -139,11 +139,13 @@ namespace WcTusService.Service
         //活动用户首次转发排名统计
         [OperationContract]
         List<Statistical_Rank_business> FirstRank(List<int> taskId, string token);
-
+        [OperationContract]
+        List<Statistical_Rank_business> FirstRankTop10(List<int> taskId, int top, string token);
         //活动用户总转排名统计
         [OperationContract]
         List<Statistical_Rank_business> TotalRank(List<int> taskId, string token);
-
+        [OperationContract]
+        List<Statistical_Rank_business> TotalRankTop10(List<int> taskId, int top, string token);
         //用户奖品总数统计
         [OperationContract]
         List<Statistical_UserRank_Business> UserRewardSum(DateTime actionTime, DateTime endTime, int RewardId, string token);
@@ -153,6 +155,8 @@ namespace WcTusService.Service
         //获取最新分享统计信息
         [OperationContract]
         List<tb_share> GetNewShareList(string token);
+        [OperationContract]
+        List<tb_reward> GetTotalRewardByTime(DateTime actionTime, DateTime endTime, string token);
         #endregion
 
         #region 用户相关

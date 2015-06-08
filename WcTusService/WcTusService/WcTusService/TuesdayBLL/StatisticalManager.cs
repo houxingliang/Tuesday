@@ -80,10 +80,31 @@ namespace WcTusService.TuesdayBLL
             List<Statistical_UserShare_Business> businessList = new List<Statistical_UserShare_Business>();
             userShareData = new UserShareData();
             userData = new UserData();
+
             List<int> shareIdList = taskId;
             if (shareIdList != null && shareIdList.Count > 0)
             {
                 List<tb_userShare> userShareList = new List<tb_userShare>();
+                foreach (int i in shareIdList)
+                {
+                    List<tb_userShare> tempList = userShareData.GetUserShareListByShareID(i);
+                    if (tempList != null)
+                    {
+                        userShareList.AddRange(tempList);
+                    }
+                }
+                if (userShareList != null && userShareList.Count > 0)
+                {
+                    shareIdList = new List<int>();
+                    foreach (tb_userShare u in userShareList)
+                    {
+                        shareIdList.Add(u.pk_userShare_ID);
+                    }
+                }
+                else
+                {
+                    return null;
+                }
                 foreach (int i in shareIdList)
                 {
                     tb_userShare userShare = userShareData.GetUserShareByID(i);
@@ -151,6 +172,26 @@ namespace WcTusService.TuesdayBLL
             if (shareIdList != null && shareIdList.Count > 0)
             {
                 List<tb_userShare> userShareList = new List<tb_userShare>();
+                foreach (int i in shareIdList)
+                {
+                    List<tb_userShare> tempList = userShareData.GetUserShareListByShareID(i);
+                    if (tempList != null)
+                    {
+                        userShareList.AddRange(tempList);
+                    }
+                }
+                if (userShareList != null && userShareList.Count > 0)
+                {
+                    shareIdList = new List<int>();
+                    foreach (tb_userShare u in userShareList)
+                    {
+                        shareIdList.Add(u.pk_userShare_ID);
+                    }
+                }
+                else
+                {
+                    return null;
+                }
                 foreach (int i in shareIdList)
                 {
                     tb_userShare userShare = userShareData.GetUserShareByID(i);

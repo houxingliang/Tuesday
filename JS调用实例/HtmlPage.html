@@ -130,7 +130,7 @@
                 type: "post",
                 url: " http://localhost:16025/Service/RewardService.svc/EditRewardTmp",
                 dataType: "json",
-                data: '{"rt":{"RewardTemplateImp":[{"bit_isDelete":false,"dbl_count":0.16,"fk_rewardTemplate_id":1,"fk_reward_id":1,"pk_imp_id":13}],"RewardTmp":{"bit_isDelete":false,"nvr_tmpName":"糖币","pk_rewardTemplate_id":1}}}',
+                data: '{"rt":{"RewardTemplateImp":[{"bit_isDelete":false,"dbl_count":0.18,"fk_rewardTemplate_id":1,"fk_reward_id":1,"pk_imp_id":13}],"RewardTmp":{"bit_isDelete":false,"nvr_tmpName":"糖币","pk_rewardTemplate_id":1}},"token":"da1611f664062a5e82cb4eab4f53a8652b627769"}',
                 contentType: 'application/json; charset=utf-8',
                 success: function (su) {
                     alert(su + "success");
@@ -601,7 +601,7 @@
             $.ajax({
                 type: "post",
                 url: " http://localhost:16025/Service/RewardService.svc/FirstShare",
-                data: '{"shareId":4,"token":"64652e8b2d7bec9c3df002d7277e92f19f008075"}',
+                data: '{"shareId":4,"token":"da1611f664062a5e82cb4eab4f53a8652b627769"}',
                 dataType: "json",
                 contentType: 'application/json; charset=utf-8',
                 success: function (su) {
@@ -618,7 +618,7 @@
             $.ajax({
                 type: "post",
                 url: " http://localhost:16025/Service/RewardService.svc/TotalShare",
-                data: '{"shareId":4,"token":"acd420d94c406a15a55efb7c4be9fce28fe097c8"}',
+                data: '{"shareId":4,"token":"da1611f664062a5e82cb4eab4f53a8652b627769"}',
                 dataType: "json",
                 contentType: 'application/json; charset=utf-8',
                 success: function (su) {
@@ -636,7 +636,7 @@
             $.ajax({
                 type: "post",
                 url: " http://localhost:16025/Service/RewardService.svc/FirstRank",
-                data: '{"taskId":[3,2],"token":"acd420d94c406a15a55efb7c4be9fce28fe097c8"}',
+                data: '{"taskId":[4,5,6,7,8],"token":"22e4e28a6bc95c297ab45c62b535944fd12e64ea"}',
                 dataType: "json",
                 contentType: 'application/json; charset=utf-8',
                 success: function (su) {
@@ -654,7 +654,7 @@
             $.ajax({
                 type: "post",
                 url: " http://localhost:16025/Service/RewardService.svc/TotalRank",
-                data: '{"taskId":[3,2],"token":"acd420d94c406a15a55efb7c4be9fce28fe097c8"}',
+                data: '{"taskId":[3,2,4,5,6,7,8],"token":"7bba6e1bd3aeb53e3462c14afc1c340dac78ee3f"}',
                 dataType: "json",
                 contentType: 'application/json; charset=utf-8',
                 success: function (su) {

@@ -111,5 +111,31 @@ namespace WcTusService.Data
             else
                 return null;
         }
+        /// <summary>
+        /// 根据电话号码
+        /// 查询用户信息
+        /// </summary>
+        /// <param name="num">用户的电话号码</param>
+        /// <returns></returns>
+        public tb_user GetUserByPhoneNum(string num)
+        {
+            var query = from p in share.tb_user
+                        where p.vr_phoneNum == num
+                        select p;
+            return query.FirstOrDefault();
+        }
+        /// <summary>
+        /// 根据星期二用户ID
+        /// 查询用户信息
+        /// </summary>
+        /// <param name="id">星期二用户主键ID</param>
+        /// <returns></returns>
+        public tb_user GetUserByTuesdayId(string id)
+        {
+            var query = from p in share.tb_user
+                        where p.vr_Tuesday.Equals(id)
+                        select p;
+            return query.FirstOrDefault();
+        }
     }
 }

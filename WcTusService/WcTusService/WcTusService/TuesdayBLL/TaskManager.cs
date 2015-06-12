@@ -161,5 +161,14 @@ namespace WcTusService.TuesdayBLL
             taskdata = new TaskData();
             return taskdata.GetRewardByTaskId(id);
         }
+        /// <summary>
+        /// 获取正在执行中的任务信息
+        /// </summary>
+        /// <returns></returns>
+        public tb_task GetActivityTask()
+        {
+            taskdata = new TaskData();
+            return taskdata.GetActivityTask();
+        }
     }
 }

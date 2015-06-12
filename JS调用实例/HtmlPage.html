@@ -36,7 +36,6 @@
             });
         }
         function AddReward() {
-
             $.ajax({
                 type: "post",
                 url: " http://localhost:16025/Service/RewardService.svc/AddReward",
@@ -812,6 +811,38 @@
                 }
             });
         }
+        function GetUserByPhoneNum() {
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/GetUserByPhoneNum",
+                data: '{"num":"13663212624","token":"ce978b1acd8324bc2f4010b92357b600be3c3211"}',
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+            });
+        }
+        function GetUserByTuesdayId() {
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/GetUserByTuesdayId",
+                data: '{"id":"13663212624","token":"ce978b1acd8324bc2f4010b92357b600be3c3211"}',
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+            });
+        }
         function GetToken() {
             $.ajax({
                 type: "post",
@@ -939,7 +970,9 @@
      <input type="button" onclick="AddUser()" value="添加用户" />
     <input type="button" onclick="EditUser()" value="修改用户信息" />
     <input type="button" onclick="GetUserById()" value="获取用户信息" />
-    <input type="button" onclick="IsUsedPhone()" value="查看手机号是否被占用" /><br /><br />
+    <input type="button" onclick="IsUsedPhone()" value="查看手机号是否被占用" />
+    <input type="button" onclick="GetUserByPhoneNum()" value="根据手机号获取用户信息" />
+    <input type="button" onclick="GetUserByTuesdayId()" value="根据星期二主键ID获取用户信息" /><br /><br />
     关于Token:<br />
 
     <input type="button" onclick="GetToken()" value="获取token" />

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="zh-CN"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<script src="../js/jquery/jquery.min.js"></script>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/metro-bootstrap.css">
+    <link rel="stylesheet" href="../css/iconFont.css">
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body class="metro">
+
+
+<div id="myModal1" style="background-color:#FFFFFF; height:170px; margin-top:40%; margin-left:10%; margin-right:10%;" class="modal" 		            data-easein="fadeInLeft" data-easeout="fadeOutLeft"tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-footer popbody">
+                    
+                            <div class="bg-statistics" style="text-align:center; margin-top:20px; " >
+                                    <span class="fontsize">兑换申请已发出，请注意查收</span>
+                                </div>
+                      <div class="row">
+                          <button  style="margin-top:15px; margin-top:25px;" type="button" class="btn btnload btn-warning" data-dismiss="modal" aria-hidden="true">
+                               确定
+                          </button>
+                      </div>
+         </div>
+    </div>
+    
+    <div id="myModal" style="background-color:#FFFFFF; height:170px; margin-top:40%; margin-left:10%; margin-right:10%;" class="modal" 		            data-easein="fadeInLeft" data-easeout="fadeOutLeft"tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-footer popbody">
+                    
+                            <div class="bg-statistics" style="text-align:center; margin-top:20px; " >
+                                    <span class="fontsize">您还没有注册，请先注册再领取奖励</span>
+                                </div>
+                      <div class="row">
+                      	<div class="col-sm-6 col-xs-6">
+                          <a href="Registration.html"  style=" width:90%; margin-top:25px; color:#FFFFFF; padding-top:10px;"  class="btn btnload btn-warning">
+                               注册
+                          </a>
+                          </div>
+                          <div class="col-sm-6 col-xs-6">
+                          <button  style=" width:90%; margin-top:25px;" type="button" class="btn btnload btn-warning" data-dismiss="modal" aria-hidden="true">
+                               取消
+                          </button>
+                          </div>
+                      </div>
+         </div>
+    </div>
+
+<!--title-->
+	<div class="row bg-backtop fixed-top navigation-bar">
+    	<div class="col-sm-2 col-xs-2">
+        <div class="tile   bg-statistics" style="height:40px;" >
+                <div class="tile-status titlfont">
+                    <a href="Tasklist.html" style="margin-top:3px;" class="tile-content iconwhite icon-return"></a>
+                </div>
+        </div>
+        </div>
+        
+        <div class="col-sm-8 col-xs-8">
+        <div class="tile   bg-statistics" style="height:40px;" >
+                <div class="tile-status">
+                    <span style="font-size:15px; padding-top:5px;" class="label tile-content fg-white">我的奖励</span>
+                </div>
+        </div>
+        </div>
+        
+        <div class="col-sm-2 col-xs-2"></div>
+	</div>
+    <!--title-->
+
+<div class="container" style="margin-top:50px;">
+	
+    
+    <div class="row withdraw">
+        <div class="col-sm-12 col-xs-12">
+    			
+                   <table class="table table-hover">
+                     	<thead>
+                        	<tr>
+                            	<th>奖励类型</th>
+                                <th>数量</th>
+                                <th>是否兑换</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        		<tr>
+                                        <td>糖币</td>
+                                        <td>20</td>
+                                        <td>
+                                        <a href="#myModal1" data-toggle="modal" style="color:#5c97e3; border:1px solid #5c97e3; background-color:#ffffff; font-size:12px;  border-radius:100px; padding:3px 10px 3px 10px;" class=" btn-default">兑换(已注册)</a>
+                                        </td>
+                                </tr>
+                                <tr>
+                                        <td>糖币</td>
+                                        <td>20</td>
+                                        <td>
+                                        <a href="#myModal" data-toggle="modal" style="color:#5c97e3; border:1px solid #5c97e3; background-color:#ffffff; font-size:12px;  border-radius:100px; padding:3px 10px 3px 10px;" class=" btn-default">兑换(未注册)</a>
+                                        </td>
+                                </tr>
+                                <tr>
+                                        <td>糖币</td>
+                                        <td>20</td>
+                                        <td>
+                                        <a href="#" style="color:#5c97e3; border:1px solid #5c97e3; background-color:#ffffff; font-size:12px;  border-radius:100px; padding:3px 35px 3px 35px;" class=" btn-default">兑换</a>
+                                        </td>
+                                </tr>
+                        </tbody>
+                    </table>
+        </div>
+    </div>
+    
+</div>
+<nav class="navigation-bar fixed-bottom bg-darkCyan">
+                <nav class="navigation-bar-content"  style="margin-bottom:3px;">
+                   <item class="element col-sm-4 col-xs-4 text-center">
+                        <a class="fg-bar" href="index.html">
+                        <div class="tile-content icon">
+                                <i class="icon-home"></i>
+                            </div>
+                            <div class="tile-status">
+                                <span style=" font-size:10px;">首 页</span>
+                            </div>
+                        </a>
+                   </item>
+                   <item class="element  col-sm-4 col-xs-4  text-center">
+                        <a class="fg-bar" href="Member.html">
+                                <div class="tile-content icon">
+                                    <i class="icon-admin"></i>
+                                </div>
+                                <div class="tile-status">
+                                    <span style=" font-size:10px;">我 的</span>
+                                </div>
+                        </a>
+                   </item>
+                   <item class="element  col-sm-4 col-xs-4 text-center"> 
+                       <a class="fg-bar" href="callme.html">
+                            <div class="tile-content icon">
+                                    <i class="icon-phone"></i>
+                                </div>
+                                <div class="tile-status">
+                                    <span style=" font-size:10px;" >电 话</span>
+                                </div>
+                       </a>
+                   </item>
+              </nav>
+    </nav>
+    		
+
+
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
+<script src="../js/vendor/jquery-1.10.2.min.js"></script>
+<script src="../js/jquery/jquery.widget.min.js"></script>
+<script src="../js/metro/metro.min.js"></script>
+<script src="../js/vendor/modernizr-2.6.2.min.js"></script>
+<script src="../popjs/bootstrap.min.js"></script>
+<!--<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>-->
+
+<!--[if lt IE 9]>
+　　　　<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+@charset "utf-8";
+ul, ol, li {list-style-type:none;vertical-align:0}
+/* 效果CSS开始 */
+.img_ad{ height:160px; width:320px; margin:0 auto; overflow:hidden;position:relative;}
+.img_ad img{width:320px; height:160px;}
+.img_ad_titleP1{ text-transform:uppercase;}
+.img_wrap{position:absolute;left:0; top:0;height:160px; width:320px; background:#666;}
+.img_wrap ul{position:absolute; left:0px; width:100%;}
+.img_wrap ul li{ float:left; display:inline; height:160px; }
+.imgFlashIco{width:144px;overflow:hidden; margin:0 auto; position:relative; top:-30px; background:url(../images/ico_base.png) no-repeat -336px 6px; }
+.imgFlashIco li{ float:left; font-weight:bold;  width:20px; font-size:14px; margin-top:2px;margin-left:6px; text-align:center;line-height:26px;height:26px; cursor:pointer; color:#FFF;}
+.imgFlashIco li.on{ color:#000;}
+.imgFlashSpan{ display:inline-block; height:26px;line-height:26px;  color:#F00;overflow:hidden;margin-left:8px; cursor:pointer;}
+.module{ height:160px;}
+/* 效果CSS结束 */
+

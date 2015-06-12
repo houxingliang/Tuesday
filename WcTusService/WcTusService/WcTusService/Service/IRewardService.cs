@@ -96,7 +96,10 @@ namespace WcTusService.Service
         [OperationContract]
         List<tb_taskItem> GetTaskItemList(int id, string token);
         #endregion
-
+        #region 用户任务执行情况
+        [OperationContract]
+        int GetTimeByUserId(int userId, string token);
+        #endregion
         #region 奖品发放相关
         //按任务分类查询列表信息
         [OperationContract]
@@ -168,6 +171,10 @@ namespace WcTusService.Service
         tb_user GetUserById(int id, string token);
         [OperationContract]
         bool IsUsedPhone(string PhoneNum,string token);
+        [OperationContract]
+        tb_user GetUserByPhoneNum(string num, string token);
+        [OperationContract]
+        tb_user GetUserByTuesdayId(string id, string token);
         #endregion
 
         #region token相关

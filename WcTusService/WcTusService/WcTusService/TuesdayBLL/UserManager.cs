@@ -45,6 +45,28 @@ namespace WcTusService.TuesdayBLL
             return userData.GetUserByID(id);
         }
         /// <summary>
+        /// 根据电话号码
+        /// 查询用户信息
+        /// </summary>
+        /// <param name="num">用户的电话号码</param>
+        /// <returns></returns>
+        public tb_user GetUserByPhoneNum(string num)
+        {
+            userData = new UserData();
+            return userData.GetUserByPhoneNum(num);
+        }
+        /// <summary>
+        /// 根据星期二用户ID
+        /// 查询用户信息
+        /// </summary>
+        /// <param name="id">星期二用户主键ID</param>
+        /// <returns></returns>
+        public tb_user GetUserByTuesdayId(string id)
+        {
+            userData = new UserData();
+            return userData.GetUserByTuesdayId(id);
+        }
+        /// <summary>
         /// 查看手机号是否被占用
         /// </summary>
         /// <param name="phoneNum"></param>
@@ -71,5 +93,6 @@ namespace WcTusService.TuesdayBLL
             else
                 return null;
         }
+
     }
 }

@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="zh-CN">
+ <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+  <style>
+        #footer{position:absolute;bottom:0;width:100%;height:53px;/*footer的高度*/background-color:#ffffff; clear:both; border-top:1px solid #efefef;} 
+    </style>
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+<body class="metro">
+
+    <div id="myModal1" style="background-color:#FFFFFF; height:400px; margin-top:20%; margin-left:10%; margin-right:10%;" class="modal" data-easein="fadeInLeft" data-easeout="fadeOutLeft" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-footer popbody">
+
+            <form class="form-horizontal"
+                  style=" border-radius:5px;  margin-top:10px; padding-top:20px;  box-shadow:0px 0px 5px #C3C3C3;">
+                <a href="tel://400-997-8086">
+                    <div class="form-group">
+
+                        <div class="bg-statistics" style="text-align:center; ">
+                            <div class="tile-status">
+                                <img class="callicon" src="../images/call.jpg" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="callfontsize  bg-statistics">
+                            <div class="tile-status">
+                                <span>拨打客服电话1</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </form>
+            <form class="form-horizontal"
+                  style=" border-radius:5px; padding-top:20px; margin-top:10px;  box-shadow:0px 0px 5px #C3C3C3;">
+                <a href="tel://031187018866">
+                    <div class="form-group">
+                        <div class="bg-statistics" style="text-align:center; ">
+                            <div class="tile-status">
+                                <img class="callicon" src="../images/call.jpg" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="callfontsize  bg-statistics">
+                            <div class="tile-status">
+                                <span>拨打客服电话2</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </form>
+
+            <button style="margin-top:15px;" type="button" class="btn btnload btn-warning" data-dismiss="modal" aria-hidden="true">
+                返回
+            </button>
+        </div>
+    </div>
+
+    <div class="row bg-backtop fixed-top navigation-bar">
+        <div class="col-sm-12 col-xs-12">
+            <div class="tile   bg-statistics" style="height:40px;">
+                <div class="tile-status">
+                    <span style="font-size:15px; padding-top:5px;" class="label tile-content fg-white">联系我们</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="padding-top:50px;">
+       <div class="row">
+            <div class="col-sm-1 col-xs-1"></div>
+            <div class="col-sm-10 col-xs-10">
+                <a ng-click="Call()" data-toggle="modal">
+                    <form class="form-horizontal"
+                          style=" border-radius:5px; padding-bottom:6px;  margin-top:10px;  box-shadow:0px 0px 5px #C3C3C3;">
+                        
+                            <div class="bg-statistics callfont" style="padding-top:8px;">
+                                <div class="tile-status">
+                                    <span>星期二投资网竭诚为您服务</span>
+                                </div>
+                            </div>
+                        
+                        
+                            <div class="bg-statistics" style="text-align:center; ">
+                                <div class="tile-status">
+                                    <img class="callicon" src="../images/call.jpg" />
+                                </div>
+                            </div>
+                        
+                        
+                            <div class="callfontsize  bg-statistics">
+                                <div class="tile-status">
+                                    <span>拨打客服电话</span>
+                                </div>
+                            </div>
+                        
+                    </form>
+                </a>
+            </div>
+        </div>
+
+
+
+    <div class="row">
+            <div class="col-sm-1 col-xs-1"></div>
+            <div class="col-sm-10 col-xs-10">
+                <form class="form-horizontal"
+                      style=" border-radius:5px; padding-bottom:10px;  margin-top:-25px; box-shadow:0px 0px 5px #C3C3C3;">
+
+                    
+                        <div class="bg-statistics callfont" style="padding-top:10px;">
+                            <div class="tile-status">
+                                <span>星期二投资网竭诚为您服务</span>
+                            </div>
+                        </div>
+                    
+                    
+                        <div class="bg-statistics" style="text-align:center; ">
+                            <div class="tile-status">
+                                <img style="height:150px; width:150px;" class="calliconer" src="../images/ewm.jpg" />
+                            </div>
+                        </div>
+                    
+                    
+                        <div class="callfontsize  bg-statistics">
+                            <div class="tile-status">
+                                <span>扫描二维码关注我们</span>
+                            </div>
+                        </div>
+                    
+                </form>
+            </div>
+        </div>
+
+        </div>
+     <div id="footer">
+      
+        
+            <div class="element col-sm-4 col-xs-4 text-center" style="margin-top:4px;">
+                <a class="fg-bar" ng-click="Home()">
+                    <div class="tile-content icon">
+                        <i class="icon-home"></i>
+                    </div>
+                    <div class="tile-status" style="margin-top:-11px;">
+                        <span style=" font-size:10px;">首 页</span>
+                    </div>
+                </a>
+            </div>
+            <div class="element  col-sm-4 col-xs-4  text-center" style="margin-top:4px;">
+                <a class="fg-bar" ng-click="My()">
+                    <div class="tile-content icon">
+                        <i class="icon-admin"></i>
+                    </div>
+                    <div class="tile-status" style="margin-top:-11px;">
+                        <span style=" font-size:10px;">我 的</span>
+                    </div>
+                </a>
+            </div>
+            <div class="element  col-sm-4 col-xs-4 text-center" style="margin-top:4px;">
+                <a class="fg-bar">
+                    <div class="tile-content icon">
+                        <i class="icon-callme"></i>
+                    </div>
+                    <div class="tile-status" style="margin-top:-11px;">
+                        <span style=" font-size:10px;">电 话</span>
+                    </div>
+                </a>
+            </div>
+        
+ 
+</div>
+
+
+
+  
+    <script src="../popjs/bootstrap.min.js"></script>
+</body>
+</html>

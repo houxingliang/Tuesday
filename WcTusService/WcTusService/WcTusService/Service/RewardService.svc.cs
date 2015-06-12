@@ -460,6 +460,21 @@ namespace WcTusService.Service
         }
         #endregion
 
+        #region 用户任务执行情况
+        /// <summary>
+        /// 根据用户ID获取该用户连续签到次数
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public int GetTimeByUserId(int userId,string token)
+        {
+            new TokenManager().IsToken(token);
+            taskExecuteManager = new TaskExecuteManager();
+            return taskExecuteManager.GetTimeByUsedId(userId);
+        }
+        #endregion
+
         #region 奖品发放相关
         TaskExecuteManager taskExecuteManager = null;
         /// <summary>
@@ -762,6 +777,31 @@ namespace WcTusService.Service
         {
             new TokenManager().IsToken(token);
             return userManager.IsUsedPhone(phoneNum);
+        }
+        /// <summary>
+        /// 根据用户电话ID
+        /// 获取用户信息
+        /// </summary>
+        /// <param name="num"></param>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public tb_user GetUserByPhoneNum(string num,string token)
+        {
+            new TokenManager().IsToken(token);
+            return userManager.GetUserByPhoneNum(num);
+        }
+        /// <summary>
+        /// 根据星期二用户ID
+        /// 获取用户信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        public tb_user GetUserByTuesdayId(string id,string token)
+        {
+            new TokenManager().IsToken(token);
+            return userManager.GetUserByTuesdayId(id);
         }
         #endregion
 

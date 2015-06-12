@@ -127,6 +127,16 @@ namespace WcTusService.Data
                 return null;
             }
         }
-
+        /// <summary>
+        /// 获取正在执行中的任务ID
+        /// </summary>
+        /// <returns></returns>
+        public tb_task GetActivityTask()
+        {
+            var query = from p in share.tb_task
+                        where p.bit_status == true
+                        select p;
+            return query.FirstOrDefault();
+        }
     }
 }

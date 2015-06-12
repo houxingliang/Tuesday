@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="zh-CN"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <script src="../js/jquery/jquery.min.js"></script>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/metro-bootstrap.css">
+    <link rel="stylesheet" href="../css/iconFont.css">
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body class="metro">
+<!--title-->
+	<div class="row bg-backtop fixed-top navigation-bar">
+    	<div class="col-sm-2 col-xs-2">
+        <div class="tile   bg-statistics" style="height:40px;" >
+                <div class="tile-status titlfont">
+                    <a href="#" style="margin-top:3px;" class="tile-content iconwhite icon-return"></a>
+                </div>
+        </div>
+        </div>
+        
+        <div class="col-sm-8 col-xs-8">
+        <div class="tile   bg-statistics" style="height:40px;" >
+                <div class="tile-status">
+                    <span style="font-size:15px; padding-top:5px;" class="label tile-content fg-white">我的糖币</span>
+                </div>
+        </div>
+        </div>
+        
+        <div class="col-sm-2 col-xs-2"></div>
+	</div>
+    <!--title-->
+<div class="container" style="margin-top:50px;">
+    <form class="form-horizontal" style="margin-top:20px;">
+    	
+      <div class="form-group">
+            <label for="inputEmail3" class="col-xs-4 laberfontstyle">电子钱包余额：</label>
+            <div class="col-xs-8">
+              <span for="inputPassword3" class="fontstyle yellowfont">￥13511.89</span>
+            </div>
+      </div>
+      <div class="form-group">
+            <label for="inputEmail3" class="col-xs-4 laberfontstyle">当前糖币数量：</label>
+            <div class="col-xs-8">
+              <span for="inputPassword3" class="fontstyle yellowfont">122枚 </span>
+            </div>
+      </div>
+      <div class="form-group">
+            <label for="inputEmail3" class="col-xs-4 laberfontstyle">当前兑换率：</label>
+            <div class="col-xs-8">
+              <span for="inputPassword3" class="fontstyle">1枚 = ￥89.33 </span>
+            </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="inputEmail3" class="col-xs-4 laberfontstyle">兑换数目：</label>
+        <div class="col-xs-7">
+          <input class="form-control" onkeyup="if(isNaN(value))execCommand('undo')" onafterpaste="if(isNaN(value))execCommand('undo')">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputEmail3" class="col-xs-4 laberfontstyle">验证码：</label>
+        <div class="col-xs-4">
+          <input type="text" class="form-control">
+        </div>
+        <div class=" col-xs-3">
+            <!-- <button type="button" style="height:35px;" class="btn btnload btn-warning">验证码</button>-->
+            <img src="../images/yzm.png"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputEmail3" class="col-xs-1"></label>
+        <div class="col-xs-11 redfont">
+              <span >*温馨提示：100糖币起兑.</span>
+        </div>
+      </div>
+      <div class="row loadbtn">
+    	<div class="col-sm-12 col-xs-12">
+    			<div class="tile   bg-statistics" style="height:50px; margin-top:10px;" >
+                <div class="tile-status">
+                     <a href="#" style="color:#FFFFFF;" class="btn yesbtn btn-warning" role="button" data-toggle="modal">立即提现</a>
+                </div>
+        		</div>
+        </div>
+        
+        <div class="col-sm-12 col-xs-12">
+    			<div class="tile   bg-statistics" style="height:50px; margin-top:10px;" >
+                <div class="tile-status">
+                     <a href="exchange.html" style="color:#FFFFFF;" class="btn yesbtn btn-warning">糖币兑换记录</a>
+                </div>
+        		</div>
+        </div>
+    </div>
+    </form>
+</div>    
+    
+    <nav class="navigation-bar fixed-bottom bg-darkCyan">
+                <nav class="navigation-bar-content"  style="margin-bottom:3px;">
+                   <item class="element col-sm-4 col-xs-4 text-center">
+                        <a class="fg-bar" href="index.html">
+                        <div class="tile-content icon">
+                                <i class="icon-home"></i>
+                            </div>
+                            <div class="tile-status">
+                                <span style=" font-size:10px;">首 页</span>
+                            </div>
+                        </a>
+                   </item>
+                   <item class="element  col-sm-4 col-xs-4  text-center">
+                        <a class="fg-bar" href="Member.html">
+                                <div class="tile-content icon">
+                                    <i class="icon-admin"></i>
+                                </div>
+                                <div class="tile-status">
+                                    <span style=" font-size:10px;">我 的</span>
+                                </div>
+                        </a>
+                   </item>
+                   <item class="element  col-sm-4 col-xs-4 text-center"> 
+                       <a class="fg-bar" href="callme.html">
+                            <div class="tile-content icon">
+                                    <i class="icon-phone"></i>
+                                </div>
+                                <div class="tile-status">
+                                    <span style=" font-size:10px;" >电 话</span>
+                                </div>
+                       </a>
+                   </item>
+              </nav>
+    </nav>
+
+    
+
+
+    		
+
+
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
+<script src="../js/vendor/jquery-1.10.2.min.js"></script>
+<script src="../js/jquery/jquery.widget.min.js"></script>
+<script src="../js/metro/metro.min.js"></script>
+<script src="../js/vendor/modernizr-2.6.2.min.js"></script>
+<script src="../popjs/bootstrap.min.js"></script>
+
+<!--<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>-->
+
+<!--[if lt IE 9]>
+　　　　<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+
+</body>
+</html>

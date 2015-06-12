@@ -367,5 +367,95 @@ namespace WcTusService.TuesdayBLL
             }
             return returnNum;
         }
+        /// <summary>
+        /// 根据用户ID
+        /// 查询任务执行信息集合
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public List<tb_taskExecute> GetTaskExecuteListByUserId(int id)
+        {
+            taskExecuteData = new TaskExecuteData();
+            return taskExecuteData.GetTaskExecuteListByUserId(id);
+        }
+        /// <summary>
+        /// 根据用户ID获取该用户连续签到次数
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public int GetTimeByUsedId(int id)
+        {
+            //获取正在执行中的任务ID
+            TaskManager taskManager=new TaskManager();
+            int taskId = taskManager.GetActivityTask().pk_task_id;
+            //获取正在执行中的任务ID的任务项集合
+            List<int> taskItem = new List<int>();
+            taskItemData = new TaskItemData();
+            List<tb_taskItem> itemList = taskItemData.GetItemBytaskid(taskId);
+            if (itemList != null)
+            {
+                foreach (tb_taskItem item in itemList)
+                {
+                    taskItem.Add(item.pk_taskItem_id);
+                }
+            }
+            //获取该用户的任务执行信息列表
+            List<tb_taskExecute> taskExecuteList = GetTaskExecuteListByUserId(id);
+            if (taskExecuteList != null)
+            {
+                List<tb_taskExecute> executeList = new List<tb_taskExecute>();
+                foreach (int i in taskItem)
+                {
+                    for (int j = 0; j < taskExecuteList.Count(); j++)
+                    {
+                        if (i == taskExecuteList[j].fk_taskItem_id)
+                        {
+                            executeList.Add(taskExecuteList[j]);
+                            break;
+                        }
+                    }
+                }
+                int returnNum = 0;
+                //用户执行的当前活动任务的任务执行集合
+                if (executeList != null && executeList.Count() > 0)
+                {
+                    DateTime taday = DateTime.Now;
+                    var query = from p in executeList
+                                orderby p.dtm_executeTime
+                                select p;
+                    executeList = query.ToList();
+                    if (executeList[0].dtm_executeTime.ToShortDateString().Equals(taday.ToShortDateString()))
+                    {
+                        for (int i = 0; i < executeList.Count(); i++)
+                        {
+                            if (executeList[i].dtm_executeTime.ToShortDateString().Equals(taday.AddDays(-i).ToShortDateString()))
+                            {
+                                returnNum += returnNum;
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        }
+                    }
+                    else if (executeList[0].dtm_executeTime.ToShortDateString().Equals(taday.AddDays(-1).ToShortDateString()))
+                    {
+                        for (int i = 0; i < executeList.Count(); i++)
+                        {
+                            if (executeList[i].dtm_executeTime.ToShortDateString().Equals(taday.AddDays(-i).ToShortDateString()))
+                            {
+                                returnNum += returnNum;
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        }
+                    }
+                }
+                return returnNum;
+            }
+            return 0;
+        }
     }
 }

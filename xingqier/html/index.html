@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="zh-CN"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<script src="../js/jquery/jquery.min.js"></script>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/metro-bootstrap.css">
+    <link rel="stylesheet" href="../css/iconFont.css">
+    <link rel="stylesheet" href="../css/main.css"> 
+    
+  
+  <style>
+    #slides {
+      display: none;
+	  height:atuo;
+	  width:100%;
+    }
+
+    .containe {
+      margin: 0 auto;
+      text-align: center;
+	  height:atuo;
+	  width:100%;
+    }
+
+    /* For tablets & smart phones */
+    @media (max-width: 767px) {
+     
+      .containe {
+        width: 100%;
+      }
+    }
+
+    /* For smartphones */
+    @media (max-width: 480px) {
+      .containe {
+        width: 100%;
+      }
+    }
+
+    /* For smaller displays like laptops */
+    @media (min-width: 768px) and (max-width: 979px) {
+      .containe {
+        width: 100%;
+      }
+    }
+
+    /* For larger displays */
+    @media (min-width: 1200px) {
+      .containe {
+        width: 100%;
+      }
+    }
+	
+	
+	.slidesjs-pagination {
+      list-style:none;margin-top:-23px;padding:0;position:relative; z-index:2000;
+	  text-align:center;cursor:pointer;
+      
+    }
+    .slidesjs-pagination li {
+      
+      display:inline-block;width:10px;height:10px;margin:0 3px;cursor:pointer;
+    }
+
+    .slidesjs-pagination li a {
+      display: block;
+      width: 13px;
+      height: 0;
+      padding-top: 13px;
+      background-image: url(../images/pagination.png);
+      background-position: 0 0;
+      float: left;
+      overflow: hidden;
+    }
+
+    .slidesjs-pagination li a.active,
+    .slidesjs-pagination li a:hover.active {
+      background-position: 0 -13px
+    }
+
+    .slidesjs-pagination li a:hover {
+      background-position: 0 -26px
+    }
+  </style>
+  
+</head>
+<body class="metro">
+
+
+
+<div class="container">
+
+	<div class="row" style="height:45px;">
+    	<div class="col-sm-9 col-xs-9">
+			<img src="../images/ad42.jpg">
+        </div>
+        <div class="col-sm-3 col-xs-3 loadstyle" style="text-align:center; font-size:12px; padding-top:10px; color:#5c97e3;">
+        		<span>admin 欢迎您！</span>
+        </div>
+	</div>
+    
+    <div class="row">
+        <div class="col-sm-12 col-xs-12">
+           <div class="containe">
+            <div id="slides">
+                        <a href="#"><img src="../images/4.jpg" ></a>
+                        <a href="#"><img src="../images/5.jpg" ></a>
+                        <a href="#"><img src="../images/6.jpg" ></a>
+                        <a href="#"><img src="../images/7.jpg" ></a>
+            </div>
+          </div>
+        </div>
+    </div>
+    
+    <div class="row" style="border-bottom:1px solid #acd0ff;">
+    	<div class="col-sm-12 col-xs-12" style="text-align:center;">
+    			
+                <div style=" font-size:8px; line-height:20px;  margin:5px auto;">
+					<script>
+                    var marqueeContent=new Array();   //滚动新闻
+                    marqueeContent[0]='<a href=# target=_blank class="f12red">2014-12-01 &nbsp;王某某&nbsp; 133*1234&nbsp;  兑换100糖币&nbsp; 总额￥8000；</a><br>';
+                    marqueeContent[1]='<a href=# target=_blank class="f12red">2014-12-01 &nbsp;张某&nbsp; 133*1444&nbsp;  兑换122糖币&nbsp; 总额￥8340；</a><br>';
+                    marqueeContent[2]='<a href=# target=_blank class="f12red">2014-12-01 &nbsp;王 某&nbsp; 133*5634&nbsp;  兑换1000糖币&nbsp; 总额￥10300；</a><br>';
+                    marqueeContent[3]='<a href=# target=_blank class="f12red">2014-12-01 &nbsp;孙甜某&nbsp; 133*3334&nbsp;  兑换100糖币&nbsp; 总额￥8000；</a><br>';
+                    var marqueeInterval=new Array();  //定义一些常用而且要经常用到的变量
+                    var marqueeId=0;
+                    var marqueeDelay=2000;
+                    var marqueeHeight=24;
+                    //接下来的是定义一些要使用到的函数
+                    function initMarquee() {
+                        var str=marqueeContent[0];
+                        document.write('<div id=marqueeBox style="overflow:hidden;height:'+marqueeHeight+'px" onmouseover="clearInterval(marqueeInterval[0])" onmouseout="marqueeInterval[0]=setInterval(\'startMarquee()\',marqueeDelay)"><div>'+str+'</div></div>');
+                        marqueeId++;
+                        marqueeInterval[0]=setInterval("startMarquee()",marqueeDelay);
+                        }
+                    function startMarquee() {
+                        var str=marqueeContent[marqueeId];
+                            marqueeId++;
+                        if(marqueeId>=marqueeContent.length) marqueeId=0;
+                        if(marqueeBox.childNodes.length==1) {
+                            var nextLine=document.createElement('DIV');
+                            nextLine.innerHTML=str;
+                            marqueeBox.appendChild(nextLine);
+                            }
+                        else {
+                            marqueeBox.childNodes[0].innerHTML=str;
+                            marqueeBox.appendChild(marqueeBox.childNodes[0]);
+                            marqueeBox.scrollTop=0;
+                            }
+                        clearInterval(marqueeInterval[1]);
+                        marqueeInterval[1]=setInterval("scrollMarquee()",24);
+                        }
+                    function scrollMarquee() {
+                        marqueeBox.scrollTop++;
+                        if(marqueeBox.scrollTop%marqueeHeight==(marqueeHeight-1)){
+                            clearInterval(marqueeInterval[1]);
+                            }
+                        }
+                    initMarquee();
+                    </script>
+                    </div>
+        </div>
+    </div>
+    
+    <div class="row" style="margin-top:8px; margin-left:12px; margin-right:12px;">
+        <div class="col-sm-6 col-xs-6">
+            <a href="investmentlist.html"><div class="tile bg-darkPink">
+                <div class="tile-content icon">
+                    <i class="icon-investment"></i>
+                </div>
+                <div class="tile-status" style="margin-bottom:10px;">
+                    <span style=" font-size:14px;" class="name label fg-white">我要投资</span>
+                </div>
+            </div></a>
+            
+            <a href="text.html"><div class="tile bg-darklvse">
+                <div class="tile-content icon">
+                    <i class="icon-text"></i>
+                </div>
+                <div class="tile-status" style="margin-bottom:10px;">
+                    <span style=" font-size:14px;" class="name label fg-white">星期二大视野</span>
+                </div>
+            </div></a>
+        </div>
+        <div class="col-sm-6 col-xs-6" >
+            <a href="mytb.html"><div class="tile bg-amber" style="height:80px;">
+            	<div class="tile-content icon">
+                    <i class="icon-Tb"></i>
+                </div>
+               <div class="tile-status">
+                    <span style="font-size:14px;" class="name label fg-white">糖币</span>
+                </div>
+            </div></a>
+        </div>
+        <br />
+        <div class="col-sm-6 col-xs-6">
+            <a href="sharp.html"><div class="tile bg-shangjin" style="height:160px;">
+                <div class="tile-content icon">
+                    <i class="icon-task"></i>
+                </div>
+                <div class="tile-status">
+                     <ul class="sjul label  fg-white">
+                                		<li><span style="font-size:14px;">赏金任务池</span></li>
+                                    <li><span style="font-size:8px;">完成任务得糖币、话费、现金大礼 </span></li>
+                                    <li>&nbsp;</li>
+                      </ul> 
+                </div>
+            </div></a>
+        </div>
+        </div>
+    
+    <div class="row" style="height:80px; margin-left:12px; margin-right:12px;">
+        <div class="col-sm-12 col-xs-12">
+            <div class="tile   bg-tongji" style="height:80px;">
+                <div class="row">
+                		<div class="col-sm-6 col-xs-6" style="height:80px;">
+                        <div class="tile   bg-statistics" style=" height:80px;" >
+                        		<ul class="tile-content label fg-white" style="margin-top:15px; margin-left:25px;">
+                                		<li><span style="font-size:12px;" >用户总投资额</span></li>
+                                    <li><span style="font-size:9px;">￥103,822,517</span></li>
+                             </ul>
+                            <div class="tile-statu">
+                                <div style="margin-left:20px;" class="tile-statu icon-user">
+                                </div>
+                            </div>
+                            
+                        </div>
+                		</div>
+                      <div class="col-sm-6 col-xs-6" style="height:80px;">
+                        <div class="tile   bg-statistics" style="height:80px;" >
+                        		<ul class="tile-content label fg-white" style="margin-top:15px; margin-left:20px;">
+                                		<li><span style="font-size:12px;" >汇率 2015/01/01</span></li>
+                                    <li><span style="font-size:9px;">1糖币 = ￥96.58</span></li>
+                             </ul>
+                            <div class="tile-statu">
+                                <div style="margin-left:5px;" class="tile-statu icon-Tb">
+                                </div>
+                            </div>
+                            
+                        </div>
+                		</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-bottom:50px; margin-left:12px; margin-right:12px;">
+        <div class="col-sm-4 col-xs-4 astyle">
+			<a href="news.html">
+            <div class="tile bg-huise" style="height:35px;" >
+                <div class="row">
+                		<div class="col-sm-4 col-xs-4" style="height:68px;">
+                                <span style="text-align:center;" class="tile-statu icon-news iconblue">
+                                </span>
+                		</div>
+                      <div class="col-sm-8 col-xs-8">
+                                    <span style="font-size:11px;">消息管理</span>
+                		</div>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-sm-4 col-xs-4">
+        	<a href="#">
+            <div class="tile bg-huise" style="height:35px;" >
+                <div class="row">
+                		<div class="col-sm-6 col-xs-6" style="height:68px;">
+                                <span style="text-align:center;" class="tile-statu icon-user iconblue">
+                                </span>
+                		</div>
+                      <div class="col-sm-6 col-xs-6 qiandaofont">
+                        
+                                    <a style="font-size:11px;">签到</a>
+                        
+                		</div>
+                </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-sm-4 col-xs-4 astyle">
+			<a href="accounts.html">
+            <div class="tile bg-huise" style="height:35px;" >
+                <div class="row">
+                		<div class="col-sm-4 col-xs-4" style="height:68px;">
+                                <span style="text-align:center;" class="tile-statu icon-number iconblue">
+                                </span>
+                		</div>
+                      <div class="col-sm-8 col-xs-8">
+                           <span style="font-size:11px;">账号管理</span>
+                		</div>
+                </div>
+            </div></a>
+        </div>
+    </div>
+
+</div>
+       <div class="row"></div>
+    		<nav class="navigation-bar fixed-bottom bg-darkCyan">
+                <nav class="navigation-bar-content"  style="margin-bottom:3px;">
+                   <item class="element col-sm-4 col-xs-4 text-center">
+                        <a class="fg-bar" href="#">
+                        		<div class="tile-content icon">
+                                <i class="icon-homedown"></i>
+                            </div>
+                            <div class="tile-status">
+                                <span style=" font-size:10px;">首 页</span>
+                            </div>
+                        </a>
+                   </item>
+                   <item class="element  col-sm-4 col-xs-4  text-center">
+                        <a class="fg-bar" href="Member.html">
+                                <div class="tile-content icon">
+                                    <i class="icon-admin"></i>
+                                </div>
+                                <div class="tile-status">
+                                    <span style=" font-size:10px;">我 的</span>
+                                </div>
+                        </a>
+                   </item>
+                   <item class="element  col-sm-4 col-xs-4 text-center"> 
+                       <a class="fg-bar" href="callme.html">
+                            <div class="tile-content icon">
+                                    <i class="icon-phone"></i>
+                                </div>
+                                <div class="tile-status">
+                                    <span style=" font-size:10px;" >电 话</span>
+                                </div>
+                       </a>
+                   </item>
+              </nav>
+    		</nav>
+
+
+
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
+<script src="../js/vendor/jquery-1.10.2.min.js"></script>
+<script src="../js/jquery/jquery.widget.min.js"></script>
+<!--<script src="../js/metro/metro.min.js"></script>-->
+<script src="../js/vendor/modernizr-2.6.2.min.js"></script>
+
+<script src="../js/jquery-1.7.2.min.js"></script>
+  <script src="../js/jquery.slides.min.js"></script>
+<script>
+    $(function() {
+      $('#slides').slidesjs({
+        width: 940,
+        height: 528,
+        play: {
+          active: true,
+          auto: true,
+          interval: 4000,
+          swap: true
+        }
+      });
+    });
+  </script>
+
+<!--<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>-->
+
+<!--[if lt IE 9]>
+　　　　<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+</body>
+</html>

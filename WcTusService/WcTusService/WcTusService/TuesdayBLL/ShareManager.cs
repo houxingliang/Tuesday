@@ -264,5 +264,51 @@ namespace WcTusService.TuesdayBLL
             }
             return returnNum;
         }
+
+        /// <summary>
+        /// 根据用户ID获取该用户所有的分享信息
+        /// </summary>
+        /// <param name="userid"></param>
+        /// <returns></returns>
+        public List<UserShareReward> GetUserShareList(int userid)
+        {
+            List<tb_share> shareList = new ShareData().GetshareAll(false);
+            if (shareList != null)
+            {
+                List<UserShareReward> shareRewardList = new List<UserShareReward>();
+                tb_user user = new UserData().GetUserByID(userid);
+                List<tb_userShare> userShareList = new UserShareData().GetUserShareListByUserId(userid);
+                foreach (tb_share share in shareList)
+                {
+                    UserShareReward r = new UserShareReward();
+                    r.User = user;
+                    r.Share = share;
+                    List<tb_reward_Template_imp> impList = new RewardTmpImpData().GetRewardImpList(share.fk_rewardTemplate_id_f);
+                    if (impList != null)
+                    {
+                        List<tb_reward> rewardList = new List<tb_reward>();
+                        foreach (tb_reward_Template_imp imp in impList)
+                        {
+                            tb_reward reward = new RewardData().GetRewardByID(imp.fk_reward_id);
+                            rewardList.Add(reward);
+                        }
+                        r.RewardList = rewardList;
+                        r.IsShare = 0;
+                    }
+                    foreach (tb_userShare userShare in userShareList)
+                    {
+                        if (userShare.fk_shareContents_id == share.pk_share_id)
+                        {
+                            r.IsShare = 1;
+                            break;
+                        }
+                    }
+                    shareRewardList.Add(r);
+                }
+                return shareRewardList;
+            }
+            return null;
+        }
     }
+
 }

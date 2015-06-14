@@ -67,6 +67,8 @@ namespace WcTusService.Service
         List<tb_reward> GetRewardByShareId(int id, string token);
         [OperationContract]
         List<RewardUserGrantEntity> GetShareGrantListById(int id, bool isApply, bool isGrant, string token);
+        [OperationContract]
+        List<UserShareReward> GetUserShareList(int userid, string token);
         #endregion
 
         #region  任务相关

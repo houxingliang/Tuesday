@@ -229,6 +229,24 @@
 
             });
         }
+        function GetUerShareList()
+        {
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/GetUserShareList",
+                dataType: "json",
+                data: '{"userid":1,"token":"c3945c2dccb135c0f82257f2ee477699b04e3076"}',
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (data) {
+                    alert(data.responseText + "error");
+                }
+
+            });
+        }
         function GetRewardByShareId() {
             $.ajax({
                 type: "post",
@@ -938,7 +956,8 @@
     <input type="button" onclick="DelTask()" value="删除任务" />
     <input type="button" onclick="GetTaskList()" value="获取任务列表" />
     <input type="button" onclick="GetTaskById()" value="根据主键ID获取任务信息" />
-    <input type="button" onclick="GetRewardByTaskId()" value="根据任务主键获取奖励" /><br />
+    <input type="button" onclick="GetRewardByTaskId()" value="根据任务主键获取奖励" />
+    <input type="button" onclick="GetUerShareList()" value="根据用户ID获取分享内容信息"><br />
     <br />
     <input type="button" onclick="AddTaskItem()" value="添加任务项" />
     <input type="button" onclick="GetTaskItem()" value="查看任务项" />

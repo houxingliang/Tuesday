@@ -303,6 +303,19 @@ namespace WcTusService.Service
             shareManager = new ShareManager();
             return shareManager.GetRewardByShareId(id);
         }
+        /// <summary>
+        /// 根据用户ID
+        /// 查看分享内容是否被用户分享
+        /// </summary>
+        /// <param name="userid">用户主键ID</param>
+        /// <returns></returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public List<UserShareReward> GetUserShareList(int userid,string token)
+        {
+            new TokenManager().IsToken(token);
+            shareManager = new ShareManager();
+            return shareManager.GetUserShareList(userid);
+        }
         #endregion
 
         #region 任务相关

@@ -86,12 +86,30 @@ namespace WcTusService.TuesdayBLL
         /// </summary>
         /// <param name="id">任务主键ID</param>
         /// <returns></returns>
-        public List<tb_taskItem> GetTaskItemByTaskId(int id)
-        { 
-            taskItemdata=new TaskItemData();
+        public List<TaskItemReward> GetTaskItemByTaskId(int id)
+        {
+            taskItemdata = new TaskItemData();
             List<tb_taskItem> taskItemList = taskItemdata.GetItemBytaskid(id);
             if (taskItemList != null)
-                return taskItemList;
+            {
+                List<TaskItemReward> taskItemRewardList = new List<TaskItemReward>();
+                foreach (tb_taskItem taskItem in taskItemList)
+                {
+                    TaskItemReward taskItemReward = new TaskItemReward();
+                    taskItemReward.RewardTmp = new RewardTemplateData().GetRewardTmpById(taskItem.fk_rewardTemplate_id);
+                    taskItemReward.RewardList = new List<tb_reward>();
+                    taskItemReward.TaskItem = taskItem;
+                    //该模板下的奖励集合
+                    List<tb_reward_Template_imp> impList = new RewardTmpImpData().GetRewardImpList(taskItemReward.RewardTmp.pk_rewardTemplate_id);
+                    foreach (tb_reward_Template_imp imp in impList)
+                    {
+                        tb_reward reward = new RewardData().GetRewardByID(imp.fk_reward_id);
+                        taskItemReward.RewardList.Add(reward);
+                    }
+                    taskItemRewardList.Add(taskItemReward);
+                }
+                return taskItemRewardList;
+            }
             else
                 return null;
         }
@@ -106,9 +124,9 @@ namespace WcTusService.TuesdayBLL
             taskItemdata = new TaskItemData();
             if (taskItem != null)
             {
-                returnNum=taskItemdata.AddtaskItem(taskItem);
+                returnNum = taskItemdata.AddtaskItem(taskItem);
             }
-            return returnNum;   
+            return returnNum;
         }
         /// <summary>
         /// 修改任务项

@@ -1,0 +1,362 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access">
+  <Class Name="WcTusService.ReadMe" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>ReadMe.txt.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.Service.RewardService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>C56AgykJjWQAKKCkAZGAhoEQVgBCFKA4AoCAMYACFoI=</HashCode>
+      <FileName>Service\RewardService.svc.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WcTusService.TuesdayBLL.ContinuousShareManager" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAABAAAAAAAAAAAAAAAAEAAAAAAAAAAAEACAEAA=</HashCode>
+      <FileName>TuesdayBLL\ContinuousShareManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.TuesdayBLL.RewardManager" Collapsed="true">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgCAAAAAAAAAgQAAAAAAAAAACAAAAAAAAgAgAAAA=</HashCode>
+      <FileName>TuesdayBLL\RewardManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.TuesdayBLL.RewardTemplateManager" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAEAAAAAAAAYAAAAAJABAAAAAABAAIA=</HashCode>
+      <FileName>TuesdayBLL\RewardTemplateManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.TuesdayBLL.ShareManager" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AYgAgAAAgCAAACAAAQAABAAABAAAAAAYAggAAAAAAAA=</HashCode>
+      <FileName>TuesdayBLL\ShareManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.TuesdayBLL.StatisticalManager" Collapsed="true">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgQAgAAAAAAAAAAAAAAAIEAQABCAAAAAgAAAMAAAAA=</HashCode>
+      <FileName>TuesdayBLL\StatisticalManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.TuesdayBLL.TaskExecuteManager" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CBgAAAAsAAIAIIAAAAAAgAEAAAAABAAAAAIAAAAAAEA=</HashCode>
+      <FileName>TuesdayBLL\TaskExecuteManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.TuesdayBLL.TaskManager" Collapsed="true">
+    <Position X="11" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAASgAAAAAACAkABAAAAAAAAEAIAAAAAAAIAAABEQ=</HashCode>
+      <FileName>TuesdayBLL\TaskManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.TuesdayBLL.TokenManager" Collapsed="true">
+    <Position X="5.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEAA=</HashCode>
+      <FileName>TuesdayBLL\TokenManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.TuesdayBLL.UserManager" Collapsed="true">
+    <Position X="12.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAwAAAAIAAAAAAAgAAAAAAAAAAAAEAAgAAAAAQACAgA=</HashCode>
+      <FileName>TuesdayBLL\UserManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.TuesdayDAL.ContinuousShareData" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAgBAAAAAAAAAAAAAAAAAAAAAkAA=</HashCode>
+      <FileName>TuesdayDAL\ContinuousShareData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.Data.RewardData" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAgCAAAAAAAAAAAAAAAAAAAAACAAAAAAAAgAAAEAA=</HashCode>
+      <FileName>TuesdayDAL\RewardData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.Data.RewardTemplateData" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAABAAQCAAQAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TuesdayDAL\RewardTemplateData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.Data.RewardTmpImpData" Collapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAgAAAAAAAAAAAAIAAAAAACAAAAAAAAgAAAEIA=</HashCode>
+      <FileName>TuesdayDAL\RewardTmpImpData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.Data.ShareData" Collapsed="true">
+    <Position X="12.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAgAAAAQAAAAQAAQAAgAAAEAEIA=</HashCode>
+      <FileName>TuesdayDAL\ShareData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.Data.TaskData" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAQgAAAAAAgAAAAAgAAAAAAAAAAAAAAAAAAAAEAQ=</HashCode>
+      <FileName>TuesdayDAL\TaskData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.Data.TaskExecuteData" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABIAAAAMBAIQAAAQAAoAAAEAAAAgBAAAAACAAAAAAAA=</HashCode>
+      <FileName>TuesdayDAL\TaskExecuteData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.Data.TaskItemData" Collapsed="true">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAgAAAABIAAAAAAAAAAAAAAAAEAAAAEAA=</HashCode>
+      <FileName>TuesdayDAL\TaskItemData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.Data.UserData" Collapsed="true">
+    <Position X="11" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAgAAAgAAAAAAAAEAggAAAAAQACEgA=</HashCode>
+      <FileName>TuesdayDAL\UserData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.Data.UserShareData" Collapsed="true">
+    <Position X="0.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACCIAAAAAAQAAAAAACAAAAAAAAAAgAIAEAA=</HashCode>
+      <FileName>TuesdayDAL\UserShareData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.Model.Ftime" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAEAAAgAAAAAQAAAAA=</HashCode>
+      <FileName>TuesdayModel\Ftime.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.Model.FtimeRanking" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAACAAQAAAAAAAAAAAAAAEAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>TuesdayModel\FtimeRanking.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.Model.Prizes" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAgAAAAAAAQAAAAAAAkAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>TuesdayModel\Prizes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.Model.SugarList" Collapsed="true">
+    <Position X="11" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAQCAgAAAAAAAAAAAAAAAFAAAgAAAAAQAAAAA=</HashCode>
+      <FileName>TuesdayModel\SugarList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.Model.Ttime" Collapsed="true">
+    <Position X="7.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAgAAAAAAAAAAAAAAAEAAAgAAAAAQAAAAA=</HashCode>
+      <FileName>TuesdayModel\Ttime.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.Model.TtimeRanking" Collapsed="true">
+    <Position X="9.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EQAAAAAAACAgAAAAAAAAAAAAAAAEAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>TuesdayModel\TtimeRanking.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.TuesdayModel.RewardShareGrantEntity" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAABAAAAAAAABAAAAAQAAAAAAACBAAAAAQAAAAAAAQA=</HashCode>
+      <FileName>TuesdayModel\RewardShareGrantEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.TuesdayModel.RewardTemplate" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAgAAAAAAAAAAAAgAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TuesdayModel\RewardTemplate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.TuesdayModel.RewardUserGrantEntity" Collapsed="true">
+    <Position X="11" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAVAAAAAAAABAAAAAQAAAAAQACBAAAAAUAAAABAVQA=</HashCode>
+      <FileName>TuesdayModel\RewardUserGrantEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.TuesdayModel.ShareWeiEntities" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAQAEAAAAEAAAABBAgAAAAEAAAAQQAAAAAAEAAAAA=</HashCode>
+      <FileName>TuesdayModel\ShareModel.Context.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.TuesdayModel.tb_continuousShare" Collapsed="true">
+    <Position X="12.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IIQAAAAAEAAAAAAAEAAAAQQAAIAAAAAAAAIACAAAAAA=</HashCode>
+      <FileName>TuesdayModel\tb_continuousShare.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.TuesdayModel.tb_reward" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAACAAAAAAAAAgCA=</HashCode>
+      <FileName>TuesdayModel\tb_reward.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.TuesdayModel.tb_reward_Template_imp" Collapsed="true">
+    <Position X="2.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAQAAAAACAAAAgAAAAAAACA=</HashCode>
+      <FileName>TuesdayModel\tb_reward_Template_imp.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.TuesdayModel.tb_rewardTemplate" Collapsed="true">
+    <Position X="4" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAQACA=</HashCode>
+      <FileName>TuesdayModel\tb_rewardTemplate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.TuesdayModel.tb_share" Collapsed="true">
+    <Position X="5.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAIAABAACAAABGAAAABAAAACCAAAAIAACA=</HashCode>
+      <FileName>TuesdayModel\tb_share.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.TuesdayModel.tb_task" Collapsed="true">
+    <Position X="7.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAMAAAAAAACAAAIACAAAAAAAAABAAAABCA=</HashCode>
+      <FileName>TuesdayModel\tb_task.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.TuesdayModel.tb_taskExecute" Collapsed="true">
+    <Position X="9.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAIAAAAABAAAAAAEAACAACAAAAAAABACAACg=</HashCode>
+      <FileName>TuesdayModel\tb_taskExecute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.TuesdayModel.tb_taskItem" Collapsed="true">
+    <Position X="11" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAEAACAQQAAAAAAIAAAAABAAAABiA=</HashCode>
+      <FileName>TuesdayModel\tb_taskItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.TuesdayModel.tb_token" Collapsed="true">
+    <Position X="12.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAACAAAAIAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>TuesdayModel\tb_token.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.TuesdayModel.tb_user" Collapsed="true">
+    <Position X="0.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAgAAAIAAAAgAAAAAAAAAAAAAABAAAAAAAAIAA=</HashCode>
+      <FileName>TuesdayModel\tb_user.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.TuesdayModel.tb_userShare" Collapsed="true">
+    <Position X="2.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAwAAAAAAAAAAAIBAAAAAAEAACAACAAAAAAAAACABCA=</HashCode>
+      <FileName>TuesdayModel\tb_userShare.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.TuesdayModel.Statistical_Rank_business" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>TuesdayModel\Statistical_Rank_business.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.TuesdayModel.Statistical_UserRank_Business" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAEAABAgAAAQIAAAAAAAAAAAAAAAAQAAAAQA=</HashCode>
+      <FileName>TuesdayModel\Statistical_UserRank_Business.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.TuesdayModel.Statistical_UserShare_Business" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>TuesdayModel\Statistical_UserShare_Business.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.TuesdayModel.TangbiDetail" Collapsed="true">
+    <Position X="12.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAABBAAAAAAAAAAAAAAgAAQAIAAEAAAAAAAAAEAAAQQ=</HashCode>
+      <FileName>TuesdayModel\TangbiDetail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.TuesdayModel.TaskExecuteBusinessEntity" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABEAAA=</HashCode>
+      <FileName>TuesdayModel\TaskExecuteBusinessEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.TuesdayModel.TaskItemReward" Collapsed="true">
+    <Position X="9.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAgAgAgAAIAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>TuesdayModel\TaskItemReward.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.TuesdayModel.TokenEntity" Collapsed="true">
+    <Position X="4" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAABAAA=</HashCode>
+      <FileName>TuesdayModel\TokenEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WcTusService.TuesdayModel.UserShareReward" Collapsed="true">
+    <Position X="2.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAARAAgAEAAAABAAAAgAAAgAAAAAAAAAAAgAAAAAEQA=</HashCode>
+      <FileName>TuesdayModel\UserShareReward.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="WcTusService.Service.IRewardService" Collapsed="true">
+    <Position X="0.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>C54AgykJhSQAKKAkARGAhoEQVgBCFKA4AgCAMYACFoI=</HashCode>
+      <FileName>Service\IRewardService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

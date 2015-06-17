@@ -15,6 +15,7 @@
         <EntityTypeShape EntityType="ShareWeiModel.tb_user" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ShareWeiModel.tb_userShare" Width="1.5" PointX="8.5" PointY="4" />
         <EntityTypeShape EntityType="ShareWeiModel.tb_token" Width="1.5" PointX="10.375" PointY="4" />
+        <EntityTypeShape EntityType="ShareWeiModel.tb_continuousShare" Width="1.5" PointX="8.5" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

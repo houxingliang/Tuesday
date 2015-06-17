@@ -92,6 +92,7 @@
     <Compile Include="Service\RewardService.svc.cs">
       <DependentUpon>RewardService.svc</DependentUpon>
     </Compile>
+    <Compile Include="TuesdayBLL\ContinuousShareManager.cs" />
     <Compile Include="TuesdayBLL\RewardManager.cs" />
     <Compile Include="TuesdayBLL\RewardTemplateManager.cs" />
     <Compile Include="TuesdayBLL\ShareManager.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="TuesdayBLL\TaskManager.cs" />
     <Compile Include="TuesdayBLL\TokenManager.cs" />
     <Compile Include="TuesdayBLL\UserManager.cs" />
+    <Compile Include="TuesdayDAL\ContinuousShareData.cs" />
     <Compile Include="TuesdayDAL\RewardData.cs" />
     <Compile Include="TuesdayDAL\RewardTemplateData.cs" />
     <Compile Include="TuesdayDAL\RewardTmpImpData.cs" />
@@ -136,6 +138,10 @@
     <Compile Include="TuesdayModel\SugarList.cs" />
     <Compile Include="TuesdayModel\TangbiDetail.cs" />
     <Compile Include="TuesdayModel\TaskExecuteBusinessEntity.cs" />
+    <Compile Include="TuesdayModel\TaskItemReward.cs" />
+    <Compile Include="TuesdayModel\tb_continuousShare.cs">
+      <DependentUpon>ShareModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="TuesdayModel\tb_reward.cs">
       <DependentUpon>ShareModel.tt</DependentUpon>
     </Compile>
@@ -184,6 +190,7 @@
       <DependentUpon>ShareModel.edmx</DependentUpon>
     </Content>
     <Content Include="packages.config" />
+    <Content Include="类图.cd" />
     <None Include="Properties\PublishProfiles\test.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

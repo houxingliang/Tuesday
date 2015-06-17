@@ -69,6 +69,8 @@ namespace WcTusService.Service
         List<RewardUserGrantEntity> GetShareGrantListById(int id, bool isApply, bool isGrant, string token);
         [OperationContract]
         List<UserShareReward> GetUserShareList(int userid, string token);
+        [OperationContract]
+        List<RewardUserGrantEntity> GetRewardMessageByShareId(int shareId, string token);
         #endregion
 
         #region  任务相关
@@ -96,12 +98,14 @@ namespace WcTusService.Service
         [OperationContract]
         int DelTaskItem(int id, string token);
         [OperationContract]
-        List<tb_taskItem> GetTaskItemList(int id, string token);
+        List<TaskItemReward> GetTaskItemList(int id, string token);
         #endregion
+
         #region 用户任务执行情况
         [OperationContract]
         int GetTimeByUserId(int userId, string token);
         #endregion
+
         #region 奖品发放相关
         //按任务分类查询列表信息
         [OperationContract]
@@ -130,6 +134,12 @@ namespace WcTusService.Service
         //根据用户分享表主键ID发放奖励
         [OperationContract]
         int FafangShare(List<int> idList, string token);
+        [OperationContract]
+        int ShenQingTask(List<int> idList, string token);
+        [OperationContract]
+        int ShenQingShare(List<int> idList, string token);
+        [OperationContract]
+        List<RewardUserGrantEntity> GetUserRewardByUserId(int userId, string token);
         #endregion
 
         #region 统计报表
@@ -177,6 +187,8 @@ namespace WcTusService.Service
         tb_user GetUserByPhoneNum(string num, string token);
         [OperationContract]
         tb_user GetUserByTuesdayId(string id, string token);
+        [OperationContract]
+        tb_user GetUserByOpenId(string openId, string token);
         #endregion
 
         #region token相关
@@ -185,6 +197,19 @@ namespace WcTusService.Service
         TokenEntity EditToken(string appid);
         [OperationContract]
         TokenEntity GetToken(string appid);
+        #endregion
+
+        #region 连续签到
+        [OperationContract]
+        bool IsExecuteTask(int taskId, int userId, string token);
+        [OperationContract]
+        int ContinuousShareTime(int taskId, int userId, string token);
+        [OperationContract]
+        int ResetContinuousShare(int userid, int taskId, string token);
+        [OperationContract]
+        int AddContinuousShareByUserIdAndTaskId(int userid, int taskId, string token);
+        [OperationContract]
+        bool IsContinuous(int taskId, int userId, string token);
         #endregion
     }
 }

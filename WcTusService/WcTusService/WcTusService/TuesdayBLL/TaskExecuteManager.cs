@@ -368,6 +368,26 @@ namespace WcTusService.TuesdayBLL
             return returnNum;
         }
         /// <summary>
+        /// 用户申请任务奖励
+        /// </summary>
+        /// <param name="idList"></param>
+        /// <returns></returns>
+        public int ShenQingTask(List<int> idList)
+        {
+            int returnNum = 0;
+            if (idList != null)
+            {
+                taskExecuteData = new TaskExecuteData();
+                foreach (int i in idList)
+                {
+                    tb_taskExecute taskExecute = taskExecuteData.GetTaskExecuteById(i);
+                    taskExecute.bit_isApply = true;
+                    returnNum += taskExecuteData.EditTaskExecute(taskExecute);
+                }
+            }
+            return returnNum;
+        }
+        /// <summary>
         /// 根据用户ID
         /// 查询任务执行信息集合
         /// </summary>

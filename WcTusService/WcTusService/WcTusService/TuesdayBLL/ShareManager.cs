@@ -38,6 +38,98 @@ namespace WcTusService.TuesdayBLL
                 return null;
         }
         /// <summary>
+        /// 根据分享主键ID
+        /// 获取该分享内容下首次、二次、二次返还的奖品信息
+        /// </summary>
+        /// <param name="shareId"></param>
+        /// <returns></returns>
+        public List<RewardUserGrantEntity> GetRewardMessageByShareId(int shareId)
+        {
+            tb_share share = GetShareById(shareId);
+            List<RewardUserGrantEntity> grantList = new List<RewardUserGrantEntity>();
+            //首次分享
+            RewardUserGrantEntity grant = new RewardUserGrantEntity();
+            tb_rewardTemplate rewardTemplate = new RewardTemplateData().GetRewardTmpById(share.fk_rewardTemplate_id_f);
+            List<tb_reward> rewardList = new List<tb_reward>();
+            //根据奖励模板获取奖品信息
+            if (rewardTemplate != null)
+            {
+                List<tb_reward_Template_imp> impList = new RewardTmpImpData().GetRewardImpList(rewardTemplate.pk_rewardTemplate_id);
+                foreach (tb_reward_Template_imp imp in impList)
+                {
+                    tb_reward reward = new RewardData().GetRewardByID(imp.fk_reward_id);
+                    reward.dbl_count = imp.dbl_count;
+                    rewardList.Add(reward);
+                }
+                grant.Share = new tb_share();
+                grant.Share.dtm_createTime = DateTime.Now;
+                grant.Share.nvr_shareName= share.nvr_shareName;
+                grant.Share.pk_share_id = share.pk_share_id;
+                grant.Share.nvr_shareContents = share.nvr_shareContents;
+                grant.EntityType = 0;
+                grant.TmpName = rewardTemplate.nvr_tmpName;
+                grant.Reward = rewardList;
+                grant.Type = "首次分享";
+            }
+            grantList.Add(grant);
+            //是否允许二次分享
+            if (share.bit_secondShare)
+            {
+                RewardUserGrantEntity grant_s = new RewardUserGrantEntity();
+                tb_rewardTemplate rewardTemplate_s = new RewardTemplateData().GetRewardTmpById(share.fk_rewardTemplate_id_s);
+                List<tb_reward> rewardList_s = new List<tb_reward>();
+                //根据奖励模板获取奖品信息
+                if (rewardTemplate_s != null)
+                {
+                    List<tb_reward_Template_imp> impList_s = new RewardTmpImpData().GetRewardImpList(rewardTemplate_s.pk_rewardTemplate_id);
+                    foreach (tb_reward_Template_imp imp in impList_s)
+                    {
+                        tb_reward reward_s = new RewardData().GetRewardByID(imp.fk_reward_id);
+                        reward_s.dbl_count = imp.dbl_count;
+                        rewardList.Add(reward_s);
+                    }
+                    grant_s.Share = new tb_share();
+                    grant_s.Share.dtm_createTime = DateTime.Now;
+                    grant_s.Share.nvr_shareName = share.nvr_shareName;
+                    grant.Share.nvr_shareContents = share.nvr_shareContents;
+                    grant_s.Share.pk_share_id = share.pk_share_id;
+                    grant_s.EntityType = 0;
+                    grant_s.TmpName = rewardTemplate.nvr_tmpName;
+                    grant_s.Reward = rewardList;
+                    grant_s.Type = "二次分享";
+                    grantList.Add(grant_s);
+                }
+                if (share.fk_superUser_rewardTmp_id != null && share.fk_superUser_rewardTmp_id != 0)
+                {
+                    RewardUserGrantEntity grant_super = new RewardUserGrantEntity();
+                    tb_rewardTemplate rewardTemplate_super = new RewardTemplateData().GetRewardTmpById((int)share.fk_superUser_rewardTmp_id);
+                    List<tb_reward> rewardList_super = new List<tb_reward>();
+                    //根据奖励模板获取奖品信息
+                    if (rewardTemplate_super != null)
+                    {
+                        List<tb_reward_Template_imp> impList_super = new RewardTmpImpData().GetRewardImpList(rewardTemplate_super.pk_rewardTemplate_id);
+                        foreach (tb_reward_Template_imp imp in impList_super)
+                        {
+                            tb_reward reward_s = new RewardData().GetRewardByID(imp.fk_reward_id);
+                            reward_s.dbl_count = imp.dbl_count;
+                            rewardList.Add(reward_s);
+                        }
+                        grant_super.Share = new tb_share();
+                        grant_super.Share.dtm_createTime = DateTime.Now;
+                        grant_super.Share.nvr_shareName = share.nvr_shareName;
+                        grant.Share.nvr_shareContents = share.nvr_shareContents;
+                        grant_super.Share.pk_share_id = share.pk_share_id;
+                        grant_super.EntityType = 0;
+                        grant_super.TmpName = rewardTemplate.nvr_tmpName;
+                        grant_super.Reward = rewardList;
+                        grant_super.Type = "二次返还";
+                        grantList.Add(grant_super);
+                    }
+                }
+            }
+            return grantList;
+        }
+        /// <summary>
         /// 修改分享内容信息
         /// </summary>
         /// <param name="tbshare"></param>
@@ -126,7 +218,7 @@ namespace WcTusService.TuesdayBLL
         /// <summary>
         /// 根据分享主键ID获取用户的奖品信息
         /// </summary>
-        /// <param name="id">分项表主键ID</param>
+        /// <param name="id">分享表主键ID</param>
         /// <returns></returns>
         public List<RewardUserGrantEntity> GetShareGrantListById(int id,bool isApply,bool isGrant)
         {
@@ -264,7 +356,26 @@ namespace WcTusService.TuesdayBLL
             }
             return returnNum;
         }
-
+        /// <summary>
+        /// 用户申请分享奖励
+        /// </summary>
+        /// <param name="idList"></param>
+        /// <returns></returns>
+        public int ShenQingShare(List<int> idList)
+        {
+            int returnNum = 0;
+            if (idList != null)
+            {
+                UserShareData userShareData = new UserShareData();
+                foreach (int i in idList)
+                {
+                    tb_userShare userShare = userShareData.GetUserShareByID(i);
+                    userShare.bit_isApply = true;
+                    returnNum += userShareData.EditUserShare(userShare);
+                }
+            }
+            return returnNum;
+        }
         /// <summary>
         /// 根据用户ID获取该用户所有的分享信息
         /// </summary>
@@ -290,11 +401,13 @@ namespace WcTusService.TuesdayBLL
                         foreach (tb_reward_Template_imp imp in impList)
                         {
                             tb_reward reward = new RewardData().GetRewardByID(imp.fk_reward_id);
+                            reward.dbl_count = imp.dbl_count;
                             rewardList.Add(reward);
                         }
                         r.RewardList = rewardList;
                         r.IsShare = 0;
                     }
+                    r.RewardTmp = new RewardTemplateData().GetRewardTmpById(share.fk_rewardTemplate_id_f);
                     foreach (tb_userShare userShare in userShareList)
                     {
                         if (userShare.fk_shareContents_id == share.pk_share_id)
@@ -309,6 +422,19 @@ namespace WcTusService.TuesdayBLL
             }
             return null;
         }
+        /// <summary>
+        /// 根据用户主键ID
+        /// 获取用户的奖励信息
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public List<RewardUserGrantEntity> GetUserRewardByUserId(int userId)
+        {
+            tb_user user = new UserData().GetUserByID(userId);
+            if (user != null)
+                return new TaskExecuteManager().GetTaskExecuteByUser(user.nvr_wxName, user.nvr_userName, user.vr_phoneNum);
+            else
+                return null;
+        }
     }
-
 }

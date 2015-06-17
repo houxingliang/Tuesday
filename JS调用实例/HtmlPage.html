@@ -927,6 +927,39 @@
                 }
             });
         }
+        function GetUserRewardByUserId()
+        {
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/GetUserRewardByUserId",
+                data: '{"userId":1,"token":"1d296d1819e90cba8e87f16be916856928d91918"}',
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (su) {
+                    alert(su + "");
+                }
+            });
+        }
+        function GetRewardMessageByShareId() {
+            $.ajax({
+                type: "post",
+                url: " http://localhost:16025/Service/RewardService.svc/GetRewardMessageByShareId",
+                data: '{"shareId":4,"token":"c4ac3562f69ac200b30bfd48cb73f6c463694473"}',
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (su) {
+                    alert(su + "success");
+
+                },
+                error: function (su) {
+                    alert(su + "");
+                }
+            });
+        }
     </script>
 
 </head>
@@ -1001,5 +1034,7 @@
     <br />
     <input type="button" onclick="GetShareList_Grant() " value="根据活动内容分类查询奖品发放列表信息" />
     <input type="button" onclick="GetShareGrantListById()" value="根据分享主键ID获取用户的奖品信息" />
+    <input type="button" onclick="GetUserRewardByUserId()" value="根据用户ID查询奖品信息" /><br />
+    <input type="button" onclick="GetRewardMessageByShareId()" value="根据分享主键获取分享奖励信息" />
 </body>
 </html>

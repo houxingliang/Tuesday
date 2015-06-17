@@ -137,5 +137,19 @@ namespace WcTusService.Data
                         select p;
             return query.FirstOrDefault();
         }
+
+        /// <summary>
+        /// 根据微信OpenID
+        /// 查询用户信息
+        /// </summary>
+        /// <param name="id">微信OpenID</param>
+        /// <returns></returns>
+        public tb_user GetUserByOpenId(string id)
+        {
+            var query = from p in share.tb_user
+                        where p.vr_wxOpenID.Equals(id)
+                        select p;
+            return query.FirstOrDefault();
+        }
     }
 }

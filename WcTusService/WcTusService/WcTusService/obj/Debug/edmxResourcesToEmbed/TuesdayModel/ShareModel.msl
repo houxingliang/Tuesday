@@ -138,5 +138,21 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="tb_continuousShare">
+      <EntityTypeMapping TypeName="ShareWeiModel.tb_continuousShare">
+        <MappingFragment StoreEntitySet="tb_continuousShare">
+          <ScalarProperty Name="int_order" ColumnName="int_order" />
+          <ScalarProperty Name="dtm_execute" ColumnName="dtm_execute" />
+          <ScalarProperty Name="int_interval" ColumnName="int_interval" />
+          <ScalarProperty Name="dtm_end" ColumnName="dtm_end" />
+          <ScalarProperty Name="dtm_action" ColumnName="dtm_action" />
+          <ScalarProperty Name="bit_execute" ColumnName="bit_execute" />
+          <ScalarProperty Name="fk_taskItem_Id" ColumnName="fk_taskItem_Id" />
+          <ScalarProperty Name="fk_task_Id" ColumnName="fk_task_Id" />
+          <ScalarProperty Name="fk_user_Id" ColumnName="fk_user_Id" />
+          <ScalarProperty Name="pk_continuousShare_Id" ColumnName="pk_continuousShare_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

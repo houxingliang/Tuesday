@@ -11,6 +11,7 @@
     <EntitySet Name="tb_user" EntityType="ShareWeiModel.tb_user" />
     <EntitySet Name="tb_userShare" EntityType="ShareWeiModel.tb_userShare" />
     <EntitySet Name="tb_token" EntityType="ShareWeiModel.tb_token" />
+    <EntitySet Name="tb_continuousShare" EntityType="ShareWeiModel.tb_continuousShare" />
   </EntityContainer>
   <EntityType Name="tb_reward">
     <Key>
@@ -138,5 +139,20 @@
     <Property Type="String" Name="vr_appid" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Type="String" Name="vr_token" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Type="DateTime" Name="dtm_tokenTime" Precision="3" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_continuousShare">
+    <Key>
+      <PropertyRef Name="pk_continuousShare_Id" />
+    </Key>
+    <Property Type="Int32" Name="pk_continuousShare_Id" Nullable="false" />
+    <Property Type="Int32" Name="fk_user_Id" Nullable="false" />
+    <Property Type="Int32" Name="fk_task_Id" Nullable="false" />
+    <Property Type="Int32" Name="fk_taskItem_Id" Nullable="false" />
+    <Property Type="Boolean" Name="bit_execute" Nullable="false" />
+    <Property Type="DateTime" Name="dtm_action" Nullable="false" Precision="3" />
+    <Property Type="DateTime" Name="dtm_end" Nullable="false" Precision="3" />
+    <Property Type="Int32" Name="int_interval" Nullable="false" />
+    <Property Type="DateTime" Name="dtm_execute" Precision="3" />
+    <Property Type="Int32" Name="int_order" Nullable="false" />
   </EntityType>
 </Schema>

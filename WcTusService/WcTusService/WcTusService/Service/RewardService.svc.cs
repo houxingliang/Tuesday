@@ -316,6 +316,20 @@ namespace WcTusService.Service
             shareManager = new ShareManager();
             return shareManager.GetUserShareList(userid);
         }
+        /// <summary>
+        /// 根据分享主键获取
+        /// 该分享下的所有奖励信息
+        /// </summary>
+        /// <param name="shareId">分享主键ID</param>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public List<RewardUserGrantEntity> GetRewardMessageByShareId(int shareId, string token)
+        {
+            new TokenManager().IsToken(token);
+            shareManager = new ShareManager();
+            return shareManager.GetRewardMessageByShareId(shareId);
+        }
         #endregion
 
         #region 任务相关
@@ -465,7 +479,7 @@ namespace WcTusService.Service
         /// <param name="id"></param>
         /// <returns></returns>
         [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
-        public List<tb_taskItem> GetTaskItemList(int id, string token)
+        public List<TaskItemReward> GetTaskItemList(int id, string token)
         {
             new TokenManager().IsToken(token);
             taskManager = new TaskManager();
@@ -610,6 +624,46 @@ namespace WcTusService.Service
             new TokenManager().IsToken(token);
             shareManager=new ShareManager();
             return shareManager.FafangShare(idList);
+        }
+        /// <summary>
+        /// 用户申请任务奖励
+        /// </summary>
+        /// <param name="idList"></param>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public int ShenQingTask(List<int> idList, string token)
+        {
+            new TokenManager().IsToken(token);
+            taskExecuteManager = new TaskExecuteManager();
+            return taskExecuteManager.FafangTask(idList);
+        }
+        /// <summary>
+        /// 用户申请分享奖励
+        /// </summary>
+        /// <param name="idList"></param>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public int ShenQingShare(List<int> idList, string token)
+        {
+            new TokenManager().IsToken(token);
+            shareManager = new ShareManager();
+            return shareManager.ShenQingShare(idList);
+        }
+        /// <summary>
+        /// 根据用户主键ID
+        /// 获取用户的所有应得奖励信息
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public List<RewardUserGrantEntity> GetUserRewardByUserId(int userId, string token)
+        {
+            new TokenManager().IsToken(token);
+            shareManager = new ShareManager();
+            return shareManager.GetUserRewardByUserId(userId);
         }
         #endregion
 
@@ -811,10 +865,25 @@ namespace WcTusService.Service
         /// <param name="id"></param>
         /// <param name="token"></param>
         /// <returns></returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
         public tb_user GetUserByTuesdayId(string id,string token)
         {
             new TokenManager().IsToken(token);
             return userManager.GetUserByTuesdayId(id);
+        }
+        /// <summary>
+        /// 根据微信OpenId
+        /// 查询用户信息
+        /// </summary>
+        /// <param name="openId">微信OpenId</param>
+        /// <param name="token">token随机值</param>
+        /// <returns>user实体</returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public tb_user GetUserByOpenId(string openId, string token)
+        {
+            new TokenManager().IsToken(token);
+            userManager = new UserManager();
+            return userManager.GetUserByOpenId(openId);
         }
         #endregion
 
@@ -877,6 +946,76 @@ namespace WcTusService.Service
         public string GenerateToken(string appid, string timeStamp)
         {
             return FormsAuthentication.HashPasswordForStoringInConfigFile((appid+timeStamp), "SHA1").ToLower();
+        }
+        #endregion
+
+        #region 连续签到
+        ContinuousShareManager csManager = null;
+        /// <summary>
+        /// 根据任务ID和用户ID
+        /// 新增任务连续执行情况
+        /// </summary>
+        /// <param name="userid"></param>
+        /// <param name="taskId"></param>
+        /// <returns></returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public int AddContinuousShareByUserIdAndTaskId(int userid,int taskId,string token)
+        {
+            new TokenManager().IsToken(token);
+            csManager = new ContinuousShareManager();
+            return csManager.AddContinuousShareByUserIdAndTaskId(userid, taskId);
+        }
+         /// <summary>
+        /// 将用户当前执行的任务重置为未执行状态
+        /// </summary>
+        /// <param name="userid"></param>
+        /// <param name="taskId"></param>
+        /// <returns></returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public int ResetContinuousShare(int userid,int taskId,string token)
+        {
+            new TokenManager().IsToken(token);
+            csManager = new ContinuousShareManager();
+            return csManager.ResetContinuousShare(userid, taskId);
+        }
+         /// <summary>
+        /// 返回连续执行次数
+        /// </summary>
+        /// <param name="taskId">任务ID</param>
+        /// <param name="userId">用户ID</param>
+        /// <returns></returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public int ContinuousShareTime(int taskId,int userId,string token)
+        {
+            new TokenManager().IsToken(token);
+            csManager = new ContinuousShareManager();
+            return csManager.ContinuousShareTime(userId, taskId);
+        }
+        /// <summary>
+        /// 当前用户是否已经执行过任务
+        /// </summary>
+        /// <returns></returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public bool IsExecuteTask(int taskId,int userId,string token)
+        {
+            new TokenManager().IsToken(token);
+            csManager = new ContinuousShareManager();
+            return csManager.IsExecuteTask(userId, taskId);
+        }
+        /// <summary>
+        /// 检测是否为连续签到
+        /// 如果不是连续签到，返回false
+        /// 连续签到返回true
+        /// </summary>
+        /// <param name="taskId"></param>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.WrappedRequest, ResponseFormat = WebMessageFormat.Json)]
+        public bool IsContinuous(int taskId,int userId,string token)
+        {
+            new TokenManager().IsToken(token);
+            csManager = new ContinuousShareManager();
+            return csManager.IsContinuous(userId, taskId);
         }
         #endregion
     }

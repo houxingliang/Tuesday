@@ -93,6 +93,20 @@ namespace WcTusService.TuesdayBLL
             else
                 return null;
         }
-
+        /// <summary>
+        /// 根据微信Id
+        /// 查询用户信息
+        /// </summary>
+        /// <param name="openId">微信OpenId</param>
+        /// <returns></returns>
+        public tb_user GetUserByOpenId(string openId)
+        {
+            tb_user user = new UserData().GetUserByOpenId(openId);
+            if (user != null)
+            {
+                return user;
+            }
+            return null;
+        }
     }
 }

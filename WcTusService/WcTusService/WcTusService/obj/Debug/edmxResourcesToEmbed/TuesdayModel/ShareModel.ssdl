@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="ShareWeiModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityContainer Name="ShareWeiModelStoreContainer">
+    <EntitySet Name="tb_continuousShare" EntityType="ShareWeiModel.Store.tb_continuousShare" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="tb_reward" EntityType="ShareWeiModel.Store.tb_reward" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="tb_reward_Template_imp" EntityType="ShareWeiModel.Store.tb_reward_Template_imp" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="tb_rewardTemplate" EntityType="ShareWeiModel.Store.tb_rewardTemplate" store:Type="Tables" Schema="dbo" />
@@ -12,6 +13,21 @@
     <EntitySet Name="tb_user" EntityType="ShareWeiModel.Store.tb_user" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="tb_userShare" EntityType="ShareWeiModel.Store.tb_userShare" store:Type="Tables" Schema="dbo" />
   </EntityContainer>
+  <EntityType Name="tb_continuousShare">
+    <Key>
+      <PropertyRef Name="pk_continuousShare_Id" />
+    </Key>
+    <Property Name="pk_continuousShare_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="fk_user_Id" Type="int" Nullable="false" />
+    <Property Name="fk_task_Id" Type="int" Nullable="false" />
+    <Property Name="fk_taskItem_Id" Type="int" Nullable="false" />
+    <Property Name="bit_execute" Type="bit" Nullable="false" />
+    <Property Name="dtm_action" Type="datetime" Nullable="false" />
+    <Property Name="dtm_end" Type="datetime" Nullable="false" />
+    <Property Name="int_interval" Type="int" Nullable="false" />
+    <Property Name="dtm_execute" Type="datetime" />
+    <Property Name="int_order" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="tb_reward">
     <Key>
       <PropertyRef Name="pk_reward_id" />

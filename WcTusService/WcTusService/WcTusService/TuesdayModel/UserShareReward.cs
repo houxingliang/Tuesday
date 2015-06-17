@@ -32,6 +32,16 @@ namespace WcTusService.TuesdayModel
             set { rewardList = value; }
         }
         /// <summary>
+        /// 奖励模板
+        /// </summary>
+        tb_rewardTemplate rewardTmp;
+
+        public tb_rewardTemplate RewardTmp
+        {
+            get { return rewardTmp; }
+            set { rewardTmp = value; }
+        }
+        /// <summary>
         /// 是否分享了该活动
         /// </summary>
         int isShare;

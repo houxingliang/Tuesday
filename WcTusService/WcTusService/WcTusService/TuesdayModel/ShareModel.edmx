@@ -6,6 +6,7 @@
     <edmx:StorageModels>
     <Schema Namespace="ShareWeiModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="ShareWeiModelStoreContainer">
+          <EntitySet Name="tb_continuousShare" EntityType="ShareWeiModel.Store.tb_continuousShare" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tb_reward" EntityType="ShareWeiModel.Store.tb_reward" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tb_reward_Template_imp" EntityType="ShareWeiModel.Store.tb_reward_Template_imp" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tb_rewardTemplate" EntityType="ShareWeiModel.Store.tb_rewardTemplate" store:Type="Tables" Schema="dbo" />
@@ -17,6 +18,21 @@
           <EntitySet Name="tb_user" EntityType="ShareWeiModel.Store.tb_user" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tb_userShare" EntityType="ShareWeiModel.Store.tb_userShare" store:Type="Tables" Schema="dbo" />
         </EntityContainer>
+        <EntityType Name="tb_continuousShare">
+          <Key>
+            <PropertyRef Name="pk_continuousShare_Id" />
+          </Key>
+          <Property Name="pk_continuousShare_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="fk_user_Id" Type="int" Nullable="false" />
+          <Property Name="fk_task_Id" Type="int" Nullable="false" />
+          <Property Name="fk_taskItem_Id" Type="int" Nullable="false" />
+          <Property Name="bit_execute" Type="bit" Nullable="false" />
+          <Property Name="dtm_action" Type="datetime" Nullable="false" />
+          <Property Name="dtm_end" Type="datetime" Nullable="false" />
+          <Property Name="int_interval" Type="int" Nullable="false" />
+          <Property Name="dtm_execute" Type="datetime" />
+          <Property Name="int_order" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="tb_reward">
           <Key>
             <PropertyRef Name="pk_reward_id" />
@@ -159,6 +175,7 @@
           <EntitySet Name="tb_user" EntityType="ShareWeiModel.tb_user" />
           <EntitySet Name="tb_userShare" EntityType="ShareWeiModel.tb_userShare" />
           <EntitySet Name="tb_token" EntityType="ShareWeiModel.tb_token" />
+          <EntitySet Name="tb_continuousShare" EntityType="ShareWeiModel.tb_continuousShare" />
         </EntityContainer>
         <EntityType Name="tb_reward">
           <Key>
@@ -286,6 +303,21 @@
           <Property Type="String" Name="vr_appid" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="vr_token" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="DateTime" Name="dtm_tokenTime" Precision="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_continuousShare">
+          <Key>
+            <PropertyRef Name="pk_continuousShare_Id" />
+          </Key>
+          <Property Type="Int32" Name="pk_continuousShare_Id" Nullable="false" />
+          <Property Type="Int32" Name="fk_user_Id" Nullable="false" />
+          <Property Type="Int32" Name="fk_task_Id" Nullable="false" />
+          <Property Type="Int32" Name="fk_taskItem_Id" Nullable="false" />
+          <Property Type="Boolean" Name="bit_execute" Nullable="false" />
+          <Property Type="DateTime" Name="dtm_action" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="dtm_end" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="int_interval" Nullable="false" />
+          <Property Type="DateTime" Name="dtm_execute" Precision="3" />
+          <Property Type="Int32" Name="int_order" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -427,6 +459,22 @@
                 <ScalarProperty Name="vr_token" ColumnName="vr_token" />
                 <ScalarProperty Name="vr_appid" ColumnName="vr_appid" />
                 <ScalarProperty Name="pk_tokenID" ColumnName="pk_tokenID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_continuousShare">
+            <EntityTypeMapping TypeName="ShareWeiModel.tb_continuousShare">
+              <MappingFragment StoreEntitySet="tb_continuousShare">
+                <ScalarProperty Name="int_order" ColumnName="int_order" />
+                <ScalarProperty Name="dtm_execute" ColumnName="dtm_execute" />
+                <ScalarProperty Name="int_interval" ColumnName="int_interval" />
+                <ScalarProperty Name="dtm_end" ColumnName="dtm_end" />
+                <ScalarProperty Name="dtm_action" ColumnName="dtm_action" />
+                <ScalarProperty Name="bit_execute" ColumnName="bit_execute" />
+                <ScalarProperty Name="fk_taskItem_Id" ColumnName="fk_taskItem_Id" />
+                <ScalarProperty Name="fk_task_Id" ColumnName="fk_task_Id" />
+                <ScalarProperty Name="fk_user_Id" ColumnName="fk_user_Id" />
+                <ScalarProperty Name="pk_continuousShare_Id" ColumnName="pk_continuousShare_Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

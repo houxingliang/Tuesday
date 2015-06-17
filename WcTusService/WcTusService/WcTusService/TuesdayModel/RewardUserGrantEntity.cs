@@ -40,7 +40,7 @@ namespace WcTusService.TuesdayModel
             set { userShare = value; }
         }
 
-        private string type;//类型
+        private string type;//类型(首次分享、二次分享、二次返还、任务执行)
 
         public string Type
         {
